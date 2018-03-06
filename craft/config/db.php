@@ -37,10 +37,9 @@ return array(
   ),
   'localhost' => array(
       'tablePrefix' => 'craft',
-      'server' => $local_url['host'],
-      'user' => $local_url['user'],
-      'password' => $local_url['pass'],
-      'database' => substr($local_url['path'],1),
-      'port' => $local_url['port']
+      'server' => 'r42ii9gualwp7i1y.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+      'user' => 'vu60u6okyeivcniu',
+      'password' => 'k6nmor8xxmo0fznz',
+      'database' => 'tw0rb1rpbe8p0uo9'
   )
 );
