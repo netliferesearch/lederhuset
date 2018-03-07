@@ -1,0 +1,10 @@
+.list {
+  &--no-style {
+    list-style: none;
+  }
+  &__item {
+    border-bottom: 1px solid $color-black;
+    font-size: 14px;
+    line-height: 2.3em;
+  }
+}

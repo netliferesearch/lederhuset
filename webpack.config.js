@@ -19,6 +19,10 @@ module.exports = {
         })
       },
       {
+        test: /\.scss?$/,
+        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+      },
+      {
         test: /\.(eot|gif|woff|woff2|png|ttf)([?]?.*)$/,
         use: ['file-loader?name=[name].[ext]&publicPath=/webpack-dist/']
       },

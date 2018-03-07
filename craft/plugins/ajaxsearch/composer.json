@@ -1,0 +1,14 @@
+{
+	"name": "helleholmsen/ajaxsearch",
+	"description": "A simple ajax search plugin",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Helle Holmsen",
+			"homepage": "https://github.com/helleholmsen"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}

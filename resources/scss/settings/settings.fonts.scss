@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'LarishNeue-Regular';
+  font-style: normal;
+  src: url('fonts/LarishNeueSemibold-Regular.eot');
+  src: url('fonts/LarishNeueSemibold-Regular.eot?#iefix') format('embedded-opentype'),
+       url('fonts/LarishNeueSemibold-Regular.woff2') format('woff2'),
+       url('fonts/LarishNeueSemibold-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Neutral-Regular';
+  font-style: normal;
+  src: url('fonts/NeutralBP.eot');
+  src: url('fonts/NeutralBP.eot?#iefix') format('embedded-opentype'),
+       url('fonts/NeutralBP.woff2') format('woff2'),
+       url('fonts/NeutralBP.woff') format('woff');
+}
+
+/*
+@font-face {
+  font-family: 'LarishNeue-Italic';
+  font-style: normal;
+  src: url('fonts/LarishNeueSemibold-Italic.eot');
+  src: url('fonts/LarishNeueSemibold-Italic.eot?#iefix') format('embedded-opentype'),
+       url('fonts/LarishNeueSemibold-Italic.woff2') format('woff2'),
+       url('fonts/LarishNeueSemibold-Italic.woff') format('woff'),
+       url('fonts/LarishNeueSemibold-Italic.svg#LarishNeueSemibold-Italic') format('svg');
+}
+
+@font-face {
+  font-family: 'Neutral-Italic';
+  font-style: normal;
+  src: url('fonts/NeutralBP-Italic.eot');
+  src: url('fonts/NeutralBP-Italic.eot?#iefix') format('embedded-opentype'),
+       url('fonts/NeutralBP-Italic.woff2') format('woff2'),
+       url('fonts/NeutralBP-Italic.woff') format('woff'),
+       url('fonts/NeutralBP-Italic.svg#NeutralBP-Italic') format('svg');
+}
+
+@font-face {
+  font-family: 'Neutral-Medium';
+  font-style: normal;
+  src: url('NeutralBP-Medium.eot');
+  src: url('NeutralBP-Medium.eot?#iefix') format('embedded-opentype'),
+       url('NeutralBP-Medium.woff2') format('woff2'),
+       url('NeutralBP-Medium.woff') format('woff'),
+       url('NeutralBP-Medium.svg#NeutralBP-Medium') format('svg');
+}
+
+@font-face {
+  font-family: 'Neutral-Medium-Italic';
+  font-style: normal;
+  src: url('NeutralBP-MediumItalic.eot');
+  src: url('NeutralBP-MediumItalic.eot?#iefix') format('embedded-opentype'),
+       url('NeutralBP-MediumItalic.woff2') format('woff2'),
+       url('NeutralBP-MediumItalic.woff') format('woff'),
+       url('NeutralBP-MediumItalic.svg#NeutralBP-MediumItalic') format('svg');
+}
+
+@font-face {
+  font-family: 'Neutral-Bold';
+  src: url('NeutralBP-Bold.eot');
+  src: url('NeutralBP-Bold.eot?#iefix') format('embedded-opentype'),
+       url('NeutralBP-Bold.woff2') format('woff2'),
+       url('NeutralBP-Bold.woff') format('woff'),
+       url('NeutralBP-Bold.svg#NeutralBP-Bold') format('svg');
+}
+
+@font-face {
+  font-family: 'Neutral-Bold-Italic';
+  font-style: normal;
+  src: url('NeutralBP-BoldItalic.eot');
+  src: url('NeutralBP-BoldItalic.eot?#iefix') format('embedded-opentype'),
+       url('NeutralBP-BoldItalic.woff2') format('woff2'),
+       url('NeutralBP-BoldItalic.woff') format('woff'),
+       url('NeutralBP-BoldItalic.svg#NeutralBP-BoldItalic') format('svg');
+}*/
+
+
+$font-larish: 'LarishNeue-Regular', sans-serif;
+$font-neutral: 'Neutral-Regular', sans-serif;
+
+/*
+$font-larish-italic: 'LarishNeue-Italic', sans-serif;
+
+$font-neutral-italic: 'Neutral-Italic', sans-serif;
+
+$font-neutral-medium-italic: 'Neutral-Medium-Italic', sans-serif;
+$font-neutral-medium: 'Neutral-Medium', sans-serif;
+
+$font-neutral-bold: 'Neutral-Bold', sans-serif;
+$font-neutral-bold-italic: 'Neutral-Bold-Italic', sans-serif;
+*/

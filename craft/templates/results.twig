@@ -1,0 +1,17 @@
+{% extends "_layout" %}
+{% block content %}
+
+{% set query = craft.request.getParam('q') %}
+{% set entries = craft.entries.search(query).order('score') %}
+
+{% if entries is defined and entries|length %}
+    <ul>
+        {% for entry in entries %}
+            <li>
+                {{ entry.title }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

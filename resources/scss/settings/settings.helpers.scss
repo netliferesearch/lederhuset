@@ -1,0 +1,121 @@
+// Helpers
+
+// Alignment
+.left {text-align: left;}
+.center {text-align: center;}
+.right {text-align: right;}
+
+.center-block {margin-left: auto; margin-right: auto;}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.horizontal-align {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-align {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+// Visibility
+.is-hidden {
+    display: none;
+}
+
+// Clearfix
+.clearfix,
+.cf {
+    &::before,
+    &::after {
+        content: ' ';
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+.reset-input {
+  outline: none;
+  background: transparent;
+  border:0;
+  border-radius: 0;
+}
+
+// Colors
+.white {
+  color: white;
+}
+
+.bg-green {
+  background: $color-green;
+}
+
+// Div
+.nowrap {
+    white-space: nowrap;
+}
+
+.block {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vertical-list {
+  display: block;
+  font-size: 0em;
+  width: 100%;
+  overflow: hidden;
+  &__item {
+    display: inline-block;
+    font-size: 1rem;
+  }
+}
+
+.font-neutral {
+  font-family: $font-neutral;
+}
+
+// Margin and padding
+.mb--xxsmall {margin-bottom: 4px;}
+.mb--xsmall {margin-bottom: 8px;}
+.mb--small {margin-bottom: 16px;}
+.mb {margin-bottom: 32px;}
+.mb--large {margin-bottom: 64px;}
+.mb--xlarge {margin-bottom: 128px;}
+.mb--none {margin-bottom: 0}
+
+.mt--xxsmall {margin-top: 4px;}
+.mt--xsmall {margin-top: 8px;}
+.mt--small {margin-top: 16px;}
+.mt {margin-top: 32px;}
+.mt--large {margin-top: 64px;}
+.mt--xlarge {margin-top: 128px;}
+.mt--none {margin-top: 0}
+
+.pb--xxsmall {padding-bottom: 4px;}
+.pb--xsmall {padding-bottom: 8px;}
+.pb--small {padding-bottom: 16px;}
+.pb {padding-bottom: 32px;}
+.pb--large {padding-bottom: 64px;}
+.pb--xlarge {padding-bottom: 128px;}
+.pb--none {padding-bottom: 0}
+
+.pt--xxsmall {padding-top: 4px;}
+.pt--xsmall {padding-top: 8px;}
+.pt--small {padding-top: 16px;}
+.pt {padding-top: 32px;}
+.pt--large {padding-top: 64px;}
+.pt--xlarge {padding-top: 128px;}
+.pt--none {padding-top: 0}

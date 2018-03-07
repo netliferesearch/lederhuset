@@ -1,0 +1,11 @@
+.article {
+  &__text {
+    max-width: 450px;
+    margin: 0 auto;
+    font-family: $font-neutral;
+    p {
+      font-size: 18px;
+      line-height: 32px;
+    }
+  }
+}
