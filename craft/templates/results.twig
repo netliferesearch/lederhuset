@@ -1,11 +1,9 @@
-{% extends "_layout" %}
 {% block content %}
-<div class="grid-wrap">
   {% set query = craft.request.getParam('q') %}
   {% set entries = craft.entries.search(query).order('score') %}
 
   {% if entries|length %}
-      <p>{{ entries|length }} results:</p>
+      <p>Search for “{{ query }}” gave {{ entries|length }} results:</p>
 
       <ul>
           {% for entry in entries %}
@@ -15,5 +13,4 @@
   {% else %}
       <p>Your search for “{{ query }}” didn’t return any results.</p>
   {% endif %}
-</div>
 {% endblock %}

@@ -7,40 +7,24 @@ import {TweenMax, Power2, TimelineLite} from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 $(".menu__search-input").one( "click", function() {
-  $('#searchTags').focus();
-  TweenMax.to($("#search"), .5, {autoAlpha:1, opacity:1, ease: Power4.easeIn});
+  TweenMax.to($("#search"), .5, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
 });
 
-$('#startSearch').click(function(){
-  var data = {
-    action: 'ajaxsearch/controllers/AjaxSearch_SearchEntryController',
-    options: $("#searchTags").val()
-  };
-    $.ajax({
-       type: "post",
-       url: '/',
-       data: data,
-       success: function(response){
-         alert('test');
-       },
-       error: function (jqXHR, exception) {
-         var msg = '';
-         if (jqXHR.status === 0) {
-           msg = 'Not connect.\n Verify Network.';
-         } else if (jqXHR.status == 404) {
-           msg = 'Requested page not found. [404]';
-         } else if (jqXHR.status == 500) {
-           msg = 'Internal Server Error [500].';
-         } else if (exception === 'parsererror') {
-           msg = 'Requested JSON parse failed.';
-         } else if (exception === 'timeout') {
-           msg = 'Time out error.';
-         } else if (exception === 'abort') {
-           msg = 'Ajax request aborted.';
-         } else {
-           msg = 'Uncaught Error.\n' + jqXHR.responseText;
-         }
-         console.log(msg)
-       }
-   });
-});
+function focusSearch(){
+  $('#search__field').focus();
+}
+
+$("#search__form").submit(function(event) {
+  event.preventDefault();
+  TweenMax.set($("#results"), {opacity:0, autoAlpha:0, y:20});
+
+  var $form = $(this),
+    term = $form.find("input").val(),
+    url = $form.attr("action");
+
+  $.post( url, {s: term}).done(function(data) {
+    var content = data;
+    TweenMax.to($("#results"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
+    $("#results").html(content);
+  });
+ });

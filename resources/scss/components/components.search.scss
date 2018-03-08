@@ -9,8 +9,7 @@
   height: 100%;
   backface-visibility: hidden;
   background: $color-green;
-  padding: 100px 0;
-  margin-top: 124px;
+  padding: 200px 0 100px 0;
   color: $color-black;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -23,5 +22,8 @@
   #search__field {
     font-size: 42px;
     font-family: $font-larish;
+    width: 90%;
+    line-height: 1.3333333333;
+    margin-bottom: 1em;
   }
 }
