@@ -13,7 +13,7 @@ $(".menu__search-input").one( "click", function() {
 
 $('#startSearch').click(function(){
   var data = {
-    action: '../ajaxsearch/controllers/AjaxSearch_SearchEntryController',
+    action: 'ajaxsearch/controllers/AjaxSearch_SearchEntryController',
     options: $("#searchTags").val()
   };
     $.ajax({
