@@ -2,9 +2,9 @@
   {% set query = craft.request.getParam('q') %}
   {% set entries = craft.entries.search(query).order('score') %}
 
-  {% if entries|length %}
+{% if query|length %}
   <div class="mb--large">
-    <h3>Search for “{{ query }}” gave {{ entries|length }} results:</h3>
+    <h3>Ditt søk for “{{ query }}” ga {{ entries|length }} resultater:</h3>
   </div>
   <ul class="results__list">
     {% for entry in entries %}
@@ -21,6 +21,6 @@
     {% endfor %}
   </ul>
   {% else %}
-    <p>Your search for “{{ query }}” didn’t return any results.</p>
+    <p>Ditt søk etter “{{ query }}” ga ingen resultater.</p>
   {% endif %}
 {% endblock %}

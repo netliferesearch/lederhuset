@@ -13,6 +13,9 @@
   color: $color-black;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  &__wrapper {
+    max-width: 1000px;
+  }
   input, button {
     background: transparent;
     border: 0;
