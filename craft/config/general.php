@@ -54,7 +54,7 @@ return array(
   ),
   'herokuapp.com' => array(
     'omitScriptNameInUrls' => true,
-    'devMode' => false, /* set this to true if you want more verbose error messages on Herokou */
+    'devMode' => true, /* set this to true if you want more verbose error messages on Herokou */
   ),
   /*
   'productionurl.com' => array(
