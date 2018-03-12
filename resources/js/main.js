@@ -22,7 +22,7 @@ $("#search__form").submit(function(event) {
     term = $form.find("input").val(),
     url = $form.attr("action");
 
-  $.post( url, {s: term}).done(function(data) {
+  $.get(url, {q: term}).done(function(data) {
     var content = data;
     TweenMax.to($("#results"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
     $("#results").html(content);
