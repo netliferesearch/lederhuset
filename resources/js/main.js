@@ -25,6 +25,7 @@ $("#search__form").submit(function(event) {
   $.get(url, {q: term}).done(function(data) {
     var content = data;
     TweenMax.to($("#results"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
+    if (term === "") return;
     $("#results").html(content);
   });
  });

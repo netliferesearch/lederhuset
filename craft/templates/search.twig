@@ -4,12 +4,12 @@
 
 {% if query|length %}
   <div class="mb--large">
-    <h3>Ditt søk for “{{ query }}” ga {{ entries|length }} resultater:</h3>
+    <h3 class="font-neutral">Search for <em class="font-neutral-b">“{{ query }}”</em> gave {{ entries|length }} results</h3>
   </div>
   <ul class="results__list">
     {% for entry in entries %}
       <li class="results__item">
-        <a class="results__item-link clearfix" href="{{ entry.url }}">
+        <a class="results__item-link clearfix font-neutral" href="{{ entry.url }}">
           <span class="results__item-title">{{ entry.title }}</span>
           <span class="results__item-arrow right arrow-right">
             <svg width="15" height="10" viewBox="0 0 173.3 117">
@@ -20,7 +20,5 @@
       </li>
     {% endfor %}
   </ul>
-  {% else %}
-    <p>Ditt søk etter “{{ query }}” ga ingen resultater.</p>
   {% endif %}
 {% endblock %}
