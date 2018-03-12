@@ -16,6 +16,9 @@ if(!empty($_ENV['REDIS_URL'])) {
   $parsedRedisUrl = "tcp://$redisUrlParts[host]:$redisUrlParts[port]?auth=$redisUrlParts[pass]";
 }
 
+// Figure out if request url is prefixed with http or https, default to http
+$protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? 'http';
+
 /*
  * Read more about config settings
  * at https://craftcms.com/docs/config-settings
