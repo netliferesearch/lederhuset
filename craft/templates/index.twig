@@ -3,5 +3,12 @@
 {% block content %}
 	<div class="grid-wrap">
 		<h1>{{ entry.title }}</h1>
+		<ul>
+			{% for entry in craft.entries.section('article') %}
+			<li>
+				<a href="{{ entry.url }}">{{ entry.title }}</a>
+			</li>
+			{% endfor %}
+		</ul>
 	</div>
 {% endblock %}

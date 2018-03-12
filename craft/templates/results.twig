@@ -3,14 +3,24 @@
   {% set entries = craft.entries.search(query).order('score') %}
 
   {% if entries|length %}
-      <p>Search for “{{ query }}” gave {{ entries|length }} results:</p>
-
-      <ul>
-          {% for entry in entries %}
-              <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-          {% endfor %}
-      </ul>
+  <div class="mb--large">
+    <h3>Search for “{{ query }}” gave {{ entries|length }} results:</h3>
+  </div>
+  <ul class="results__list">
+    {% for entry in entries %}
+      <li class="results__item">
+        <a class="results__item-link clearfix" href="{{ entry.url }}">
+          <span class="results__item-title">{{ entry.title }}</span>
+          <span class="results__item-arrow right arrow-right">
+            <svg width="15" height="10" viewBox="0 0 173.3 117">
+              <path d="M115.2,46.7V0.5l58,57.7l-58,58.3V69.7H0v-23H115.2z"/>
+            </svg>
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
   {% else %}
-      <p>Your search for “{{ query }}” didn’t return any results.</p>
+    <p>Your search for “{{ query }}” didn’t return any results.</p>
   {% endif %}
 {% endblock %}

@@ -2,6 +2,14 @@
 
 {% block content %}
 <div class="grid-wrap">
-  <h1>{{ entry.title }}</h1>
+
+  <header class="article-header mb bg-{{ entry.colorPalette }}">
+    <div class="pb--large pt grid-wrap">
+      <h1 class="center title mb--large mt--large">{{ entry.title }}</h1>
+    </div>
+  </header>
+
+  <article class="article mb--xlarge">
+  </article>
 </div>
 {% endblock %}

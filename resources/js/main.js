@@ -7,7 +7,7 @@ import {TweenMax, Power2, TimelineLite} from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 $(".menu__search-input").one( "click", function() {
-  TweenMax.to($("#search"), .5, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
+  TweenMax.to($("#search"), .2, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
 });
 
 function focusSearch(){
