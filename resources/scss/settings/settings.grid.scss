@@ -1,5 +1,5 @@
 .grid-wrap {
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
   padding-left: 80px;
   padding-right: 80px;
@@ -8,4 +8,10 @@
 .grid-wrap-top {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.grid-item {
+  &--small {
+    max-width: 400px;
+  }
 }

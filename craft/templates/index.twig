@@ -1,14 +1,23 @@
 {% extends "_layout" %}
+{% set categories = craft.categories.group('default').order('title') %}
 
 {% block content %}
 	<div class="grid-wrap">
-		<h1>{{ entry.title }}</h1>
-		<ul>
-			{% for entry in craft.entries.section('article') %}
-			<li>
-				<a href="{{ entry.url }}">{{ entry.title }}</a>
-			</li>
+
+		<div class="mt--large">
+			{% for category in categories %}
+			<div class="pb--large grid-item--small center-block">
+				<h3 class="pb--small center">{{ category.title }}</h3>
+				<ul class="list reset-list">
+					{% for entry in craft.entries.section('article').relatedTo(category) %}
+					<li class="list__item">
+						<a href="{{entry.url}}">{{entry.title}}</a><br>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
 			{% endfor %}
-		</ul>
+		</div>
+
 	</div>
 {% endblock %}
