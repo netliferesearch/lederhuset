@@ -1,8 +1,12 @@
 .grid-wrap {
   max-width: 1600px;
   margin: 0 auto;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+  @media (min-width: $mobile) {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 
 .grid-wrap-top {
