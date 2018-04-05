@@ -32,25 +32,6 @@ $("#search__form").submit(function(event) {
   });
  });
 
- // Autocomplete
- $("#search__form input").on('keyup', function(event) {
-   var val = this.value;
-   if (val.length > 0){
-    TweenMax.set($("#results"), {opacity:0, autoAlpha:0, y:20});
-
-    var $form = $(this),
-      url = $form.attr("action");
-  
-    $.get(url, {q: val}).done(function(data) {
-      var content = data;
-      TweenMax.to($("#results"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
-      $("#results").html(content);
-    });
-   } else {
-    console.log("fail", this);
-   }
- });
-
 // Typed.js
 var options = {
   strings: [
