@@ -1,20 +1,29 @@
 <?php
 namespace Craft;
 
+$criteria = craft()->elements->getCriteria(ElementType::Category);
+$criteria->slug = $slug;
+$category = $criteria->find();
+
 return [
     'endpoints' => [
-        'api/search.json' => [
+        'api.json' => [
             'elementType' => 'Entry',
             'criteria' => [
-              'section',
+              'section' => article,
               'search' => (craft()->request->getParam('q'))
             ],
             'transformer' => function (EntryModel $entry) {
+                $category = $entry->category->first();
+
                 return [
+                  'id' => $entry->id,
                   'title' => $entry->title,
                   'url' => $entry->url,
-                  'searchUrl' => '/search?q=' . craft()->request->getParam('q'),
-                  'jsonUrl' => UrlHelper::getUrl("{$entry->id}.json")
+                  'category' => [
+                    'id' => $category->id,
+                    'title' => $category->title,
+                  ]
                 ];
             },
         ]

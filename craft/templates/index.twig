@@ -4,7 +4,13 @@
 {% block content %}
 	<div class="grid-wrap">
 
-		<div class="mt--large mb--large">
+		<div class="lh-search-wrapper bg-green pb--large pt--large">
+			<div class="u-4/5 center-block">
+				<input class="center" type="text" id="mainSearch">
+			</div>
+	  </div>
+
+		<div class="mt--large mb--large" id="allEntries">
 			{% for category in categories %}
 			<div class="pb--large grid-item--small center-block">
 				<h3 class="pb center">{{ category.title }}</h3>

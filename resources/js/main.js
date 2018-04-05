@@ -5,7 +5,51 @@ import './toggle'
 import $ from 'jquery';
 import {TweenMax, Power2, TimelineLite} from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
+import Fuse from 'fuse.js'
+import Typed from 'typed.js';
 
+/* typed */
+var searchfield = $('#mainSearch');
+var options = {
+  strings: [
+    "Søk etter ledelse...",
+    "Søk etter ferie...",
+    "Søk etter ansettelse...",
+  ],
+  typeSpeed: 60,
+  loop: true,
+  attr: 'placeholder'
+}
+
+if ($(searchfield).length){
+  var typed = new Typed("#mainSearch", options);
+}
+
+searchfield.on('keyup change', function() {
+  var titles = $('.list__item').find('a');
+  var array = [];
+
+  /* put title-text in an array */
+  var title_text = [];
+  titles.each(function() {
+   title_text.push($(this).html());
+  });
+
+  var options = {
+    shouldSort: true
+  };
+
+  var fuse = new Fuse(title_text, options); // "list" is the item array
+  var result = fuse.search(searchfield.val());
+
+  console.log(result);
+});
+
+
+
+
+
+/* menu */
 $(".menu__search-input").one( "click", function() {
   TweenMax.to($("#search"), .2, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
 });

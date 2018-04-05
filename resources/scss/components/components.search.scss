@@ -30,3 +30,24 @@
     margin-bottom: 1em;
   }
 }
+
+.lh-search-wrapper {
+  #mainSearch {
+    width: 100%;
+    background: transparent;
+    font-family: $font-larish;
+    font-size: calc(100px + .7vw);
+    border: 0;
+    outline: 0;
+  }
+  #mainSearch::placeholder {
+      color: #000;
+      opacity: 1;
+  }
+  #mainSearch:-ms-input-placeholder {
+      color: #000;
+  }
+  #mainSearch::-ms-input-placeholder {
+      color: #000;
+  }
+}
