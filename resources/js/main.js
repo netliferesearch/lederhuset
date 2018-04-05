@@ -52,6 +52,7 @@ searchfield.on('keyup change', function() {
 /* menu */
 $(".menu__search-input").one( "click", function() {
   TweenMax.to($("#search"), .2, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
+  typed = null;
 });
 
 function focusSearch(){
@@ -73,3 +74,16 @@ $("#search__form").submit(function(event) {
     $("#results").html(content);
   });
  });
+
+// Typed.js
+var options = {
+  strings: [
+    "Søk etter ferie ...",
+    "Søk etter ansettelse ...",
+    "Søk etter ledelse ..."
+  ],
+  typeSpeed: 40,
+  loop: true,
+  attr: 'placeholder',
+};
+new Typed("#search__field", options);
