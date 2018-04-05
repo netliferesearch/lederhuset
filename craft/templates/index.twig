@@ -4,14 +4,14 @@
 {% block content %}
 	<div class="grid-wrap">
 
-		<div class="mt--large">
+		<div class="mt--large mb--large">
 			{% for category in categories %}
 			<div class="pb--large grid-item--small center-block">
-				<h3 class="pb--small center">{{ category.title }}</h3>
+				<h3 class="pb center">{{ category.title }}</h3>
 				<ul class="list reset-list">
 					{% for entry in craft.entries.section('article').relatedTo(category) %}
 					<li class="list__item">
-						<a href="{{entry.url}}">{{entry.title}}</a><br>
+						<a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a><br>
 					</li>
 					{% endfor %}
 				</ul>
