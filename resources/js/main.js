@@ -74,16 +74,3 @@ $("#search__form").submit(function(event) {
     $("#results").html(content);
   });
  });
-
-// Typed.js
-var options = {
-  strings: [
-    "Søk etter ferie ...",
-    "Søk etter ansettelse ...",
-    "Søk etter ledelse ..."
-  ],
-  typeSpeed: 40,
-  loop: true,
-  attr: 'placeholder',
-};
-new Typed("#search__field", options);
