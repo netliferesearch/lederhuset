@@ -1,15 +1,43 @@
 {% extends "_layout" %}
+{% set blocks = entry.blocks %}
 
 {% block content %}
 <div class="grid-wrap">
 
   <header class="article-header mb bg-{{ entry.colorPalette }}">
-    <div class="pb--large pt grid-wrap">
-      <h1 class="center title mb--large mt--large">{{ entry.title }}</h1>
+    <div class="pt grid-wrap">
+      <h1 class="center title mt--large">{{ entry.title }}</h1>
     </div>
+    <ul class="list list--no-style pb--large u-2/5 center-block">
+    {% if blocks | length %}
+      {% for block in blocks %}
+        <li class="list__item font-neutral">{{ block.title }}</li>
+      {% endfor %}
+    {% endif %}
+  </ul>
   </header>
 
   <article class="article mb--xlarge">
+    {% if blocks | length %}
+      {% for block in blocks %}
+        <h2 class="center">
+          <span class="block-elem">{{ loop.index }}.</span>
+          {{ block.title }}
+        </h2>
+
+        {% for content in block.body %}
+            {% if content.type == "text" %}
+            <div class="article__text">
+              {{ content.text }}
+            </div>
+
+            {% elseif block.type == "example" %}
+            {% endif %}
+        {% endfor %}
+
+      {% endfor %}
+    {% endif %}
   </article>
+
 </div>
 {% endblock %}

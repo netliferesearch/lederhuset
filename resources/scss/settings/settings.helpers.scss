@@ -104,6 +104,10 @@
   font-family: $font-neutral-bold;
 }
 
+.block-elem {
+  display: block;
+}
+
 // Margin and padding
 .mb--xxsmall {margin-bottom: calc(4px + 1vw);}
 .mb--xsmall {margin-bottom: calc(8px + 1vw);}

@@ -39,10 +39,8 @@ searchfield.on('keyup change', function() {
     shouldSort: true
   };
 
-  var fuse = new Fuse(title_text, options); // "list" is the item array
+  var fuse = new Fuse(title_text, options);
   var result = fuse.search(searchfield.val());
-
-  console.log(result);
 });
 
 
