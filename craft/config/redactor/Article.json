@@ -2,5 +2,5 @@
 	"buttons": ["html","formatting","bold","italic","unorderedlist","orderedlist","link","image","video"],
   "plugins":["fullscreen","video"],
 	"toolbarFixed": true,
-  "formatting":["p","blockquote","h3"],
+  "formatting":["p","blockquote","h2","h3"],
 }

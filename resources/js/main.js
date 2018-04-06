@@ -72,3 +72,13 @@ $("#search__form").submit(function(event) {
     $("#results").html(content);
   });
  });
+
+
+
+
+ /* scrollto */
+ $('.list__item a').click(function(e){
+    e.preventDefault();
+    var href = $(this).attr("href");
+    TweenLite.to(window, 1, {scrollTo:{y:href, offsetY:20}});
+  });

@@ -1,11 +1,15 @@
 .article {
   &__text {
-    max-width: 450px;
+    max-width: 600px;
     margin: 0 auto;
-    font-family: $font-neutral;
     p {
+      font-family: $font-neutral;
       font-size: 18px;
       line-height: 32px;
+      margin-top: 25px;
+    }
+    h3 {
+      margin-top: 60px;
     }
   }
 }

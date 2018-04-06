@@ -11,7 +11,9 @@
     <ul class="list list--no-style pb--large u-2/5 center-block">
     {% if blocks | length %}
       {% for block in blocks %}
-        <li class="list__item font-neutral">{{ block.title }}</li>
+        <li class="list__item font-neutral">
+          <a href="#block{{ loop.index }}">{{ block.title }}</a>
+        </li>
       {% endfor %}
     {% endif %}
   </ul>
@@ -20,7 +22,7 @@
   <article class="article mb--xlarge">
     {% if blocks | length %}
       {% for block in blocks %}
-        <h2 class="center">
+        <h2 id="block{{ loop.index }}" class="center">
           <span class="block-elem">{{ loop.index }}.</span>
           {{ block.title }}
         </h2>
