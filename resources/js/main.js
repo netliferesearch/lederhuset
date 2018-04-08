@@ -7,10 +7,13 @@ import {TweenMax, Power2, TimelineLite} from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Fuse from 'fuse.js'
 import Typed from 'typed.js';
+import Sticky from 'sticky-js';
+
+var sticky = new Sticky('.sticky');
 
 /* typed */
 var searchfield = $('#mainSearch');
-var options = {
+var typedOptions = {
   strings: [
     "Søk etter ledelse...",
     "Søk etter ferie...",
@@ -22,14 +25,41 @@ var options = {
 }
 
 if ($(searchfield).length){
-  var typed = new Typed("#mainSearch", options);
+  var typed = new Typed("#mainSearch", typedOptions);
 }
 
+var result, fuse, tosearch;
+var data = $.ajax({
+  url: "http://lederhuset.herokuapp.com/api.json",
+  success: function(result) {
+    console.log(result);
+  }
+});
+
+var options = {
+    keys: ['title']
+};
+
+searchfield.on('keyup change', function(e) {
+  tosearch = searchfield.val();
+  fuse = new Fuse(data.responseJSON, options);
+  result = fuse.search(tosearch);
+  populateResults();
+});
+
+function populateResults() {
+  $("#allEntries").empty();
+  $.each(result, function(index, value) {
+    $("#allEntries").append(value)
+  });
+}
+
+
+/*
 searchfield.on('keyup change', function() {
   var titles = $('.list__item').find('a');
   var array = [];
 
-  /* put title-text in an array */
   var title_text = [];
   titles.each(function() {
    title_text.push($(this).html());
@@ -43,7 +73,7 @@ searchfield.on('keyup change', function() {
   var result = fuse.search(searchfield.val());
 });
 
-
+*/
 
 
 
@@ -77,8 +107,8 @@ $("#search__form").submit(function(event) {
 
 
  /* scrollto */
- $('.list__item a').click(function(e){
+ $('.article-anchor').click(function(e){
     e.preventDefault();
     var href = $(this).attr("href");
-    TweenLite.to(window, 1, {scrollTo:{y:href, offsetY:20}});
+    TweenLite.to(window, .5, {scrollTo:{y:href, offsetY:20, ease: Sine.easeOut}});
   });

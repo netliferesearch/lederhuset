@@ -9,23 +9,35 @@
       <h1 class="center title mt--large">{{ entry.title }}</h1>
     </div>
     <ul class="list list--no-style pb--large u-2/5 center-block">
-    {% if blocks | length %}
-      {% for block in blocks %}
-        <li class="list__item font-neutral">
-          <a href="#block{{ loop.index }}">{{ block.title }}</a>
-        </li>
-      {% endfor %}
-    {% endif %}
-  </ul>
+      {% if blocks | length %}
+        {% for block in blocks %}
+          <li class="list__item font-neutral">
+            <a class="article-anchor" href="#block{{ loop.index }}">{{ block.title }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
   </header>
+
+  <nav id="articleSticky" class="sticky-nav sticky bg-green">
+    <ul class="">
+      {% if blocks | length %}
+        {% for block in blocks %}
+          <li class="font-neutral">
+            <a class="article-anchor" href="#block{{ loop.index }}">{{ block.title }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </nav>    
 
   <article class="article mb--xlarge">
     {% if blocks | length %}
       {% for block in blocks %}
-        <h2 id="block{{ loop.index }}" class="center">
+        <h1 id="block{{ loop.index }}" class="center">
           <span class="block-elem">{{ loop.index }}.</span>
           {{ block.title }}
-        </h2>
+        </h1>
 
         {% for content in block.body %}
             {% if content.type == "text" %}

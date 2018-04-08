@@ -1,15 +1,31 @@
 .article {
+  position: relative;
+  h1 {
+    margin-top: 100px;
+    margin-bottom: 80px;
+  }
   &__text {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
-    p {
-      font-family: $font-neutral;
-      font-size: 18px;
-      line-height: 32px;
-      margin-top: 25px;
+    h2 {
+      font-size: 29px;
+      line-height: 1.3em;
+      margin-top: 60px;
     }
     h3 {
-      margin-top: 60px;
+      font-family: $font-neutral-bold;
+      font-size: 15px;
+      line-height: 1.3em;
+      margin-top: 40px;
+    }
+    h3 + p {
+      margin-top: 5px;
+    }
+    p {
+      font-family: $font-neutral;
+      font-size: 14px;
+      line-height: 24px;
+      margin-top: 25px;
     }
   }
 }
