@@ -12,7 +12,6 @@ import tocbot from 'tocbot';
 
 
 
-
 /* typed */
 var searchfield = $('#mainSearch');
 var typedOptions = {
@@ -56,19 +55,21 @@ searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
-  if (tosearch.length == 0) {
-    // do nothing if there is no search string
-  } else {
-    populateResults();  
-  }
+  populateResults();
+  searchFadeOut();
 });
 
+function searchFadeOut() {
+  var fadeOutContent = $('#page-header, #allEntries');
+  TweenLite.to(fadeOutContent, .3, {opacity:0, ease: Expo.easeInOut});
+}
+
 function populateResults() {
-  $("#allEntries").empty();
+  $("#searchResults").empty();
   $.each(result, function(index, value) {
-    $("#allEntries").append("<tr>" + "<td class=\"center-align\">" + value + "</td>" + "</tr>")
+    $("#searchResults").append("<tr>" + "<td class=\"center-align\">" + value + "</td>" + "</tr>")
   })
-};
+}
 
 
 
@@ -87,31 +88,28 @@ $('.article-anchor').click(function(e){
 
 
 
+//accordion
+$('.article .accordion').each(function(){
+  var bottom = $(this).find('.accordion__content');
+  var bottomContent = $(this).find('.accordion__inner');
+  var btnSvg = $(this).find('.accordion__arrow');
 
+  function showContent() {
+    $(this).addClass('clicked');
+    $(btnSvg).addClass('clicked');
+    $(bottomContent).fadeIn();
+    TweenLite.set(bottom, {css: {height:"auto"}});
+    TweenLite.from(bottom, .3, {css: {height:0}, ease: Expo.easeInOut, y: 0 });
+    TweenLite.to(bottom, .3, {css: {opacity:1}, delay:0.1, ease: Expo.easeInOut, y: 0 });
+    $(this).one("click", hideContent);
+  }
+  function hideContent() {
+    $(this).removeClass('clicked');
+    $(btnSvg).removeClass('clicked');
+    $(bottomContent).fadeOut();
+    TweenLite.to(bottom, .3, {css: {height:0}, opacity:0, delay:.1, ease: Expo.easeInOut, y: 0 });
+    $(this).one("click", showContent);
+  }
 
-
-/* menu
-$(".menu__search-input").one( "click", function() {
-  TweenMax.to($("#search"), .2, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
-  typed = null;
+  $($(this).find('.accordion__button')).one("click", showContent);
 });
-
-function focusSearch(){
-  $('#search__field').focus();
-}
-
-$("#search__form").submit(function(event) {
-  event.preventDefault();
-  TweenMax.set($("#results"), {opacity:0, autoAlpha:0, y:20});
-
-  var $form = $(this),
-    term = $form.find("input").val(),
-    url = $form.attr("action");
-
-  $.get(url, {q: term}).done(function(data) {
-    var content = data;
-    TweenMax.to($("#results"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
-    if (term === "") return;
-    $("#results").html(content);
-  });
- });*/

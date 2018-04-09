@@ -50,18 +50,22 @@
 
             {% elseif content.type == "quote" %}
               <div class="block">
-                <q>{{ content.quote }}</q>
+                <blockquote>{{ content.quote }}</blockquote>
               </div>
 
             {% elseif content.type == "accordion" %}
               <div class="block accordion borders">
                 <button class="accordion__button">
                   <span>{{ content.heading }}</span>
-                  <svg class="" width="15" height="9" viewBox="0 0 82 48">
-                  	<path d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"/>
+                  <svg class="accordion__arrow" width="12" height="7" viewBox="0 0 82 48">
+                  	<path class="accordion__arrow-path" d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"/>
                   </svg>
                 </button>
-                {{ content.text }}
+                <div class="accordion__content">
+                  <div class="accordion__inner">
+                    {{ content.text }}
+                  </div>
+                </div>
               </div>
             {% endif %}
           {% endfor %}

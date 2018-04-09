@@ -40,11 +40,41 @@
   .accordion {
     margin-top: 40px;
     &__button {
+      cursor: pointer;
+      width: 100%;
+      position: relative;
+      text-align: left;
+      padding: 20px 0px;
       color: $color-green-x;
       border: 0;
       background: transparent;
       margin: 0;
-      padding: 0;
+    }
+    &__arrow {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transition: transform 0.28s cubic-bezier(0.39, 0.575, 0.565, 1);
+      -webkit-transition: -webkit-transform 0.28s cubic-bezier(0.39, 0.575, 0.565, 1);
+      transform: translate(0%, -50%);
+      -webkit-transform: translate(0%, -50%);
+      &.clicked {
+        transform: translate(0%, -50%) rotate(-180deg);
+        -webkit-transform: translate(0%, -50%) rotate(-180deg);
+      }
+      &-path {
+        fill: $color-green-x;
+      }
+    }
+    &__content {
+      opacity: 0;
+      height: 0;
+    }
+    &__inner {
+      max-width: 95%;
+      padding-bottom: 44px;
+      margin-top: -24px;
+      display: none;
     }
   }
 }
