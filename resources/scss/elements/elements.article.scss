@@ -8,6 +8,12 @@
     margin-top: 100px;
     margin-bottom: 80px;
   }
+  p {
+    font-family: $font-neutral;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 25px;
+  }
   .text {
     h2 {
       font-size: 29px;
@@ -23,20 +29,18 @@
     h3 + p {
       margin-top: 5px;
     }
-    p {
-      font-family: $font-neutral;
-      font-size: 14px;
-      line-height: 24px;
-      margin-top: 25px;
-    }
     a {
-      color: $color-green;
-      border-bottom: 1px solid;
+      color: $color-green-x;
+      background-image: linear-gradient(to right, $color-green-x 33%, rgba(0,0,0,0) 0%);
+      background-position: bottom;
+      background-size: 4px 1px;
+      background-repeat: repeat-x;
     }
   }
   .accordion {
     margin-top: 40px;
     &__button {
+      color: $color-green-x;
       border: 0;
       background: transparent;
       margin: 0;

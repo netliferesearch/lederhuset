@@ -30,6 +30,9 @@ if ($(searchfield).length){
   var typed = new Typed("#mainSearch", typedOptions);
 }
 
+
+
+/* fuse search */
 var result, fuse, tosearch;
 var data = $.ajax({
   url: "/api.json",
@@ -46,14 +49,18 @@ var options = {
   maxPatternLength: 32,
   minMatchCharLength: 1,
   keys: ['title'],
+  id: 'title'
 };
 
 searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
-  fuse = new Fuse(data.responseJSON, options);
+  fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
-  populateResults();
-  console.log(result);
+  if (tosearch.length == 0) {
+    // do nothing if there is no search string
+  } else {
+    populateResults();  
+  }
 });
 
 function populateResults() {
@@ -64,29 +71,26 @@ function populateResults() {
 };
 
 
-/*
-searchfield.on('keyup change', function() {
-  var titles = $('.list__item').find('a');
-  var array = [];
 
-  var title_text = [];
-  titles.each(function() {
-   title_text.push($(this).html());
+/* scrollto */
+var sticky = new Sticky('.sticky');
+
+$('.article-anchor').click(function(e){
+  e.preventDefault();
+  var href = $(this).attr("href");
+  TweenLite.to(window, .5, {scrollTo:{y:href, offsetY:100, ease: Sine.easeOut}});
+  $('.article-anchor').each(function () {
+    $(this).removeClass('active');
   });
-
-  var options = {
-    shouldSort: true
-  };
-
-  var fuse = new Fuse(title_text, options);
-  var result = fuse.search(searchfield.val());
+  $(this).addClass('active');
 });
 
-*/
 
 
 
-/* menu */
+
+
+/* menu
 $(".menu__search-input").one( "click", function() {
   TweenMax.to($("#search"), .2, {autoAlpha:1, opacity:1, ease: Circ.easeOut, onComplete: focusSearch});
   typed = null;
@@ -110,20 +114,4 @@ $("#search__form").submit(function(event) {
     if (term === "") return;
     $("#results").html(content);
   });
- });
-
-
-
-
-/* scrollto */
-var sticky = new Sticky('.sticky');
-
-$('.article-anchor').click(function(e){
-  e.preventDefault();
-  var href = $(this).attr("href");
-  TweenLite.to(window, .5, {scrollTo:{y:href, offsetY:100, ease: Sine.easeOut}});
-  $('.article-anchor').each(function () {
-    $(this).removeClass('active');
-  });
-  $(this).addClass('active');
-});
+ });*/

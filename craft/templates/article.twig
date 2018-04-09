@@ -48,6 +48,11 @@
               </div>
             {% elseif content.type == "example" %}
 
+            {% elseif content.type == "quote" %}
+              <div class="block">
+                <q>{{ content.quote }}</q>
+              </div>
+
             {% elseif content.type == "accordion" %}
               <div class="block accordion borders">
                 <button class="accordion__button">
