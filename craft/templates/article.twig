@@ -2,7 +2,7 @@
 {% set blocks = entry.blocks %}
 
 {% block content %}
-<div class="grid-wrap">
+<div class="grid-wrap article-wrap">
 
   <header class="article-header mb bg-{{ entry.colorPalette }}">
     <div class="pt grid-wrap">
@@ -19,36 +19,48 @@
     </ul>
   </header>
 
-  <nav id="articleSticky" class="sticky-nav sticky bg-green">
-    <ul class="">
-      {% if blocks | length %}
-        {% for block in blocks %}
-          <li class="font-neutral">
-            <a class="article-anchor" href="#block{{ loop.index }}">{{ block.title }}</a>
-          </li>
-        {% endfor %}
-      {% endif %}
+  {% if blocks | length %}
+  <nav id="articleSticky" class="sticky-nav sticky grid-wrap">
+    <ul class="borders reset-list bg-white pb--xxsmall pt--xxsmall">
+      {% for block in blocks %}
+        <li class="font-neutral">
+          <a class="article-anchor" href="#block{{ loop.index }}">
+            {{ loop.index }}. {{ block.title }}
+          </a>
+        </li>
+      {% endfor %}
     </ul>
-  </nav>    
+  </nav>
+  {% endif %}
 
-  <article class="article mb--xlarge">
+  <article class="article mb--xlarge mt--xxlarge">
     {% if blocks | length %}
       {% for block in blocks %}
-        <h1 id="block{{ loop.index }}" class="center">
-          <span class="block-elem">{{ loop.index }}.</span>
-          {{ block.title }}
-        </h1>
-
-        {% for content in block.body %}
+        <section id="block{{ loop.index }}">
+          <h1 class="center">
+            <span class="block-elem">{{ loop.index }}.</span>
+            {{ block.title }}
+          </h1>
+          {% for content in block.body %}
             {% if content.type == "text" %}
-            <div class="article__text">
-              {{ content.text }}
-            </div>
+              <div class="block text">
+                {{ content.text }}
+              </div>
+            {% elseif content.type == "example" %}
 
-            {% elseif block.type == "example" %}
+            {% elseif content.type == "accordion" %}
+              <div class="block accordion borders">
+                <button class="accordion__button">
+                  <span>{{ content.heading }}</span>
+                  <svg class="" width="15" height="9" viewBox="0 0 82 48">
+                  	<path d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"/>
+                  </svg>
+                </button>
+                {{ content.text }}
+              </div>
             {% endif %}
-        {% endfor %}
-
+          {% endfor %}
+        </section>
       {% endfor %}
     {% endif %}
   </article>

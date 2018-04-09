@@ -62,6 +62,11 @@
   list-style: none;
 }
 
+.borders {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
 // Colors
 .white {
   color: white;
@@ -73,6 +78,10 @@
 
 .bg-purple {
   background: $color-purple;
+}
+
+.bg-white {
+  background: $color-white;
 }
 
 // Div
@@ -123,6 +132,7 @@
 .mt {margin-top: calc(32px + 1vw);}
 .mt--large {margin-top: calc(64px + 1vw);}
 .mt--xlarge {margin-top: calc(128px + 1vw);}
+.mt--xxlarge {margin-top: calc(192px + 1vw);}
 .mt--none {margin-top: 0}
 
 .pb--xxsmall {padding-bottom: calc(4px + 1vw);}

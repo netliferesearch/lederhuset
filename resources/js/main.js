@@ -8,8 +8,10 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Fuse from 'fuse.js'
 import Typed from 'typed.js';
 import Sticky from 'sticky-js';
+import tocbot from 'tocbot';
 
-var sticky = new Sticky('.sticky');
+
+
 
 /* typed */
 var searchfield = $('#mainSearch');
@@ -30,14 +32,20 @@ if ($(searchfield).length){
 
 var result, fuse, tosearch;
 var data = $.ajax({
-  url: "http://lederhuset.herokuapp.com/api.json",
+  url: "/api.json",
   success: function(result) {
     console.log(result);
   }
 });
 
 var options = {
-    keys: ['title']
+  shouldSort: true,
+  threshold: 0.6,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: ['title'],
 };
 
 searchfield.on('keyup change', function(e) {
@@ -45,14 +53,15 @@ searchfield.on('keyup change', function(e) {
   fuse = new Fuse(data.responseJSON, options);
   result = fuse.search(tosearch);
   populateResults();
+  console.log(result);
 });
 
 function populateResults() {
   $("#allEntries").empty();
   $.each(result, function(index, value) {
-    $("#allEntries").append(value)
-  });
-}
+    $("#allEntries").append("<tr>" + "<td class=\"center-align\">" + value + "</td>" + "</tr>")
+  })
+};
 
 
 /*
@@ -106,9 +115,15 @@ $("#search__form").submit(function(event) {
 
 
 
- /* scrollto */
- $('.article-anchor').click(function(e){
-    e.preventDefault();
-    var href = $(this).attr("href");
-    TweenLite.to(window, .5, {scrollTo:{y:href, offsetY:20, ease: Sine.easeOut}});
+/* scrollto */
+var sticky = new Sticky('.sticky');
+
+$('.article-anchor').click(function(e){
+  e.preventDefault();
+  var href = $(this).attr("href");
+  TweenLite.to(window, .5, {scrollTo:{y:href, offsetY:100, ease: Sine.easeOut}});
+  $('.article-anchor').each(function () {
+    $(this).removeClass('active');
   });
+  $(this).addClass('active');
+});

@@ -1,12 +1,14 @@
 .article {
   position: relative;
+  &-wrap {
+    position: relative;
+    overflow: hidden;
+  }
   h1 {
     margin-top: 100px;
     margin-bottom: 80px;
   }
-  &__text {
-    max-width: 500px;
-    margin: 0 auto;
+  .text {
     h2 {
       font-size: 29px;
       line-height: 1.3em;
@@ -26,6 +28,19 @@
       font-size: 14px;
       line-height: 24px;
       margin-top: 25px;
+    }
+    a {
+      color: $color-green;
+      border-bottom: 1px solid;
+    }
+  }
+  .accordion {
+    margin-top: 40px;
+    &__button {
+      border: 0;
+      background: transparent;
+      margin: 0;
+      padding: 0;
     }
   }
 }

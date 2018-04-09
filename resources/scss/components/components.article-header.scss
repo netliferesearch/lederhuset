@@ -1,2 +1,22 @@
 .article-header {
 }
+
+#articleSticky {
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+  left: 0px;
+  ul {
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: 0 20px;
+      a {
+        transition: color .25s ease-out;
+        &.active {
+          color: $color-green;
+        }
+      }
+    }
+  }
+}
