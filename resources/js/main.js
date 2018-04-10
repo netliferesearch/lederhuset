@@ -1,7 +1,7 @@
 import '../scss/main.scss';
 import './toggle'
 
-//plugins
+/*** plugins ***/
 import $ from 'jquery';
 import {TweenMax, Power2, TimelineLite} from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
@@ -9,7 +9,10 @@ import Fuse from 'fuse.js'
 import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
 
+
+/*** search module ***/
 var searchfield = $('#mainSearch');
+
 var result, fuse, tosearch;
 var data = $.ajax({
   url: "/api.json",
@@ -29,28 +32,34 @@ var options = {
   id: 'title'
 };
 
+searchfield.one( "focus", function() {
+  searchFadeOut();
+});
+
 searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
-  searchFadeOut();
+  populateResults();
 });
 
 function searchFadeOut() {
   var fadeOutContent = $('#page-header, #allEntries');
   TweenLite.to(fadeOutContent, .3, {opacity:0, ease: Expo.easeInOut, onComplete:populateResults});
+  searchfield.attr("placeholder", "");
+  $('.search__typed-cursor').remove();
 }
 
 function populateResults() {
-  $("#searchResults").empty();
+  $("#searchResults ul").empty();
   $.each(result, function(index, value) {
-    $("#searchResults").append("<tr>" + "<td class=\"center-align\">" + value + "</td>" + "</tr>")
+    $("#searchResults ul").append("<li class=\"list__item\"><a href='' class='font-neutral'>" + value + "</a></li>")
   })
 }
 
 
 
-/* scrollto */
+/*** scrollto ***/
 var sticky = new Sticky('.sticky');
 
 $('.article-anchor').click(function(e){
@@ -65,7 +74,7 @@ $('.article-anchor').click(function(e){
 
 
 
-//accordion
+/*** accordion module ***/
 $('.article .accordion').each(function(){
   var bottom = $(this).find('.accordion__content');
   var bottomContent = $(this).find('.accordion__inner');
