@@ -98,18 +98,17 @@ $('.article .accordion').each(function(){
   var btnSvg = $(this).find('.accordion__arrow');
 
   function showContent() {
-    $(this).addClass('clicked');
-    $(btnSvg).addClass('clicked');
-    $(bottomContent).fadeIn();
+    $(this).add(btnSvg).addClass('clicked');
+    $(bottomContent).fadeIn(10);
+
     TweenLite.set(bottom, {css: {height:"auto"}});
     TweenLite.from(bottom, .3, {css: {height:0}, ease: Expo.easeInOut, y: 0 });
-    TweenLite.to(bottom, .3, {css: {opacity:1}, delay:0.1, ease: Expo.easeInOut, y: 0 });
+    TweenLite.to(bottom, .1, {css: {opacity:1}, delay:0.1, ease: Quad.easeIn, y: 0 });
     $(this).one("click", hideContent);
   }
   function hideContent() {
-    $(this).removeClass('clicked');
-    $(btnSvg).removeClass('clicked');
-    $(bottomContent).fadeOut();
+    $(this).add(btnSvg).removeClass('clicked');
+    $(bottomContent).fadeOut(10);
     TweenLite.to(bottom, .3, {css: {height:0}, opacity:0, delay:.1, ease: Expo.easeInOut, y: 0 });
     $(this).one("click", showContent);
   }

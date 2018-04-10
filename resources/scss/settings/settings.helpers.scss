@@ -76,6 +76,10 @@
   background: $color-green;
 }
 
+.bg-green--light {
+  background: $color-green-light;
+}
+
 .bg-purple {
   background: $color-purple;
 }
@@ -90,7 +94,7 @@
 }
 
 .block {
-  max-width: 500px;
+  max-width: 475px;
   margin: 0 auto;
 }
 

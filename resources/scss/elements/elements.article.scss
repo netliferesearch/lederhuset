@@ -8,17 +8,22 @@
     margin-top: 100px;
     margin-bottom: 80px;
   }
-  p {
+  p, li {
     font-family: $font-neutral;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 15px;
+    line-height: 26px;
+  }
+  p, ul {
     margin-top: 25px;
+  }
+  ul {
+    padding-left: 16px;
   }
   .text {
     h2 {
       font-size: 29px;
       line-height: 1.3em;
-      margin-top: 60px;
+      margin-top: 100px;
     }
     h3 {
       font-family: $font-neutral-bold;
@@ -26,12 +31,15 @@
       line-height: 1.3em;
       margin-top: 40px;
     }
+    h3 + ul {
+      margin-top: 40px;
+    }
     h3 + p {
       margin-top: 5px;
     }
     a {
-      color: $color-green-x;
-      background-image: linear-gradient(to right, $color-green-x 33%, rgba(0,0,0,0) 0%);
+      color: $color-green;
+      background-image: linear-gradient(to right, $color-green 33%, rgba(0,0,0,0) 0%);
       background-position: bottom;
       background-size: 4px 1px;
       background-repeat: repeat-x;
@@ -40,12 +48,13 @@
   .accordion {
     margin-top: 40px;
     &__button {
+      font-size: 15px;
+      font-family: $font-neutral-bold;
       cursor: pointer;
       width: 100%;
       position: relative;
       text-align: left;
       padding: 20px 0px;
-      color: $color-green-x;
       border: 0;
       background: transparent;
       margin: 0;
@@ -62,18 +71,15 @@
         transform: translate(0%, -50%) rotate(-180deg);
         -webkit-transform: translate(0%, -50%) rotate(-180deg);
       }
-      &-path {
-        fill: $color-green-x;
-      }
     }
     &__content {
       opacity: 0;
       height: 0;
     }
     &__inner {
-      max-width: 95%;
-      padding-bottom: 44px;
+      padding-bottom: 26px;
       margin-top: -24px;
+      opacity: 0;
       display: none;
     }
   }
