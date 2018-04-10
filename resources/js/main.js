@@ -6,32 +6,10 @@ import $ from 'jquery';
 import {TweenMax, Power2, TimelineLite} from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Fuse from 'fuse.js'
-import Typed from 'typed.js';
 import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
 
-
-
-/* typed */
 var searchfield = $('#mainSearch');
-var typedOptions = {
-  strings: [
-    "Søk etter ledelse...",
-    "Søk etter ferie...",
-    "Søk etter ansettelse...",
-  ],
-  typeSpeed: 60,
-  loop: true,
-  attr: 'placeholder'
-}
-
-if ($(searchfield).length){
-  var typed = new Typed("#mainSearch", typedOptions);
-}
-
-
-
-/* fuse search */
 var result, fuse, tosearch;
 var data = $.ajax({
   url: "/api.json",
@@ -55,13 +33,12 @@ searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
-  populateResults();
   searchFadeOut();
 });
 
 function searchFadeOut() {
   var fadeOutContent = $('#page-header, #allEntries');
-  TweenLite.to(fadeOutContent, .3, {opacity:0, ease: Expo.easeInOut});
+  TweenLite.to(fadeOutContent, .3, {opacity:0, ease: Expo.easeInOut, onComplete:populateResults});
 }
 
 function populateResults() {

@@ -1,30 +1,6 @@
 <?php
 namespace Craft;
 
-/*
-return [
-    'endpoints' => [
-        'api.json' => [
-            'elementType' => ElementType::Category,
-            'criteria' => [
-              'section' => article,
-              'search' => (craft()->request->getParam('q'))
-            ],
-            'transformer' => function(CategoryModel $category) {
-                return [
-                  'id' => $category->id,
-                  'title' => $category->title,
-                  'posts' => [
-                    'title' => '',
-                    'url' => '',
-                  ]
-                ];
-            },
-        ]
-    ]
-];*/
-
-
 return [
     'endpoints' => [
         'api.json' => [

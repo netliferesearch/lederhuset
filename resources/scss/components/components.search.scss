@@ -1,38 +1,8 @@
 .search {
-  visibility: hidden;
-  opacity: 0;
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background: $color-purple;
-  padding: 200px 0 100px 0;
-  color: $color-black;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   &__wrapper {
-    max-width: 1100px;
+    position: relative;
   }
-  input, button {
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    outline: 0;
-  }
-  #search__field {
-    font-size: 42px;
-    font-family: $font-larish;
-    width: 96%;
-    line-height: 1.3333333333;
-    margin-bottom: 1em;
-  }
-}
-
-.lh-search-wrapper {
-  #mainSearch {
+  &__input {
     width: 100%;
     background: transparent;
     font-family: $font-larish;
@@ -40,14 +10,40 @@
     border: 0;
     outline: 0;
   }
-  #mainSearch::placeholder {
+  &__input::placeholder {
       color: #000;
       opacity: 1;
   }
-  #mainSearch:-ms-input-placeholder {
+  &__input:-ms-input-placeholder {
       color: #000;
   }
-  #mainSearch::-ms-input-placeholder {
+  &__input::-ms-input-placeholder {
       color: #000;
   }
+  &__typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+    &:after {
+      content: '';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #000;
+    }
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {opacity: 1; }
+  50% {opacity: 0; }
+  100% {opacity: 1; }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
