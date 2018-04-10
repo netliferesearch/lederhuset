@@ -1,4 +1,4 @@
 {
-	"buttons": ["bold","italic","link","unorderedlist","orderedlist"],
+	"buttons": ["bold","italic","link","file","unorderedlist","orderedlist"],
 	"toolbarFixed": true
 }
