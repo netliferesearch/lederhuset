@@ -1,6 +1,7 @@
 .search {
   &__wrapper {
     position: relative;
+    border-bottom: 2px solid transparent;
   }
   &__input {
     width: 100%;
@@ -37,9 +38,8 @@
 }
 
 #searchResults ul {
-  visibility: hidden;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
 }
 
 @-webkit-keyframes blink {

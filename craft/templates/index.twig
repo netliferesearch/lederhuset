@@ -18,6 +18,9 @@
 
 		<div class="mt--large mb--large" id="allEntries">
 			{% for category in categories %}
+			{% if category.image|length %}
+				<img src="{{ category.image.first().getUrl('') }}" alt="" />
+			{% endif %}
 			<div class="pb--large grid-item--small center-block">
 				<h3 class="pb center">{{ category.title }}</h3>
 				<ul class="list reset-list">

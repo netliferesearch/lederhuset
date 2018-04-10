@@ -12,6 +12,9 @@ import tocbot from 'tocbot';
 
 /*** search module ***/
 var searchfield = $('#mainSearch');
+var tl = new TimelineLite({onReverseComplete:emptySearch});
+tl.to($("#searchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
+tl.pause();
 
 var result, fuse, tosearch;
 var data = $.ajax({
@@ -34,6 +37,7 @@ var options = {
 
 searchfield.one( "focus", function() {
   searchFadeOut();
+  TweenMax.to($('.search__wrapper'), 2, {css:{borderBottomColor:'#000'}, ease: Circ.easeOut, delay:.2});
 });
 
 searchfield.on('keyup change', function(e) {
@@ -44,8 +48,12 @@ searchfield.on('keyup change', function(e) {
 });
 
 searchfield.one( "keyup change", function() {
-  TweenMax.to($("#searchResults ul"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
+  tl.play();
 });
+
+function emptySearch(){
+  $("#searchResults ul").empty();
+}
 
 function searchFadeOut() {
   var fadeOutContent = $('#page-header, #allEntries');
@@ -55,7 +63,12 @@ function searchFadeOut() {
 }
 
 function populateResults() {
-  $("#searchResults ul").empty();
+  if (searchfield.val() == '') {
+    tl.reverse();
+  } else {
+    emptySearch();
+    tl.play();
+  }
   $.each(result, function(index, value) {
     $("#searchResults ul").append("<li class=\"list__item\"><a href='' class='font-neutral'>" + value + "</a></li>")
   })
