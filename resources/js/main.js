@@ -49,7 +49,7 @@ searchfield.one( "keyup change", function() {
 
 function searchFadeOut() {
   var fadeOutContent = $('#page-header, #allEntries');
-  TweenLite.to(fadeOutContent, .3, {opacity:0, ease: Expo.easeInOut, onComplete:populateResults});
+  TweenLite.to(fadeOutContent, .5, {opacity:0, ease: Expo.easeInOut, onComplete:populateResults});
   searchfield.attr("placeholder", "");
   $('.search__typed-cursor').remove();
 }
