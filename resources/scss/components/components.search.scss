@@ -36,6 +36,12 @@
   }
 }
 
+#searchResults ul {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 @-webkit-keyframes blink {
   0% {opacity: 1; }
   50% {opacity: 0; }

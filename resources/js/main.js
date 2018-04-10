@@ -43,6 +43,10 @@ searchfield.on('keyup change', function(e) {
   populateResults();
 });
 
+searchfield.one( "keyup change", function() {
+  TweenMax.to($("#searchResults ul"), .5, {autoAlpha:1, y:0, opacity:1, ease: Circ.easeOut});
+});
+
 function searchFadeOut() {
   var fadeOutContent = $('#page-header, #allEntries');
   TweenLite.to(fadeOutContent, .3, {opacity:0, ease: Expo.easeInOut, onComplete:populateResults});
