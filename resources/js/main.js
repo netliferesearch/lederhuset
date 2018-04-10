@@ -28,7 +28,7 @@ var options = {
   distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: ['title'],
+  keys: ['title', 'url'],
   id: 'title'
 };
 
