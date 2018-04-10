@@ -11,12 +11,15 @@ import tocbot from 'tocbot';
 
 
 /*** search module ***/
-var searchfield = $('#mainSearch');
-var tl = new TimelineLite({onReverseComplete:emptySearch});
-tl.to($("#searchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
-tl.pause();
+var result, fuse, tosearch,
+    searchfield = $('#mainSearch'),
+    closeSearch = $('#searchClose'),
+    fadeOutContent = $('#page-header, #allEntries'),
+    tl = new TimelineLite({onReverseComplete:emptySearch});
+    tl.to($("#searchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
+    tl.pause();
 
-var result, fuse, tosearch;
+// get search data from json api
 var data = $.ajax({
   url: "/api.json",
   success: function(result) {
@@ -24,6 +27,7 @@ var data = $.ajax({
   }
 });
 
+// fuse options for search
 var options = {
   shouldSort: true,
   threshold: 0.6,
@@ -35,11 +39,13 @@ var options = {
   id: 'title'
 };
 
+//do this when focus on searchfield
 searchfield.one( "focus", function() {
   searchFadeOut();
   TweenMax.to($('.search__wrapper'), 2, {css:{borderBottomColor:'#000'}, ease: Circ.easeOut, delay:.2});
 });
 
+//do this on keyup change searchfield
 searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
@@ -47,8 +53,13 @@ searchfield.on('keyup change', function(e) {
   populateResults();
 });
 
-searchfield.one( "keyup change", function() {
-  tl.play();
+//do this when you click on exit
+closeSearch.on('click', function() {
+  searchfield.attr("placeholder", 'Søk etter noe');
+  $('.search__typed-cursor').css('display', 'block');
+  TweenMax.to($('.search__wrapper'), 2, {css:{borderBottomColor:'transparent'}, ease: Circ.easeOut});
+  TweenLite.to(fadeOutContent, .5, {opacity:1, ease: Expo.easeOut, delay:.5});
+  TweenLite.to(closeSearch, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeIn});
 });
 
 function emptySearch(){
@@ -56,10 +67,10 @@ function emptySearch(){
 }
 
 function searchFadeOut() {
-  var fadeOutContent = $('#page-header, #allEntries');
-  TweenLite.to(fadeOutContent, .5, {opacity:0, ease: Expo.easeInOut, onComplete:populateResults});
-  searchfield.attr("placeholder", "");
-  $('.search__typed-cursor').remove();
+  searchfield.attr("placeholder", '');
+  $('.search__typed-cursor').css('display', 'none');
+  TweenLite.to(fadeOutContent, .5, {opacity:0, ease: Expo.easeOut, onComplete:populateResults});
+  TweenLite.to(closeSearch, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
 }
 
 function populateResults() {
