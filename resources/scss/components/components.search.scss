@@ -1,4 +1,26 @@
 .search {
+  position: relative;
+  &__close {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -80px;
+    right: 0px;
+    cursor: pointer;
+    &:after, &:before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: #000;
+    }
+    &:after {
+      transform: translate(50px) rotate(-135deg)
+    }
+    &:before {
+      transform: translate(50px) rotate(135deg)
+    }
+  }
   &__wrapper {
     position: relative;
     border-bottom: 2px solid transparent;
