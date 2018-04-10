@@ -93,22 +93,22 @@ $('.article-anchor').click(function(e){
 
 /*** accordion module ***/
 $('.article .accordion').each(function(){
-  var bottom = $(this).find('.accordion__content');
-  var bottomContent = $(this).find('.accordion__inner');
-  var btnSvg = $(this).find('.accordion__arrow');
+  var bottom = $(this).find('.accordion__content'),
+      bottomContent = $(this).find('.accordion__inner'),
+      btnSvg = $(this).find('.accordion__arrow');
 
   function showContent() {
     $(this).add(btnSvg).addClass('clicked');
-    $(bottomContent).fadeIn(10);
-
+    $(bottomContent).fadeIn();
     TweenLite.set(bottom, {css: {height:"auto"}});
     TweenLite.from(bottom, .3, {css: {height:0}, ease: Expo.easeInOut, y: 0 });
     TweenLite.to(bottom, .1, {css: {opacity:1}, delay:0.1, ease: Quad.easeIn, y: 0 });
     $(this).one("click", hideContent);
   }
+
   function hideContent() {
     $(this).add(btnSvg).removeClass('clicked');
-    $(bottomContent).fadeOut(10);
+    $(bottomContent).fadeOut();
     TweenLite.to(bottom, .3, {css: {height:0}, opacity:0, delay:.1, ease: Expo.easeInOut, y: 0 });
     $(this).one("click", showContent);
   }
