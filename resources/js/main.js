@@ -40,9 +40,13 @@ var options = {
 };
 
 //do this when focus on searchfield
-searchfield.one( "focus", function() {
-  searchFadeOut();
-  TweenMax.to($('.search__wrapper'), 2, {css:{borderBottomColor:'#000'}, ease: Circ.easeOut, delay:.2});
+searchfield.on("focus", function() {
+  if ($('body').hasClass('search-open')) {
+    //do nothing
+  } else {
+    searchFadeOut();
+    TweenMax.to($('.search__wrapper'), .2, {css:{borderBottomColor:'#000'}, ease: Circ.easeIn, delay:.1});
+  }
 });
 
 //do this on keyup change searchfield
@@ -55,11 +59,14 @@ searchfield.on('keyup change', function(e) {
 
 //do this when you click on exit
 closeSearch.on('click', function() {
+  $('body').removeClass('search-open');
   searchfield.attr("placeholder", 'Søk etter noe');
+  searchfield.val("");
   $('.search__typed-cursor').css('display', 'block');
-  TweenMax.to($('.search__wrapper'), 2, {css:{borderBottomColor:'transparent'}, ease: Circ.easeOut});
-  TweenLite.to(fadeOutContent, .5, {opacity:1, ease: Expo.easeOut, delay:.5});
-  TweenLite.to(closeSearch, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeIn});
+  tl.reverse();
+  TweenMax.to($('.search__wrapper'), .3, {css:{borderBottomColor:'transparent'}, ease: Circ.easeOut});
+  TweenLite.to(fadeOutContent, .5, {opacity:1, ease: Quad.easeIn, delay:.2});
+  TweenLite.to(closeSearch, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
 });
 
 function emptySearch(){
@@ -67,6 +74,7 @@ function emptySearch(){
 }
 
 function searchFadeOut() {
+  $('body').addClass('search-open');
   searchfield.attr("placeholder", '');
   $('.search__typed-cursor').css('display', 'none');
   TweenLite.to(fadeOutContent, .5, {opacity:0, ease: Expo.easeOut, onComplete:populateResults});
