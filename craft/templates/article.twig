@@ -4,6 +4,7 @@
 {% block content %}
 <div class="grid-wrap article-wrap">
 
+  <!-- article header -->
   <header class="article-header mb bg-green--light">
     <div class="pt grid-wrap">
       <h1 class="center title mt--large mb--large">{{ entry.title }}</h1>
@@ -19,6 +20,7 @@
     </ul>
   </header>
 
+  <!-- article sticky nav -->
   {% if blocks | length %}
   <nav id="articleSticky" class="sticky-nav sticky grid-wrap">
     <ul class="borders reset-list bg-white pb--xxsmall pt--xxsmall">
@@ -33,6 +35,7 @@
   </nav>
   {% endif %}
 
+  <!-- article blocks/main content -->
   <article class="article mb--xlarge mt--xxlarge">
     {% if blocks | length %}
       {% for block in blocks %}
@@ -73,6 +76,28 @@
       {% endfor %}
     {% endif %}
   </article>
+
+  <!-- Templates and resources -->
+  {% if entry.templatesAndResources | length %}
+    <section class="article article--resources borders pb--large pt--large mb--xlarge">
+      <h2 class="pb--xsmall">Maler og ressurser</h2>
+      <div class="resources-list">
+        {% for entry in entry.templatesAndResources %}
+          <div class="u-1/3 resources-list__item pt">
+            <a class="font-neutral-b black" href="#">
+              <span>{{ entry.title }}</span>
+              <svg class="arrow-download" width="10" height="10" viewBox="0 0 171 254">
+              	<path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
+              </svg>
+            </a>
+            <p class="mt--none">{{ entry.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+
 
 </div>
 {% endblock %}

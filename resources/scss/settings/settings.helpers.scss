@@ -65,11 +65,21 @@
 .borders {
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
+  &--top {
+    border-top: 2px solid #000;
+  }
+  &--bottom {
+    border-bottom: 2px solid #000;
+  }
 }
 
 // Colors
 .white {
   color: white;
+}
+
+.black, a.black {
+  color: black;
 }
 
 .bg-green {
@@ -113,7 +123,7 @@
   font-family: $font-neutral;
 }
 
-.font-neutral-b {
+.font-neutral-b, a.font-neutral-b {
   font-family: $font-neutral-bold;
 }
 
@@ -137,7 +147,7 @@
 .mt--large {margin-top: calc(64px + 1vw);}
 .mt--xlarge {margin-top: calc(128px + 1vw);}
 .mt--xxlarge {margin-top: calc(192px + 1vw);}
-.mt--none {margin-top: 0}
+.mt--none, p.mt--none {margin-top: 0}
 
 .pb--xxsmall {padding-bottom: calc(4px + 1vw);}
 .pb--xsmall {padding-bottom: calc(8px + 1vw);}

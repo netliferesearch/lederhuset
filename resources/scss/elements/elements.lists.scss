@@ -15,3 +15,17 @@
     }
   }
 }
+
+.resources-list {
+  font-size: 0em;
+  .arrow-download {
+    margin-left: 2px;
+  }
+  &__item {
+    font-size: 1rem;
+    display: inline-block;
+    p {
+      max-width: 350px;
+    }
+  }
+}
