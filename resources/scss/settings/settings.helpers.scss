@@ -106,6 +106,9 @@
 .block {
   max-width: 475px;
   margin: 0 auto;
+  &--large {
+    max-width: 800px;
+  }
 }
 
 .vertical-list {
