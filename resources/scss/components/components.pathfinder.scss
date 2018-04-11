@@ -1,6 +1,39 @@
 .pathfinder {
   min-height: calc(100vh - 350px);
   position: relative;
+  &__result {
+    background: #fff;
+    border: 2px solid;
+  }
+  &__question {
+    background: $color-green-light;
+  }
+  &__answer {
+    border: 2px solid $color-black;
+    background: transparent;
+    padding: 12px 20px 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    min-width: 100px;
+    max-width: 277px;
+    line-height: 1.3em;
+    transition: background .2s ease,color .2s ease;
+    @media (max-width: $mobile) {
+      font-size: 14px;
+      padding: 12px 15px 10px 15px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+    &.clicked {
+      background: $color-black;
+      color: $color-white;
+    }
+    &:hover, &:focus {
+      background: $color-black;
+      color: $color-white;
+    }
+  }
   &__block {
     max-width: 850px;
     margin: 0 auto;
@@ -14,42 +47,33 @@
       }
     }
   }
-  &__result {
-    background: $color-purple;
-  }
-  &__question {
-    background: $color-green-light;
-  }
-  &__answer {
-    border: 2px solid $color-black;
-    background: transparent;
-    padding: 12px 20px 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-    min-width: 190px;
-    max-width: 260px;
-    line-height: 1.3em;
-    transition: background .2s ease,color .2s ease;
-    &:last-child {
-      margin-right: 0px;
-    }
-    &.clicked {
-      background: $color-black;
-      color: $color-white;
-    }
-    &:hover, &:focus {
-      background: $color-black;
-      color: $color-white;
+  &__header {
+    h2 {
+      @media (max-width: $mobile) {
+        font-size: 34px;
+      }
     }
   }
   ul, ol {
     list-style-position: inside;
   }
+  p {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    &.font-smaller {
+      font-size: 16px;
+    }
+  }
   p, ul li, ol li {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5em;
+    @media (min-width: $mobile) {
+      font-size: 18px;
+    }
     a {
       display: inline-block;
+      line-height: 1em;
       color: $color-green;
       background-image: linear-gradient(to right, $color-green 33%, rgba(255,255,255,0) 0%);
       background-position: bottom;
@@ -58,7 +82,47 @@
       transition: background .2s ease,color .2s ease;
     }
   }
+  ul li, ol li {
+    font-size: 16px;
+  }
   .block {
-    max-width: 510px;
+    max-width: 90%;
+  }
+  #pathfinder__popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255,255,255,.6);
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+    @media (min-width: $mobile) {
+      background: rgba(255,255,255,.8);
+    }
+    .popup__wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      @media (max-width: $mobile) {
+        width: 90%;
+        max-width: 500px;
+      }
+      h3 {
+        text-transform: capitalize;
+      }
+    }
+    .popup__inner {
+      background: #fff;
+      border: 2px solid;
+      padding: 40px;
+      @media (min-width: $mobile) {
+        width: 600px;
+        padding: 100px;
+      }
+    }
   }
 }

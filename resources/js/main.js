@@ -177,7 +177,7 @@ $('.pathfinder__question').each(function(){
             $('#' + element).removeClass('clicked clicked__result');
           }
         }
-      //if this question has not been clicked on before
+      //the question has not been clicked on before
       } else {
         if (showResultId == "") {
           alert('Beklager - dette svaret har ingen sti!');
@@ -195,7 +195,6 @@ $('.pathfinder__question').each(function(){
       $(thisBtn).add(thisQuestion).addClass('clicked');
       $('#' + showResultId).addClass('clicked__result');
     }
-
   });
 
   //exit guide
@@ -214,5 +213,23 @@ $('.pathfinder__question').each(function(){
     TweenLite.to(thisQuestion, .3, {backgroundColor:'#c3eee8', ease:Quad.easeOut});
     clickedPath = [];
   }
+});
+
+$('.pathfinder__popup').on("click", function(e){
+  e.preventDefault();
+  var popUpText = $(this).attr('data-text'),
+      popUpContainer = $('#pathfinder__popup'),
+      popUpTitle = $(this).text(),
+      popUpWrapper = $('#pathfinder__popup .popup__inner');
+  popUpWrapper.empty().append("<h3 class='mb--xxsmall'>" + popUpTitle + "</h3><p class='font-neutral'>" + popUpText + "</p>");
+
+  TweenLite.to(popUpContainer, .2, {opacity:1, autoAlpha:1, ease: Quad.easeIn});
+  TweenLite.fromTo(popUpWrapper, .7, {opacity:0, y:-50}, {opacity:1, y:0, ease: Elastic.easeOut.config(1, 0.75)});
+
+  $(document).mouseup(function(event){
+    if (!popUpWrapper.is(event.target) && popUpWrapper.has(event.target).length === 0) {
+      TweenLite.to(popUpContainer, .3, {opacity:0, autoAlpha:0, ease: Quad.easeOut});
+    }
+  });
 
 });

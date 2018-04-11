@@ -135,7 +135,12 @@
 }
 
 // Margin and padding
-.mb--xxsmall {margin-bottom: calc(4px + 1vw);}
+.mb--xxsmall {
+  margin-bottom: 20px;
+  @media (min-width: $mobile) {
+    margin-bottom: calc(4px + 1vw);
+  }
+}
 .mb--xsmall {margin-bottom: calc(8px + 1vw);}
 .mb--small {margin-bottom: calc(16px + 1vw);}
 .mb {margin-bottom: calc(32px + 1vw);}
