@@ -208,8 +208,8 @@ $('.pathfinder__question').each(function(){
 
   function resetAll(){
     $(thisQuestion).add('.pathfinder__block button').removeClass('clicked clicked__result');
-    TweenLite.to(window, .5, {scrollTo:{y:0}, ease: Sine.easeOut});
-    TweenLite.fromTo($('.pathfinder__block:not(:first-of-type)'), 0.5, {opacity:1, y:0}, {opacity:0, y:20, display:'none', ease:Expo.easeOut});
+    TweenLite.to(window, .6, {scrollTo:{y:0}, ease: Sine.easeInOut});
+    TweenLite.fromTo($('.pathfinder__block:not(:first-of-type)'), 0.7, {opacity:1, y:0}, {opacity:0, y:20, display:'none', ease:Expo.easeOut});
     TweenLite.to(thisQuestion, .3, {backgroundColor:'#c3eee8', ease:Quad.easeOut});
     clickedPath = [];
   }
@@ -218,10 +218,17 @@ $('.pathfinder__question').each(function(){
 $('.pathfinder__popup').on("click", function(e){
   e.preventDefault();
   var popUpText = $(this).attr('data-text'),
+      popUpUrl = $(this).attr('data-url'),
+      popUpUrlText = $(this).attr('data-url-title'),
       popUpContainer = $('#pathfinder__popup'),
       popUpTitle = $(this).text(),
       popUpWrapper = $('#pathfinder__popup .popup__inner');
-  popUpWrapper.empty().append("<h3 class='mb--xxsmall'>" + popUpTitle + "</h3><p class='font-neutral'>" + popUpText + "</p>");
+
+  if (popUpUrl) {
+    popUpWrapper.empty().append("<h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='font-neutral'>" + popUpText + "</p><p class='font-neutral mt--xxsmall'><a target='_blank' href='"+ popUpUrl +"'>"+popUpUrlText +"<svg width='10' height='10' viewBox='0 0 126 126'><path d='M78.2,31.6L46.9,0.3L125.5,0l0.3,78.8L94,47.1l-78.3,78.3L0.1,109.9L78.2,31.6z'/></svg></a></p>");
+  } else {
+    popUpWrapper.empty().append("<h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='font-neutral'>" + popUpText + "</p>");
+  }
 
   TweenLite.to(popUpContainer, .2, {opacity:1, autoAlpha:1, ease: Quad.easeIn});
   TweenLite.fromTo(popUpWrapper, .7, {opacity:0, y:-50}, {opacity:1, y:0, ease: Elastic.easeOut.config(1, 0.75)});

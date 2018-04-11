@@ -114,14 +114,20 @@
       h3 {
         text-transform: capitalize;
       }
+      svg {
+        margin-left: 4px;
+        path {
+          fill: $color-green;
+        }
+      }
     }
     .popup__inner {
       background: #fff;
       border: 2px solid;
       padding: 40px;
       @media (min-width: $mobile) {
-        width: 600px;
-        padding: 100px;
+        min-width: 650px;
+        padding: 70px 110px;
       }
     }
   }
