@@ -1,0 +1,34 @@
+.pathfinder {
+  &__block {
+    &:not(:first-of-type) {
+      display: none;
+    }
+  }
+  &__result {
+    background: $color-purple;
+  }
+  &__question {
+    background: $color-green-light;
+  }
+  &__answer {
+    border: 2px solid;
+    background: transparent;
+    padding: 12px 20px 10px 20px;
+    cursor: pointer;
+    margin: 0px 10px;
+  }
+  ul {
+    list-style-position: inside;
+  }
+  p, ul li {
+    font-size: 18px;
+    line-height: 1.5em;
+    a {
+      color: $color-green;
+      border-bottom: 1px solid;
+    }
+  }
+  .block {
+    max-width: 510px;
+  }
+}

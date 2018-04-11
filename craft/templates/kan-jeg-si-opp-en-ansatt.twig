@@ -1,0 +1,109 @@
+{% extends "_layout" %}
+
+{% block content %}
+	<div class="grid-wrap">
+    <div class="pathfinder mb--xlarge">
+
+      <header class="pathfinder__header">
+        <h2 class="center mt--large mb--large">Kan jeg si opp en ansatt?</h2>
+      </header>
+
+      <!-- question 1 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--1" id="question1">
+        <div class="block center center-block pt pb--small">
+          <p class="mb--small font-neutral">Vurderer du oppsigelse på grunn av problemer med den ansatte eller på grunn av noe med virksomheten?</p>
+          <button data-show="" id="" class="pathfinder__answer pathfinder__answer--1 font-neutral">Den ansatte</button>
+          <button data-show="question2" id="showQuestion2" class="pathfinder__answer pathfinder__answer--2 font-neutral">Virksomheten</button>
+        </div>
+      </div>
+
+      <!-- question 2 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--2 mt--large" id="question2">
+        <div class="block center center-block pt pb--small">
+          <p class="mb--small font-neutral">Ser du for deg <a href="#">nedbemanning</a> eller <a href="#">omorganisering</a>?</p>
+          <button data-show="result1" id="showAnswer1" class="pathfinder__answer pathfinder__answer--1 font-neutral">Nedbemanning</button>
+          <button data-show="" id="" class="pathfinder__answer pathfinder__answer--2 font-neutral">Omorganisering</button>
+        </div>
+      </div>
+
+      <!-- question 3 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--3 mt--large" id="question3">
+        <div class="block center center-block pt pb--small">
+          <h3 class="mb--xxsmall">Er det vesentlige endringer i stillingen?</h3>
+          <p class="pb--xxsmall font-neutral">Vesentlig endring vil si:</p>
+          <ul class="mb--small font-neutral">
+            <li>Nye oppgaver</li>
+            <li>Endret arbeidstid</li>
+            <li>Endring av lønn</li>
+            <li>Bortfall av kontraktsfestede frynsegoder</li>
+            <li>Endring av arbeidssted</li>
+          </ul>
+          <button data-show="question4" id="showQuestion4" class="pathfinder__answer pathfinder__answer--1 font-neutral">Vesentlige endringer</button>
+          <button data-show="" id="" class="pathfinder__answer pathfinder__answer--2 font-neutral">Mindre endringer</button>
+        </div>
+      </div>
+
+      <!-- question 4 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--4 mt--large" id="question4">
+        <div class="block center center-block pt pb--small">
+          <h3 class="mb--xxsmall">Endringsoppsigelse</h3>
+          <p class="mb--xsmall font-neutral">Du ønsker å foreta en <a href="#">endringsoppsigelse</a>.</p>
+          <p class="mb--small font-neutral">Vi anbefaler at du tar en samtale med de ansatte endringene vil påvirke. I samtalen vil de få anledning til å dele sin side av saken. Husk skriftlig referat!</p>
+          <button data-show="question5" id="showQuestion5" class="pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+      <!-- question 5 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--5 mt--large" id="question5">
+        <div class="block center center-block pt pb--small">
+          <h3 class="mb--xxsmall">Samtykket den ansatte?</h3>
+          <p class="mb--small font-neutral">Godtok den ansatte endringene og har du skriftlig referat?</p>
+          <button data-show="result2" id="showResult2" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="question6" id="showQuestion6" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+      <!-- question 6 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--6 mt--large" id="question6">
+        <div class="block center center-block pt pb--small">
+          <h3 class="mb--xxsmall">Den ansatte samtykket ikke til endringene</h3>
+          <p class="mb--small font-neutral">Du må innkalle til drøftelsesmøte. Kall inn den ansatte og eventuelle tillitsvalgte.</p>
+          <p class="mb--small font-neutral"><a href="#">Mal: Innkallelse til drøftelsesmøte</a></p>
+          <button data-show="" id="" class="pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- result 1 -->
+      <div class="pathfinder__block pathfinder__result pathfinder__result--1 mt--large" id="result1">
+        <div class="block center center-block pt pb--small">
+          <p class="mb--xsmall font-neutral">Denne guiden tar deg gjennom nedbemanningsprosessen skritt for skritt.</p>
+          <p class="mb--xsmall font-neutral"><a href="#">Åpne guide (PDF)</a></p>
+          </p>
+        </div>
+      </div>
+
+      <!-- result 2 (showResult2) -->
+      <div class="pathfinder__block pathfinder__result pathfinder__result--2 mt--large" id="result2">
+        <div class="block center center-block pt pb--small">
+          <h3 class="mb--xxsmall">Den ansatte samtykket</h3>
+          <p class="mb--xsmall font-neutral">Du kan gjennomføre endringene. De ansatte endringene gjelder må nå si opp sine nåværende stillinger og bli tilbudt de nye stillingene</p>
+          <p class="mb--xsmall font-neutral"><a href="#">Mal: Oppsigelse (Word)</a></p>
+          <p class="mb--xsmall font-neutral"><a href="#">Mal: Arbeidskontrakt (Word)</a></p>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+	</div>
+{% endblock %}

@@ -111,10 +111,10 @@ $('.article-anchor').click(function(e){
 
 
 /*** accordion module ***/
-$('.article .accordion').each(function(){
-  var bottom = $(this).find('.accordion__content'),
-      bottomContent = $(this).find('.accordion__inner'),
-      btnSvg = $(this).find('.accordion__arrow');
+$('.a-toggle').each(function(){
+  var bottom = $(this).find('.a-toggle__content'),
+      bottomContent = $(this).find('.a-toggle__inner'),
+      btnSvg = $(this).find('.a-toggle__arrow');
 
   function showContent() {
     $(this).add(btnSvg).addClass('clicked');
@@ -132,5 +132,23 @@ $('.article .accordion').each(function(){
     $(this).one("click", showContent);
   }
 
-  $($(this).find('.accordion__button')).one("click", showContent);
+  $($(this).find('.a-toggle__button')).one("click", showContent);
+});
+
+
+
+/*** pathfinder module ***/
+$('.pathfinder__question').each(function(){
+  var thisQuestion = $(this);
+  var btnAnswer = $(this).find('.pathfinder__answer');
+
+  $(btnAnswer).on("click", function(){
+    var showResult = '#' + $(this).attr("data-show");
+    TweenLite.to(thisQuestion, .3, {y:15, opacity:0, autoAlpha: 0, ease:Quad.easeOut, onComplete:hideQuestion});
+  });
+
+  function hideQuestion(){
+    thisQuestion.css('display', 'none');
+  }
+
 });
