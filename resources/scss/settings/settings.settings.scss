@@ -1,3 +1,9 @@
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     padding: 2px;

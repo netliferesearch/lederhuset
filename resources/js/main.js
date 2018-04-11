@@ -138,17 +138,81 @@ $('.a-toggle').each(function(){
 
 
 /*** pathfinder module ***/
-$('.pathfinder__question').each(function(){
-  var thisQuestion = $(this);
-  var btnAnswer = $(this).find('.pathfinder__answer');
+var clickedPath = [];
 
-  $(btnAnswer).on("click", function(){
-    var showResult = '#' + $(this).attr("data-show");
-    TweenLite.to(thisQuestion, .3, {y:15, opacity:0, autoAlpha: 0, ease:Quad.easeOut, onComplete:hideQuestion});
+$('.pathfinder__question').each(function(){
+  var thisQuestion = $(this),
+      btnAnswer = $(this).find('.pathfinder__answer'),
+      btnExit = $('.exit-guide'),
+      showResultId;
+
+  //show result
+  btnAnswer.on("click", function(){
+    showResultId = $(this).attr("data-show");
+    var thisBtn = $(this);
+    var thisParent = $(this).parent().parent();
+
+    if (showResultId == "") {
+      alert('Beklager - dette svaret har ingen sti!');
+    } else {
+      clickedPath.push(showResultId);
+      console.log(clickedPath);
+      //if the question has been clicked on before
+      if ( $(thisParent).hasClass('clicked') ){
+        //if the button clicked has class clicked
+        if ( $(this).hasClass('clicked') ) {
+          // do nothing: both parent and button has been clicked before
+        } else {
+          //else there's a different button
+          console.log(thisParent);
+
+          var removeFromArray = $(this).parent().parent().attr('id');
+          clickedPath.splice(clickedPath.indexOf(removeFromArray), 1);
+          console.log('elements to be removed: ' + clickedPath);
+          $(thisParent).find('button').removeClass('clicked');
+          $(this).addClass('clicked');
+          for(var i = 0; i < clickedPath.length; i++){
+            var element = clickedPath[i];
+            TweenLite.fromTo($('#' + element), 0.5, {opacity:1, y:0}, {opacity:0, y:20, display:'none', ease:Expo.easeOut, onComplete:showQuestion});
+            $('#' + element).removeClass('clicked clicked__result');
+          }
+        }
+      //if this question has not been clicked on before
+      } else {
+        if (showResultId == "") {
+          alert('Beklager - dette svaret har ingen sti!');
+        } else if ((showResultId !== "") && ($('#' + showResultId).hasClass('clicked__result'))) {
+          scrollToQuestion();
+        } else {
+          showQuestion();
+        }
+      }
+    }
+
+    function showQuestion(){
+      TweenLite.to(thisQuestion, .3, {backgroundColor:'#fcd9cd', ease:Quad.easeOut});
+      TweenLite.fromTo($('#' + showResultId), 0.5, {opacity:0, y:20}, {opacity:1, y:0, display:'block', ease:Expo.easeOut, delay:.2, onComplete:scrollToQuestion});
+      $(thisBtn).add(thisQuestion).addClass('clicked');
+      $('#' + showResultId).addClass('clicked__result');
+    }
+
   });
 
-  function hideQuestion(){
-    thisQuestion.css('display', 'none');
+  //exit guide
+  btnExit.on("click", function(){
+    resetAll();
+  });
+
+  function scrollToQuestion(){
+    TweenLite.to(window, .4, {scrollTo:{y:$('#' + showResultId).offset().top - 50}, ease: Sine.easeOut});
+  }
+
+  function resetAll(){
+    $(thisQuestion).add('.pathfinder__block button').removeClass('clicked clicked__result');
+    TweenLite.to(window, .5, {scrollTo:{y:0}, ease: Sine.easeOut});
+    TweenLite.fromTo($('.pathfinder__block:not(:first-of-type)'), 0.5, {opacity:1, y:0}, {opacity:0, y:20, display:'none', ease:Expo.easeOut});
+    TweenLite.to(thisQuestion, .3, {backgroundColor:'#c3eee8', ease:Quad.easeOut});
+    clickedPath = [];
   }
 
 });

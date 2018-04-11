@@ -1,7 +1,17 @@
 .pathfinder {
+  min-height: calc(100vh - 350px);
+  position: relative;
   &__block {
+    max-width: 850px;
+    margin: 0 auto;
     &:not(:first-of-type) {
       display: none;
+    }
+    &.clicked {
+      a {
+        color: rgb(160, 133, 124);
+        background-image: linear-gradient(to right, rgb(160, 133, 124) 33%, rgba(255,255,255,0) 0%);
+      }
     }
   }
   &__result {
@@ -11,21 +21,41 @@
     background: $color-green-light;
   }
   &__answer {
-    border: 2px solid;
+    border: 2px solid $color-black;
     background: transparent;
     padding: 12px 20px 10px 20px;
     cursor: pointer;
-    margin: 0px 10px;
+    margin-right: 10px;
+    min-width: 190px;
+    max-width: 260px;
+    line-height: 1.3em;
+    transition: background .2s ease,color .2s ease;
+    &:last-child {
+      margin-right: 0px;
+    }
+    &.clicked {
+      background: $color-black;
+      color: $color-white;
+    }
+    &:hover, &:focus {
+      background: $color-black;
+      color: $color-white;
+    }
   }
-  ul {
+  ul, ol {
     list-style-position: inside;
   }
-  p, ul li {
+  p, ul li, ol li {
     font-size: 18px;
     line-height: 1.5em;
     a {
+      display: inline-block;
       color: $color-green;
-      border-bottom: 1px solid;
+      background-image: linear-gradient(to right, $color-green 33%, rgba(255,255,255,0) 0%);
+      background-position: bottom;
+      background-size: 3px 1px;
+      background-repeat: repeat-x;
+      transition: background .2s ease,color .2s ease;
     }
   }
   .block {
