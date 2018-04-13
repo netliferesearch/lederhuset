@@ -192,10 +192,6 @@
 .pb--xlarge {padding-bottom: calc(128px + 1vw);}
 .pb--none {padding-bottom: 0}
 
-.pl {
-  padding-left: calc(25px + 1.2vw);
-}
-
 .pt--xxsmall {padding-top: calc(4px + 1vw);}
 .pt--xsmall {padding-top: calc(8px + 1vw);}
 .pt--small {padding-top: calc(16px + 1vw);}
@@ -203,3 +199,15 @@
 .pt--large {padding-top: calc(64px + 1vw);}
 .pt--xlarge {padding-top: calc(128px + 1vw);}
 .pt--none {padding-top: 0}
+
+.pl {
+  padding-left: calc(25px + 1.2vw);
+}
+
+.pr {
+  padding-right: calc(25px + 1.2vw);
+}
+
+.no-pr--3:nth-child(3n) {
+  padding-right: 0px;
+}
