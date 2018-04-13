@@ -1,0 +1,19 @@
+<nav id="menu" class="main-menu">
+  <div class="grid-wrap">
+    <div class="center-block inline-wrapper">
+      <div class="u-1/2 inline__item pr--large">
+        <img src="/assets/menu-img.jpg" alt="Menu illustration" />
+      </div>
+      <div class="u-1/2 inline__item">
+        <ul class="reset-list list pb">
+          {% for entry in craft.entries.section('menu').limit(10) %}
+          <li class="list__item">
+            <a class="main-menu__item" href="{{ entry.url }}">{{ entry.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        <span class="font-neutral border--bottom">Logg inn</span>
+      </div>
+		</div>
+  </div>
+</nav>

@@ -3,6 +3,9 @@
     list-style: none;
   }
   &__item {
+    a {
+      display: block;
+    }
     &:first-child {
       border-top: 1px solid #000;
     }

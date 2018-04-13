@@ -165,3 +165,9 @@ $inuit-widths-breakpoint-separator: \@ !default;
   }
 
 }
+
+@media (max-width: $mobile) {
+  .u-1\/2 {
+    width: 100%;
+  }
+}

@@ -8,7 +8,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: $color-green;
+  background: $color-green-light;
   padding: 200px 0;
   color: $color-black;
   overflow-y: scroll;
@@ -19,5 +19,6 @@
   &__item {
     font-size: 30px;
     line-height: 1.5;
+    display: block;
   }
 }

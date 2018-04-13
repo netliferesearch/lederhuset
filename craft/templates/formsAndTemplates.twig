@@ -2,8 +2,27 @@
 {% set blocks = entry.blocks %}
 
 {% block content %}
-<div class="grid-wrap article-wrap">
+<div class="grid-wrap">
 
+  <header class="mb">
+    <h1 class="center title mt--large mb--large">{{ entry.title }}</h1>
+  </header>
+
+  <section class="article article--resources pb--large mb--large">
+    <div class="resources-list">
+      {% for entry in craft.entries.section('templatesAndResources') %}
+        <div class="u-1/3 resources-list__item pt">
+          <a class="font-neutral-b black" href="{{ entry.file.first().getUrl('') }}">
+            <span>{{ entry.title }}</span>
+            <svg class="arrow-download" width="10" height="10" viewBox="0 0 171 254">
+              <path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
+            </svg>
+          </a>
+          <p class="mt--none">{{ entry.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 
 </div>
 {% endblock %}

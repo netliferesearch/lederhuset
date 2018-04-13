@@ -1,5 +1,4 @@
 import '../scss/main.scss';
-import './toggle'
 
 /*** plugins ***/
 import $ from 'jquery';
@@ -134,6 +133,28 @@ $('.a-toggle').each(function(){
 
   $($(this).find('.a-toggle__button')).one("click", showContent);
 });
+
+/*** toggle menu ***/
+function toggleActive(elem){
+  elem.classList.toggle('active');
+}
+
+document.getElementById('menu__toggle').onclick = function() {
+  var menuElemToHide = $('.menu__logo-wrap, .menu__login'),
+      menuWrapper = $('#menu .inline-wrapper');
+  toggleActive(this);
+
+  if( $(this).hasClass('active') ){
+    TweenMax.to($("#menu"), .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn});
+    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:50}, {opacity:1, y:0, ease:Expo.easeOut});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
+  } else {
+    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
+
+    TweenMax.to($("#menu"), .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+  }
+}
 
 
 
