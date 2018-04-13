@@ -1,9 +1,14 @@
+$searchWidth: calc(550px + 4vw);
+
 .search {
   position: relative;
   &__wrapper {
     position: relative;
     border-bottom: 2px solid transparent;
-    width: calc(550px + 4vw);
+    width: $searchWidth;
+  }
+  &__results {
+    width: $searchWidth;
   }
   &__input {
     width: 100%;

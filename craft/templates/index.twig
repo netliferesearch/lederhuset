@@ -1,5 +1,5 @@
 {% extends "_layout" %}
-{% set categories = craft.categories.group('default').order('title') %}
+{% set categories = craft.categories.group('default') %}
 
 {% block content %}
 	<div class="grid-wrap">
@@ -21,18 +21,22 @@
 
 		<div class="mt--large mb--large" id="allEntries">
 			{% for category in categories %}
-			{% if category.image|length %}
-				<img src="{{ category.image.first().getUrl('') }}" alt="" />
-			{% endif %}
-			<div class="pb--large grid-item--small center-block">
-				<h3 class="pb center">{{ category.title }}</h3>
-				<ul class="list reset-list">
-					{% for entry in craft.entries.section('article').relatedTo(category) %}
-					<li class="list__item">
-						<a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a><br>
-					</li>
-					{% endfor %}
-				</ul>
+			<div class="pb--xlarge grid-item--medium center-block inline-wrapper">
+				<div class="u-1/2 inline__item">
+					{% if category.image|length %}
+						<img src="{{ category.image.first().getUrl('illustration') }}" alt="" />
+					{% endif %}
+				</div>
+				<div class="u-1/2 inline__item pl">
+					<h3 class="pb--small">{{ category.title }}</h3>
+					<ul class="list reset-list">
+						{% for entry in craft.entries.section('article').relatedTo(category) %}
+						<li class="list__item">
+							<a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a><br>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
 			</div>
 			{% endfor %}
 		</div>
