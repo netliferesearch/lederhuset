@@ -73,6 +73,12 @@
   }
 }
 
+.border {
+  &--bottom {
+    border-bottom: 1px solid #000;
+  }
+}
+
 // Colors
 .white {
   color: white;
@@ -128,10 +134,20 @@
 
 .font-neutral-b, a.font-neutral-b {
   font-family: $font-neutral-bold;
+  -webkit-font-smoothing: auto;
 }
 
 .block-elem {
   display: block;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.arrow-transition {
+  backface-visibility: hidden;
+  transition: transform .15s cubic-bezier(.25,.46,.45,.94);
 }
 
 // Margin and padding

@@ -1,0 +1,28 @@
+.virke-header {
+  &__wrapper {
+    font-size: 0em;
+    opacity: .4;
+    border-bottom: 2px solid #bbb;
+  }
+  &__item {
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: right;
+  }
+  &__logo {
+    display: block;
+    width: 60px;
+    opacity: .4;
+  }
+  &__url {
+    &:hover, &:focus {
+      .arrow-transition {
+        transform: translateX(-.25em);
+      }
+    }
+  }
+  &__text, &__svg {
+    display: inline-block;
+    font-size: 12px;
+  }
+}

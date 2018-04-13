@@ -3,6 +3,7 @@
   &__wrapper {
     position: relative;
     border-bottom: 2px solid transparent;
+    width: calc(550px + 4vw);
   }
   &__input {
     width: 100%;
@@ -32,7 +33,7 @@
       height: 100%;
       position: absolute;
       top: 0;
-      right: -8px;
+      right: 0px;
       background: #000;
     }
   }

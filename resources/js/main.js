@@ -60,7 +60,7 @@ searchfield.on('keyup change', function(e) {
 //do this when you click on exit
 closeSearch.on('click', function() {
   $('body').removeClass('search-open');
-  searchfield.attr("placeholder", 'Søk etter noe');
+  searchfield.attr("placeholder", 'Søk på noe');
   searchfield.val("");
   $('.search__typed-cursor').css('display', 'block');
   tl.reverse();
@@ -215,6 +215,7 @@ $('.pathfinder__question').each(function(){
   }
 });
 
+//pathfinder popup
 $('.pathfinder__popup').on("click", function(e){
   e.preventDefault();
   var popUpText = $(this).attr('data-text'),
@@ -238,5 +239,4 @@ $('.pathfinder__popup').on("click", function(e){
       TweenLite.to(popUpContainer, .3, {opacity:0, autoAlpha:0, ease: Quad.easeOut});
     }
   });
-
 });
