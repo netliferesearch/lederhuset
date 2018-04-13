@@ -34,9 +34,15 @@
   &__item {
     display: inline-block;
     vertical-align: top;
+    font-size: 1rem;
   }
 }
 
+.paragraph {
+  font-size: calc(14px + 0.3vw);
+  line-height: calc(24px + 0.3vw);
+  max-width: 500px;
+}
 
 // Visibility
 .is-hidden {
@@ -74,13 +80,13 @@
 }
 
 .borders {
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   &--top {
-    border-top: 2px solid #000;
+    border-top: 1px solid #000;
   }
   &--bottom {
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
   }
 }
 
