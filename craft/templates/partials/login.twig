@@ -1,0 +1,31 @@
+<nav id="login" class="login">
+  <div class="grid-wrap">
+    <div class="login__wrapper mt">
+      <div class="login__inner">
+        <h3 class="mb">Logg inn</h3>
+
+        <form method="post" accept-charset="UTF-8">
+            {{ getCsrfInput() }}
+            <input type="hidden" name="action" value="users/login">
+
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="loginName" type="text" name="loginName" value="{{ craft.session.rememberedUsername }}">
+              <span class="login__placeholder no-flicker">Brukernavn (e-post)</span>
+            </div>
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="password" type="password" name="password">
+              <span class="login__placeholder no-flicker">Passord</span>
+            </div>
+            <div class="font-neutral">
+              <input class="login__submit" type="submit" value="Logg inn">
+            </div>
+
+            {% if errorMessage is defined %}
+                <p>{{ errorMessage }}</p>
+            {% endif %}
+        </form>
+
+      </div>
+		</div>
+  </div>
+</nav>

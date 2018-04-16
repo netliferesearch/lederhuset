@@ -150,13 +150,39 @@ document.getElementById('menu__toggle').onclick = function() {
     TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
   } else {
     TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-
     TweenMax.to($("#menu"), .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
   }
 }
 
+//login form
+$('#menu__login').on('click', function(e) {
+  e.preventDefault();
+  var menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
+      menuWrapper = $('#login .login__wrapper');
+  toggleActive(this);
 
+  if( $(this).hasClass('active') ){
+    TweenMax.to($("#login"), .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn});
+    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
+  } else {
+    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
+    TweenMax.to($("#login"), .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+  }
+});
+
+
+function checkInputVal(){
+  if( $(this).val().length === 0 ) {
+    $(this).parent().removeClass('input__wrapper--filled');
+  } else {
+    $(this).parent().addClass('input__wrapper--filled');
+  }
+}
+
+$('.login__input').blur(checkInputVal);
 
 /*** pathfinder module ***/
 var clickedPath = [];

@@ -1,0 +1,64 @@
+.login {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: $color-grey-light;
+  padding: 200px 0;
+  color: #000;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  &__wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  &__input, &__submit, &__placeholder {
+    font-size: 16px;
+    line-height: 1.4em;
+  }
+  &__input, &__submit {
+    font-family: $font-neutral;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    outline: 0;
+  }
+  &__input {
+    position: relative;
+    width: 100%;
+    padding: 8px 0px;
+    z-index: 1;
+  }
+  &__submit {
+    border: 1px solid;
+    padding: 14px 20px 12px 20px;
+    width: 150px;
+    text-align: left;
+  }
+  &__placeholder {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    z-index: -1;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .input__wrapper {
+    position: relative;
+    border-bottom: 1px solid;
+    &--filled .login__placeholder {
+      top: -13px;
+      font-size: 11px;
+    }
+  }
+  &__input:focus ~ &__placeholder {
+    top: -13px;
+    font-size: 11px;
+  }
+
+}

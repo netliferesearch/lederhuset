@@ -5,92 +5,11 @@
 {% block content %}
 	<div class="grid-wrap">
 
-		<!-- Search -->
-		<div class="search pb--large pt--large">
-			<div class="u-1/2 center-block search__wrapper">
-				<input class="search__input" type="text" placeholder="Søk på noe" id="mainSearch">
-				<span class="search__typed-cursor"></span>
-			</div>
-			<button class="search__close" id="searchClose">
-				<span class="close__icon"></span>
-			</button>
-	  </div>
-
-		<!-- Search results -->
-		<div class="search__results u-1/2 center-block" id="searchResults">
-			<ul class="list reset-list">
-			</ul>
-		</div>
-
-		<!-- Get categories in featured categories -->
-		<div class="mt--large mb--large border--bottom" id="allEntries">
-			{% for category in featuredCategories %}
-			<div class="pb--xlarge grid-item--medium center-block inline-wrapper">
-				<div class="u-1/2 inline__item">
-					{% if category.image|length %}
-						<img src="{{ category.image.first().getUrl('illustration') }}" alt="" />
-					{% endif %}
-				</div>
-				<div class="u-1/2 inline__item pl">
-					<h3 class="pb--small">{{ category.title }}</h3>
-					<ul class="list reset-list">
-						{% for entry in craft.entries.section('article').relatedTo(category) %}
-						<li class="list__item">
-							<a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a>
-						</li>
-						{% endfor %}
-					</ul>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-
-		<!-- Get all categories that's not shown in featured -->
-		{% set moreCategories = craft.categories.group('default').id('and, not ' ~ featuredIds | join(', not ')) %}
-		<div class="mb--large border--bottom">
-			<h1 class="center mb--large">Flere tema</h1>
-			<div class="inline-wrapper">
-				{% for category in moreCategories %}
-					<div class="u-1/3 inline__item pb--large pr no-pr--3">
-						<h3 class="pb--small">{{ category.title }}</h3>
-						<ul class="list reset-list">
-							{% for entry in craft.entries.section('article').relatedTo(category) %}
-							<li class="list__item">
-								<a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a>
-							</li>
-							{% endfor %}
-						</ul>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-
-		<!-- Templates and resources (maler og ressurser) -->
-		<div class="mt--large mb--large border--bottom" id="allEntries">
-			{% for entry in craft.entries.section('formsAndTemplates') %}
-				<div class="pb--xlarge center-block inline-wrapper">
-					<div class="u-1/2 inline__item">
-						<h2 class="pb--small">{{ entry.title }}</h2>
-						<p class="paragraph font-neutral">
-							<a class="underline" href="{{ entry.url }}">Se alle skjema og maler</a>
-							utviklet og oppdatert av Virkes eksperter på arbeidsrett.
-						</p>
-					</div>
-					<div class="u-1/2 inline__item pl">
-						<img src="{{ entry.image.first().getUrl('illustration') }}" alt="" />
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-
-		<!-- Link to pathfinder/veiviser -->
-		<div class="article-header mb--xlarge bg-green--light">
-	    <div class="pt pb grid-wrap">
-	      <h1 class="center title mt--large mb--large">
-					<a style="text-decoration:underline" href="/kan-jeg-si-opp-en-ansatt">Kan jeg si opp en ansatt?</a>
-				</h1>
-	    </div>
-	  </div>
+		{% if craft.session.isLoggedIn %}
+			{% include 'shared/frontpageLoggedIn' %}
+		{% else %}
+			{% include 'shared/frontpageLoggedOut' %}
+		{% endif %}
 
 	</div>
 {% endblock %}

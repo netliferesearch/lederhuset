@@ -137,16 +137,37 @@
           <h3 class="mb--xxsmall">Gyldig grunn</h3>
           <p class="mb--small font-neutral">Er oppsigelsen begrunnet med mangel på dyktighet og/eller pålitelighet?</p>
           <button data-show="question12" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
-          <button data-show="" class="pathfinder__answer pathfinder__answer--2 font-neutral">Usikker</button>
+          <button data-show="question34" class="pathfinder__answer pathfinder__answer--2 font-neutral">Usikker</button>
         </div>
       </div>
 
       <!-- question 12 -->
       <div class="pathfinder__block pathfinder__question mt" id="question12">
         <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Opplæring</h3>
           <p class="mb--small font-neutral">Har du gitt tilstrekkelig opplæring, instruksjon og veiledning?</p>
           <button data-show="question13" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
-          <button data-show="" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+          <button data-show="question12_1" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 12_1 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question12_1">
+        <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Tid til opplæring?</h3>
+          <p class="mb--small font-neutral">Er det nok tid igjen av prøvetiden til at du kan gjøre dette nå?</p>
+          <button data-show="result12" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="question12_2" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 12_2 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question12_2">
+        <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Sykefravær?</h3>
+          <p class="mb--small font-neutral">Har det vært sykefravær i løpet av prøvetiden?</p>
+          <button data-show="result13" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="result11" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
         </div>
       </div>
 
@@ -156,7 +177,7 @@
           <h3 class="mb--xxsmall">Har du dokumentasjon?</h3>
           <p class="mb--small font-neutral">Kan du dokumentere tilstrekkelig opplæring? Dokumentasjon kan f.eks. være referater fra møter og samtaler, opplæringsplan.</p>
           <button data-show="question14" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
-          <button data-show="" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+          <button data-show="result10" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
         </div>
       </div>
 
@@ -393,11 +414,178 @@
       <div class="pathfinder__block pathfinder__question mt" id="question31">
         <div class="block center center-block pt pb">
           <p class="mb--small font-neutral">Du må ta en beslutning.</p>
-          <button data-show="question18" class="pathfinder__answer pathfinder__answer--1 font-neutral">Si opp</button>
+          <button data-show="question32" class="pathfinder__answer pathfinder__answer--1 font-neutral">Si opp</button>
           <button data-show="result6" class="pathfinder__answer pathfinder__answer--2 font-neutral">Skriftlig advarsel og ny sjanse</button>
           <button data-show="result5" class="pathfinder__answer pathfinder__answer--3 font-neutral">Tilby sluttpakke</button>
         </div>
       </div>
+
+			<!-- question 32 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question32">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Si opp den ansatte</h3>
+          <p class="mb--small font-neutral">Oppsigelsen må overrekkes personlig eller sendes rekommandert.</p>
+          <p class="mb--xsmall font-neutral font-smaller"><a href="#">Mal: Oppsigelse (Word)</a></p>
+          <button data-show="question33" class="pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+      <!-- question 33 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question33">
+        <div class="block center center-block pt pb">
+          <p class="mb--small font-neutral">Aksepterte den ansatte oppsigelsen?</p>
+          <button data-show="result7" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="result8" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 34 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question34">
+        <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Usikkert om gyldig grunn</h3>
+          <p class="mb--small font-neutral">Det er ikke alltid like lett å vurdere hva saklig grunn er. Snakk med en av våre rådgivere, så hjelper vi deg med avgjørelsen!</p>
+					<p class="mb--xsmall font-neutral font-smaller">
+            Telefon: <a href="tel:22541700">22 54 17 00</a><br />
+            E-post: <a href="mailto:arbeidsrett@virke.no">arbeidsrett@virke.no</a><br />
+          </p>
+					<button data-show="question35" class="pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+			<!-- question 35 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question35">
+        <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Opplæring</h3>
+          <p class="mb--small font-neutral">Har du gitt tilstrekkelig opplæring, instruksjon og veiledning?</p>
+          <button data-show="question36" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="question35_1" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 35_1 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question35_1">
+        <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Tid til opplæring?</h3>
+          <p class="mb--small font-neutral">Er det nok tid igjen av prøvetiden til at du kan gjøre dette nå?</p>
+          <button data-show="result12" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="question35_2" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 35_2 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question35_2">
+        <div class="block center center-block pt pb">
+					<h3 class="mb--xxsmall">Sykefravær?</h3>
+          <p class="mb--small font-neutral">Har det vært sykefravær i løpet av prøvetiden?</p>
+          <button data-show="result13" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="result11" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 36 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question36">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Har du dokumentasjon?</h3>
+          <p class="mb--small font-neutral">Kan du dokumentere tilstrekkelig opplæring? Dokumentasjon kan f.eks. være referater fra møter og samtaler, opplæringsplan.</p>
+          <button data-show="question37" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="result10" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 37 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question37">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Kall inn til drøftelsesmøte</h3>
+          <p class="mb--small font-neutral">Du må innkalle til drøftelsesmøte. Kall inn den ansatte og eventuelle tillitsvalgte.</p>
+          <p class="mb--small font-neutral font-smaller"><a href="#">Mal: Innkallelse til drøftelsesmøte</a></p>
+          <button data-show="question38" class="pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+			<!-- question 38 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question38">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Drøftelsesmøte</h3>
+          <p class="mb--small font-neutral">Krav til drøftelsesmøte:</p>
+          <ol class="mb--small font-neutral">
+            <li>Den ansatte fikk skriftlig innkalling i god tid.</li>
+            <li>Den ansatte ble informert om at det er mulig å ha med en rådgiver.</li>
+            <li>Den ansatte fikk god informasjon om problemstillingen.</li>
+            <li>Møtet skal protokollføres.</li>
+          </ol>
+          <p class="mb--small font-neutral">Har du gjennomført drøftingsmøte i henhold til kravene?</p>
+          <button data-show="question39" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+			<!-- question 39 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question39">
+        <div class="block center center-block pt pb">
+          <p class="mb--small font-neutral">Hva ble utfallet av drøftelsesmøtet?</p>
+          <button data-show="question40" class="pathfinder__answer pathfinder__answer--1 font-neutral">Den ansatte velger å si opp</button>
+          <button data-show="question41" class="pathfinder__answer pathfinder__answer--2 font-neutral">Vi kom ikke til enighet</button>
+        </div>
+      </div>
+
+			<!-- question 40 -->
+      <div class="pathfinder__block pathfinder__question pathfinder__question--input mt" id="question40">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Den ansatte velger å si opp</h3>
+          <p class="mb--small font-neutral">Du må be den ansatte om å gi oppsigelsen skriftlig så raskt som mulig. Enten på e-post eller på papir.</p>
+          <p class="mb--small font-neutral">Send skriftlig bekreftelse på at du har mottatt og akseptert oppsigelsen.</p>
+          <div class="input">
+            <div class="my-2 my-md-1">
+              <label class="checkbox-label">
+                <input id="check1" name="check1" type="checkbox" class="checkbox">
+                <span class="checkbox-label__text font-neutral">Skriftlig oppsigelse mottatt</span>
+              </label>
+            </div>
+            <div class="my-2 my-md-1">
+              <label class="checkbox-label">
+                <input id="check2" name="check2" type="checkbox" class="checkbox">
+                <span class="checkbox-label__text font-neutral">Skriftlig bekreftelse sendt</span>
+              </label>
+            </div>
+          </div>
+					<button disabled data-show="result9" class="mt--xsmall pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+			<!-- question 41 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question41">
+        <div class="block center center-block pt pb">
+          <p class="mb--small font-neutral">Du må ta en beslutning.</p>
+          <button data-show="question42" class="pathfinder__answer pathfinder__answer--1 font-neutral">Si opp</button>
+          <button data-show="result6" class="pathfinder__answer pathfinder__answer--2 font-neutral">Skriftlig advarsel og ny sjanse</button>
+          <button data-show="result5" class="pathfinder__answer pathfinder__answer--3 font-neutral">Tilby sluttpakke</button>
+        </div>
+      </div>
+
+			<!-- question 42 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question42">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Si opp den ansatte</h3>
+          <p class="mb--small font-neutral">Oppsigelsen må overrekkes personlig eller sendes rekommandert.</p>
+          <p class="mb--xsmall font-neutral font-smaller"><a href="#">Mal: Oppsigelse (Word)</a></p>
+          <button data-show="question43" class="pathfinder__answer pathfinder__answer--1 font-neutral">Gå videre</button>
+        </div>
+      </div>
+
+      <!-- question 43 -->
+      <div class="pathfinder__block pathfinder__question mt" id="question43">
+        <div class="block center center-block pt pb">
+          <p class="mb--small font-neutral">Aksepterte den ansatte oppsigelsen?</p>
+          <button data-show="result7" class="pathfinder__answer pathfinder__answer--1 font-neutral">Ja</button>
+          <button data-show="result8" class="pathfinder__answer pathfinder__answer--2 font-neutral">Nei</button>
+        </div>
+      </div>
+
+
+
+
+
+
 
 
 
@@ -410,7 +598,7 @@
         <div class="block center center-block pt pb">
           <p class="mb--xsmall font-neutral">Denne guiden tar deg gjennom nedbemanningsprosessen skritt for skritt.</p>
           <p class="mb--xsmall font-neutral"><a href="#">Åpne guide (PDF)</a></p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -421,7 +609,7 @@
           <p class="mb--xsmall font-neutral">Du kan gjennomføre endringene. De ansatte endringene gjelder må nå si opp sine nåværende stillinger og bli tilbudt de nye stillingene</p>
           <p class="mb--xsmall font-neutral font-smaller"><a href="#">Mal: Oppsigelse (Word)</a></p>
           <p class="mb--xsmall font-neutral font-smaller"><a href="#">Mal: Arbeidskontrakt (Word)</a></p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -435,7 +623,7 @@
             Telefon: <a href="tel:22541700">22 54 17 00</a><br />
             E-post: <a href="mailto:arbeidsrett@virke.no">arbeidsrett@virke.no</a><br />
           </p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -443,7 +631,7 @@
       <div class="pathfinder__block pathfinder__result mt" id="result4">
         <div class="block center center-block pt pb">
           <h3 class="mb--xxsmall">Prosessen er nå over, og du kan avslutte guiden</h3>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -456,7 +644,7 @@
             Telefon: <a href="tel:22541700">22 54 17 00</a><br />
             E-post: <a href="mailto:arbeidsrett@virke.no">arbeidsrett@virke.no</a><br />
           </p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -465,7 +653,7 @@
         <div class="block center center-block pt pb">
           <h3 class="mb--xxsmall">Skriftlig advarsel og ny sjanse</h3>
           <p class="mb--xsmall font-neutral font-smaller"><a href="#">Mal: Skriflig advarsel (Word)</a></p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -475,7 +663,7 @@
           <h3 class="mb--xxsmall">Oppsigelse akseptert</h3>
           <p class="mb--xsmall font-neutral">Den ansatte aksepterer oppsigelsen. Arbeidsforholdet opphører når oppsigelsestiden utløper.</p>
           <p class="mb--xsmall font-neutral">Prosessen er nå over. Du kan avslutte guiden.</p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -489,7 +677,7 @@
             Telefon: <a href="tel:22541700">22 54 17 00</a><br />
             E-post: <a href="mailto:arbeidsrett@virke.no">arbeidsrett@virke.no</a><br />
           </p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -499,7 +687,7 @@
           <h3 class="mb--xxsmall">Oppsigelse akseptert</h3>
           <p class="mb--xsmall font-neutral">Den ansatte aksepterer oppsigelsen. Arbeidsforholdet opphører når oppsigelsestiden utløper.</p>
 					<p class="mb--xsmall font-neutral">Prosessen er nå over. Du kan avslutte guiden.</p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 
@@ -509,7 +697,38 @@
           <h3 class="mb--xxsmall">Mangler dokumentasjon</h3>
           <p class="mb--xsmall font-neutral">Du kan ikke gå til oppsigelse uten dokumentasjon. Begynn å samle dokumentasjon.</p>
 					<p class="mb--xsmall font-neutral">Du kan avslutte guiden.</p>
-          <button class="pathfinder__answer font-neutral exit-guide mt--xxsmall">Avslutt guiden</button>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
+        </div>
+      </div>
+
+			<!-- result 11 -->
+      <div class="pathfinder__block pathfinder__result mt" id="result11">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Du kan ikke si opp</h3>
+          <p class="mb--xsmall font-neutral">Prøvetiden vil gå over i en ordinær ansettelse, og du må starte oppfølging av den ansatte.</p>
+					<p class="mb--xsmall font-neutral">Prosessen er nå over. Du kan avslutte guiden.</p>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
+        </div>
+      </div>
+
+			<!-- result 12 -->
+      <div class="pathfinder__block pathfinder__result mt" id="result12">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Start opplæring</h3>
+          <p class="mb--xsmall font-neutral">Husk å dokumentere.</p>
+					<p class="mb--xsmall font-neutral">Du kan avslutte guiden.</p>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
+        </div>
+      </div>
+
+			<!-- result 13 -->
+      <div class="pathfinder__block pathfinder__result mt" id="result13">
+        <div class="block center center-block pt pb">
+          <h3 class="mb--xxsmall">Ja, sykefravær under prøvetiden</h3>
+          <p class="mb--xsmall font-neutral">Hvis kontraktfestet, kan du forlenge prøvetiden med lengden av sykefraværet.</p>
+					<p class="mb--xsmall font-neutral">Start opplæring og husk å dokumentere.</p>
+					<p class="mb--xsmall font-neutral">Du kan avslutte guiden.</p>
+          <button class="pathfinder__answer font-neutral exit-guide">Avslutt guiden</button>
         </div>
       </div>
 

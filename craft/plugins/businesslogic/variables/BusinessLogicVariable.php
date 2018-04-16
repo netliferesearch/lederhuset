@@ -21,7 +21,7 @@ namespace Craft;
 
 class BusinessLogicVariable
 {
-    
+
     // Check if access cookie is set
     public function accessGranted()
     {

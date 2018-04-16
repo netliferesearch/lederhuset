@@ -32,7 +32,7 @@ class BusinessLogicController extends BaseController
 	 * See also:
 	 * http://buildwithcraft.com/docs/plugins/controllers#allowing-anonymous-access-to-actions
 	 */
-    
+
 	// protected $allowAnonymous = true;
     protected $allowAnonymous = true;
 
@@ -67,10 +67,10 @@ class BusinessLogicController extends BaseController
     private function _validPassword($pwSubmitted)
     {
         // Get global set
-        $globalSet = craft()->globals->getSetById(11);
+        $globalSet = craft()->globals->getSetById(185);
 
         // Get target password
-        $pwTarget = $globalSet->passord;
+        $pwTarget = $globalSet->pass;
 
         // Return whether password matches
         return ($pwSubmitted === $pwTarget);
