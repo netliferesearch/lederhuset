@@ -2,8 +2,12 @@
   <div class="grid-wrap">
     <div class="login__wrapper mt">
       <div class="login__inner">
+      {% if craft.session.isLoggedIn %}
+        <h3 class="mb--xsmall">{{ currentUser.name }}</h3>
+        <p class="font-neutral paragraph mb">{{ currentUser.email }}</p>
+        <a class="font-neutral border--bottom" href="{{ logoutUrl }}">Logg ut</a>
+      {% else %}
         <h3 class="mb">Logg inn</h3>
-
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="action" value="users/login">
@@ -21,10 +25,12 @@
             </div>
 
             {% if errorMessage is defined %}
-                <p>{{ errorMessage }}</p>
+            <div class="mt--small">
+              <p class="paragraph font-neutral">{{ errorMessage }}</p>
+            </div>
             {% endif %}
         </form>
-
+      {% endif %}
       </div>
 		</div>
   </div>

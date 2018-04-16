@@ -183,6 +183,7 @@ function checkInputVal(){
 }
 
 $('.login__input').blur(checkInputVal);
+$('.login__input').each(checkInputVal);
 
 /*** pathfinder module ***/
 var clickedPath = [];

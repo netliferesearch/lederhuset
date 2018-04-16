@@ -1,19 +1,22 @@
 <div class="mt--large mb--large border--bottom">
-
   <!-- first block -->
   {% for block in entry.frontpage_firstBlock %}
     <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
       <div class="u-1/2 inline__item">
         <h2 class="pb--small">{{ block.heading }}</h2>
-        <p class="paragraph font-neutral">{{ block.text }}</p>
-        <button type="button" name="button">Prøv gratis</button>
+        <p class="paragraph font-neutral pb--small">{{ block.text }}</p>
+        <button class="lh-button" type="button" name="button">
+          <span class="lh-button__text">Prøv gratis</span>
+          <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+          	<path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+          </svg>
+        </button>
       </div>
       <div class="u-1/2 inline__item pl">
         <img src="{{ block.image.first().getUrl('illustration') }}" alt="" />
       </div>
     </div>
   {% endfor %}
-
   <!-- blocks -->
   {% for block in entry.frontpage_blocks %}
     <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
@@ -36,5 +39,51 @@
       {% endif %}
     </div>
   {% endfor %}
+</div>
 
+<!-- salesblock -->
+<div class="mt--large mb--large border--bottom">
+  <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
+    <div class="u-1/2 inline__item">
+      <h2 class="pb--small">{{ siteName }}</h2>
+      <div class="paragraph font-neutral pb--small">{{ entry.salesText }}</div>
+      <button class="lh-button mb--large" type="button" name="button">
+        <span class="lh-button__text">Prøv gratis</span>
+        <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+          <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+        </svg>
+      </button>
+      <div class="inline-wrapper">
+        <a class="inline__item inline__item--smaller borders--bottom font-neutral" href="#">Bli abonnement</a>
+        <a class="inline__item inline__item--smaller borders--bottom font-neutral" href="#">Logg inn</a>
+      </div>
+    </div>
+    <div class="u-1/2 inline__item pl">
+      <img src="{{ entry.salesImage.first().getUrl('illustration') }}" alt="" />
+    </div>
+  </div>
+</div>
+
+<div class="article-header mb bg-green--light">
+  <div class="pt grid-wrap">
+    <h1 class="center title mt--large mb--large">{{ siteName }}</h1>
+  </div>
+  <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
+    <div class="u-1/2 inline__item pr">
+      <img src="{{ entry.salesImage.last().getUrl('illustration') }}" alt="" />
+    </div>
+    <div class="u-1/2 inline__item">
+      <div class="paragraph font-neutral pb--small">{{ entry.salesText }}</div>
+      <button class="lh-button mb paragraph" type="button" name="button">
+        <span class="lh-button__text">Prøv gratis</span>
+        <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+          <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+        </svg>
+      </button>
+      <div class="inline-wrapper">
+        <a class="inline__item inline__item--smaller borders--bottom font-neutral" href="#">Bli abonnement</a>
+        <a class="inline__item inline__item--smaller borders--bottom font-neutral" href="#">Logg inn</a>
+      </div>
+    </div>
+  </div>
 </div>
