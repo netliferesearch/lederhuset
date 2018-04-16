@@ -10,14 +10,25 @@
   }
   &__answer {
     border: 2px solid $color-black;
+    color: $color-black;
     background: transparent;
     padding: 12px 20px 10px 20px;
-    cursor: pointer;
     margin-right: 10px;
     min-width: 100px;
     max-width: 277px;
     line-height: 1.3em;
-    transition: background .2s ease,color .2s ease;
+    transition: all .2s ease;
+    &:disabled {
+      opacity: .3;
+    }
+    &:enabled {
+      opacity: 1;
+      cursor: pointer;
+      &:hover, &:focus {
+        background: $color-black;
+        color: $color-white;
+      }
+    }
     @media (max-width: $mobile) {
       font-size: 14px;
       padding: 12px 15px 10px 15px;
@@ -26,10 +37,6 @@
       margin-right: 0px;
     }
     &.clicked {
-      background: $color-black;
-      color: $color-white;
-    }
-    &:hover, &:focus {
       background: $color-black;
       color: $color-white;
     }
@@ -65,7 +72,7 @@
       font-size: 16px;
     }
   }
-  p, ul li, ol li {
+  p, ul li, ol li, .input span {
     font-size: 16px;
     line-height: 1.5em;
     @media (min-width: $mobile) {
@@ -129,6 +136,61 @@
         min-width: 650px;
         padding: 70px 110px;
       }
+    }
+  }
+  .my-md-1 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  .checkbox-label {
+      cursor: pointer;
+      margin-left: 2px;
+  }
+  input[type=checkbox], input[type=radio] {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 0;
+  }
+  .checkbox {
+    position: relative;
+    top: -4px;
+    margin: 0 11px 0 0;
+    cursor: pointer;
+    outline: 0;
+    &:after, &:before {
+      content: '';
+    }
+    &:before {
+      -webkit-transition: -webkit-transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+      transition: transform .4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+      -webkit-transform: rotate(-45deg) scale(0);
+      transform: rotate(-45deg) scale(0);
+      position: absolute;
+      left: 0px;
+      top: -2px;
+      z-index: 1;
+      width: 20px;
+      height: 9px;
+      border: 2px solid #000;
+      border-top-style: none;
+      border-right-style: none;
+      outline: 0;
+    }
+    &:after {
+      background-color: $color-green-light;
+      -webkit-transition: all .2s ease;
+      transition: all .2s ease;
+      position: absolute;
+      top: -.125rem;
+      left: -3px;
+      width: 20px;
+      height: 20px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+    &:checked:before {
+      -webkit-transform: rotate(-45deg) scale(1);
+      transform: rotate(-45deg) scale(1);
     }
   }
 }

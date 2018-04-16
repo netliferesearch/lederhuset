@@ -234,7 +234,18 @@ $('.pathfinder__question').each(function(){
     TweenLite.to(thisQuestion, .3, {backgroundColor:'#c3eee8', ease:Quad.easeOut});
     clickedPath = [];
   }
+
+  var checkboxes = $(this).find('input[type=checkbox]');
+  checkboxes.change(function(){
+    if($('#check1').is(':checked') && $('#check2').is(':checked')) {
+      $('#question20 button').attr("disabled", false);
+    } else {
+      $('#question20 button').attr("disabled", true);
+    }
+  });
+
 });
+
 
 //pathfinder popup
 $('.pathfinder__popup').on("click", function(e){
