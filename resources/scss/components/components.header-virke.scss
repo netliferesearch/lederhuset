@@ -25,4 +25,9 @@
     display: inline-block;
     font-size: 12px;
   }
+  @media (max-width: $mobile) {
+    .u-1\/2 {
+      width: 50%;
+    }
+  }
 }

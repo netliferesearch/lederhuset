@@ -8,7 +8,10 @@ h1 {
 }
 
 h2 {
-  font-size: 60px;
+  font-size: 32px;
+  @media (min-width: $mobile) {
+    font-size: 60px;
+  }
 }
 
 h3 {

@@ -20,23 +20,13 @@
   <!-- blocks -->
   {% for block in entry.frontpage_blocks %}
     <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
-      {% if loop.index0 % 2 == 0 %}
-        <div class="u-1/2 inline__item pr">
-          <img src="{{ block.image.first().getUrl('illustration') }}" alt="" />
-        </div>
-        <div class="u-1/2 inline__item">
-          <h2 class="pb--small">{{ block.heading }}</h2>
-          <p class="paragraph font-neutral">{{ block.text }}</p>
-        </div>
-      {% else %}
-        <div class="u-1/2 inline__item">
-          <h2 class="pb--small">{{ block.heading }}</h2>
-          <p class="paragraph font-neutral">{{ block.text }}</p>
-        </div>
-        <div class="u-1/2 inline__item pl">
-          <img src="{{ block.image.first().getUrl('illustration') }}" alt="" />
-        </div>
-      {% endif %}
+      <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated{% endif %}">
+        <h2 class="pb--small">{{ block.heading }}</h2>
+        <p class="paragraph font-neutral">{{ block.text }}</p>
+      </div>
+      <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated pr{% else %}pl{% endif %}">
+        <img src="{{ block.image.first().getUrl('illustration') }}" alt="" />
+      </div>
     </div>
   {% endfor %}
 </div>
