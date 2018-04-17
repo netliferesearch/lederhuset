@@ -134,60 +134,40 @@ $('.a-toggle').each(function(){
   $($(this).find('.a-toggle__button')).one("click", showContent);
 });
 
+
+
+
 /*** toggle menu ***/
 function toggleActive(elem){
   elem.classList.toggle('active');
 }
 
-document.getElementById('menu__toggle').onclick = function() {
-  var menuElemToHide = $('.menu__logo-wrap, .menu__login'),
-      menuWrapper = $('#menu .inline-wrapper');
-  toggleActive(this);
-
-  if( $(this).hasClass('active') ){
-    TweenMax.to($("#menu"), .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn});
-    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:50}, {opacity:1, y:0, ease:Expo.easeOut});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
-  } else {
-    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-    TweenMax.to($("#menu"), .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
-  }
-}
-
-//login form
-$('[data-show="logIn"]').on('click', function(e) {
+//menu, login and registration form
+$('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('click', function(e) {
+  var thisAttr = '#' + $(this).attr('data-show');
+  var menuElemToHide;
+  var menuWrapper;
   e.preventDefault();
-  var menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
-      menuWrapper = $('#login .login__wrapper');
   toggleActive(this);
 
-  if( $(this).hasClass('active') ){
-    TweenMax.to($("#login"), .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn});
-    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
+  if ( $(this).hasClass('menu__toggle')) {
+    menuElemToHide = $('.menu__logo-wrap, .menu__login'),
+    menuWrapper = thisAttr + ' .inline-wrapper';
   } else {
-    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-    TweenMax.to($("#login"), .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+    menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
+    menuWrapper = thisAttr + ' .login__wrapper';
   }
-});
-
-//registration form
-$('[data-show="becomeMember"]').on('click', function(e) {
-  e.preventDefault();
-  var menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
-      menuWrapper = $('#registration .login__wrapper');
-  toggleActive(this);
 
   if( $(this).hasClass('active') ){
-    TweenMax.to($("#registration"), .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn});
-    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut});
+    TweenMax.to(thisAttr, .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn, force3D:true});
+    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut, force3D:true});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
+    $('body').addClass('formOpen');
   } else {
+    TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
     TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-    TweenMax.to($("#registration"), .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+    $('body').removeClass('formOpen');
   }
 });
 

@@ -9,14 +9,16 @@
   height: 100%;
   backface-visibility: hidden;
   background: $color-grey-light;
-  padding: 200px 0;
   color: #000;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   &__wrapper {
     position: relative;
+  }
+  .absolute-center {
+    width: 100%;
     max-width: 500px;
-    margin: 0 auto;
+    text-align: left;
   }
   &__input, &__submit, &__placeholder {
     font-size: 16px;

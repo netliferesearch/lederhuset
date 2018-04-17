@@ -1,5 +1,5 @@
 <nav id="registration" class="login">
-  <div class="grid-wrap">
+  <div class="grid-wrap absolute-center">
     <div class="login__wrapper">
       <div class="login__inner">
         <h3 class="mb">Bli abonnement</h3>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="input__wrapper mb font-neutral">
-              <input class="login__input" id="firstName" type="text" name="lastName"
+              <input class="login__input" id="lastName" type="text" name="lastName"
                   {%- if account is defined %} value="{{ account.lastName }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Etternavn</span>
               {% if account is defined %}
@@ -58,7 +58,7 @@
             </div>
 
             <div class="input__wrapper mb font-neutral">
-              <input class="login__input" id="password" type="password" name="password">
+              <input class="login__input" id="reg-password" type="password" name="password">
               <span class="login__placeholder no-flicker">Passord</span>
               {% if account is defined %}
                   {{ errorList(account.getErrors('password')) }}
