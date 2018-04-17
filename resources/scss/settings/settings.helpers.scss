@@ -163,6 +163,7 @@
   &__item {
     display: inline-block;
     font-size: 1rem;
+    vertical-align: middle;
   }
 }
 
@@ -347,6 +348,10 @@ $mp--xxlarge: 12.5vw;
 .no-pr--3:nth-child(3n) {
   padding-right: 0px;
   padding-left: $mp--small;
+}
+
+.mr--xsmall {
+  margin-right: $mp--xsmall;
 }
 
 .mr {
