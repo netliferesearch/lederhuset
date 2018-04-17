@@ -3,10 +3,16 @@ $h3--margin-t: 3.5vw;
 
 .article {
   position: relative;
+  h1 {
+    word-wrap: break-word;
+  }  
   h1 + .block.text.paragraph {
     p:first-child {
       margin-top: 0px;
     }
+  }
+  h1 + .block.fact {
+    margin-top: 0px;
   }
   li strong, p strong {
     font-weight: normal;
@@ -35,7 +41,7 @@ $h3--margin-t: 3.5vw;
   h3 {
     font-family: $font-neutral-bold;
     margin-top: $h3--margin-t;
-  }  
+  }
   a {
     color: $color-green;
     border-bottom: 1px solid;
@@ -65,6 +71,10 @@ $h3--margin-t: 3.5vw;
       border: 0;
       background: transparent;
       margin: 0;
+      span {
+        display: block;
+        max-width: 85%;
+      }
     }
     &__arrow {
       width: 1vw;
@@ -97,7 +107,7 @@ $h3--margin-t: 3.5vw;
     border: 2px solid;
   }
   .fact {
-    b + p {
+    b + p, b + ul, b + ol {
       margin-top: 0px;
     }
   }

@@ -155,7 +155,7 @@
       <ul class="list list--no-style pb--large block center-block">
       {% for entry in craft.entries.section('article').relatedTo(category) %}
         <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
-          <a href="{{ entry.url }}">{{ entry.title }}</a>
+          <a class="paragraph" href="{{ entry.url }}">{{ entry.title }}</a>
         </li>
       {% endfor %}
       </ul>
