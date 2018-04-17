@@ -147,8 +147,11 @@
 .block {
   width: calc(50% - 2.5vw);
   margin: 0 auto;
+  &--medium {
+    width: calc(63.66666% - 2.5vw);
+  }
   &--large {
-    max-width: 800px;
+    width: calc(83.333333% - 2.5vw);
   }
 }
 

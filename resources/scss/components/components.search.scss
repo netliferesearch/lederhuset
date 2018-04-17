@@ -1,20 +1,19 @@
-$searchWidth: calc(550px + 4vw);
-
 .search {
   position: relative;
   &__wrapper {
     position: relative;
     border-bottom: 2px solid transparent;
-    width: $searchWidth;
   }
   &__results {
-    width: $searchWidth;
+    .list__item:first-child {
+      border-top: 0;
+    }
   }
   &__input {
     width: 100%;
     background: transparent;
     font-family: $font-larish;
-    font-size: calc(100px + .7vw);
+    font-size: $headingH1;
     border: 0;
     outline: 0;
   }

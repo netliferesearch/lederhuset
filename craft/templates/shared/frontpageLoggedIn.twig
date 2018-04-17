@@ -1,6 +1,6 @@
 <!-- Search -->
-<div class="search pb--large pt--large">
-  <div class="u-1/2 center-block search__wrapper">
+<div class="search pt--large">
+  <div class="u-1/2 center-block search__wrapper block">
     <input class="search__input" type="text" placeholder="Søk på noe" id="mainSearch">
     <span class="search__typed-cursor"></span>
   </div>
@@ -10,13 +10,13 @@
 </div>
 
 <!-- Search results -->
-<div class="search__results u-1/2 center-block" id="searchResults">
+<div class="search__results block u-1/2 center-block" id="searchResults">
   <ul class="list reset-list">
   </ul>
 </div>
 
 <!-- Get categories in featured categories -->
-<div class="mt mb--large border--bottom" id="allEntries">
+<div class="block block--large mt--large mb--large border--bottom" id="allEntries">
   {% for category in featuredCategories %}
   <div class="pb--xlarge center-block inline-wrapper">
     <div class="u-1/2 inline__item pr">
