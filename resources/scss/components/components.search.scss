@@ -33,12 +33,13 @@
     animation: blink 1s infinite;
     &:after {
       content: '';
-      width: 1px;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0px;
       background: #000;
+      position: absolute;
+      width: 1px;
+      height: 5.5vw;
+      right: 1.5vw;
+      top: 50%;
+      transform: translate(0%,-50%);
     }
   }
   &__close {
