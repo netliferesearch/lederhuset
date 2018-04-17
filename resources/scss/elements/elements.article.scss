@@ -1,5 +1,4 @@
 $text-margin: 40px;
-$text-fontSize: 15px;
 
 .article {
   position: relative;
@@ -10,11 +9,6 @@ $text-fontSize: 15px;
   h1 {
     margin-top: 100px;
     margin-bottom: 80px;
-  }
-  p, li, a {
-    font-family: $font-neutral;
-    font-size: $text-fontSize;
-    line-height: 26px;
   }
   p, ul {
     margin-top: 25px;
@@ -28,14 +22,10 @@ $text-fontSize: 15px;
   }
   .text {
     h2 {
-      font-size: 29px;
-      line-height: 1.3em;
       margin-top: 100px;
     }
     h3 {
       font-family: $font-neutral-bold;
-      font-size: $text-fontSize;
-      line-height: 1.3em;
       margin-top: $text-margin;
     }
     h3 + ul {
@@ -48,7 +38,6 @@ $text-fontSize: 15px;
   .accordion {
     margin-top: $text-margin;
     &__button {
-      font-size: $text-fontSize;
       font-family: $font-neutral-bold;
       cursor: pointer;
       width: 100%;

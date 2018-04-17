@@ -53,6 +53,7 @@ searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
+  console.log(data.responseJSON.data, options);
   populateResults();
 });
 
