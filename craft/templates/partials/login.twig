@@ -7,18 +7,18 @@
         <p class="font-neutral paragraph mb">{{ currentUser.email }}</p>
         <a class="font-neutral border--bottom" href="{{ logoutUrl }}">Logg ut</a>
       {% else %}
-        <h3 class="mb">Logg inn</h3>
+        <h3 class="mb--small">Logg inn</h3>
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="{{ craft.config.csrfTokenName }}" value="{{ craft.request.csrfToken }}">
             <input type="hidden" name="action" value="users/login">
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="loginName" type="text" name="loginName" value="{{ craft.session.rememberedUsername }}">
               <span class="login__placeholder no-flicker">Brukernavn (e-post)</span>
             </div>
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="password" type="password" name="password">
               <span class="login__placeholder no-flicker">Passord</span>
             </div>

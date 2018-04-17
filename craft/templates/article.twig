@@ -48,14 +48,14 @@
       {% for block in blocks %}
         <section id="block{{ loop.index }}">
 
-          <h1 class="center">
+          <h1 class="center grid-wrap--smaller">
             <span class="block-elem">{{ loop.index }}.</span>
             {{ block.title }}
           </h1>
 
           {% for content in block.body %}
             {% if content.type == "text" %}
-              <div class="block text">
+              <div class="block text paragraph">
                 {{ content.text }}
               </div>
 
