@@ -2,7 +2,7 @@
   <div class="grid-wrap absolute-center">
     <div class="login__wrapper">
       <div class="login__inner">
-        <h3 class="mb">Bli abonnement</h3>
+        <h3 class="mb--small">Bli abonnement</h3>
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="{{ craft.config.csrfTokenName }}" value="{{ craft.request.csrfToken }}">
@@ -21,7 +21,7 @@
 
             {% from _self import errorList %}
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="firstName" type="text" name="firstName"
                   {%- if account is defined %} value="{{ account.firstName }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Fornavn</span>
@@ -30,7 +30,7 @@
               {% endif %}
             </div>
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="lastName" type="text" name="lastName"
                   {%- if account is defined %} value="{{ account.lastName }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Etternavn</span>
@@ -39,7 +39,7 @@
               {% endif %}
             </div>
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="username" type="text" name="username"
                   {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Brukernavn</span>
@@ -48,7 +48,7 @@
               {% endif %}
             </div>
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="email" type="text" name="email"
                   {%- if account is defined %} value="{{ account.email }}"{% endif %}>
               <span class="login__placeholder no-flicker">E-post</span>
@@ -57,7 +57,7 @@
               {% endif %}
             </div>
 
-            <div class="input__wrapper mb font-neutral">
+            <div class="input__wrapper mb--small font-neutral">
               <input class="login__input" id="reg-password" type="password" name="password">
               <span class="login__placeholder no-flicker">Passord</span>
               {% if account is defined %}
@@ -66,7 +66,7 @@
             </div>
 
             <div class="font-neutral">
-              <input class="login__submit" type="submit" value="Bli abonnement">
+              <input class="login__submit lh-button" type="submit" value="Bli abonnement">
             </div>
 
         </form>

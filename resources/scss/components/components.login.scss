@@ -20,10 +20,6 @@
     max-width: 800px;
     text-align: left;
   }
-  &__input, &__submit, &__placeholder {
-    font-size: 16px;
-    line-height: 1.4em;
-  }
   &__input, &__submit {
     font-family: $font-neutral;
     border: 0;
@@ -38,29 +34,25 @@
     z-index: 1;
   }
   &__submit {
-    border: 1px solid;
-    padding: 14px 20px 12px 20px;
-    min-width: 150px;
-    text-align: left;
   }
   &__placeholder {
     position: absolute;
-    top: 7px;
+    top: 0px;
     left: 0;
     z-index: -1;
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .input__wrapper {
     position: relative;
-    border-bottom: 1px solid;
+    border-bottom: 2px solid;
     &--filled .login__placeholder {
-      top: -13px;
-      font-size: 11px;
+      top: -2vw;
+      font-size: 12px;
     }
   }
   &__input:focus ~ &__placeholder {
-    top: -13px;
-    font-size: 11px;
+    top: -2vw;
+    font-size: 12px;
   }
 
 }

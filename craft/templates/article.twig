@@ -121,6 +121,17 @@
     </section>
   {% endif %}
 
+  <!-- Link to pathfinder/veiviser -->
+  {% if entry.showPathfinder %}
+    <div class="article-header mb--xlarge bg-green--light">
+      <div class="pt pb grid-wrap">
+        <h1 class="center title mt--large mb--large">
+          <a style="text-decoration:underline" href="/kan-jeg-si-opp-en-ansatt">Kan jeg si opp en ansatt?</a>
+        </h1>
+      </div>
+    </div>
+  {% endif %}
+
   <!-- Entries in the same category -->
   {% for category in entry.category %}
     <div class="mb--xlarge bg-green--light">
