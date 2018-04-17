@@ -112,6 +112,15 @@ $('.article-anchor').click(function(e){
 
 
 
+//Remove empty p tags from article
+$('p').each(function(index, item) {
+  if($.trim($(item).text()) === "") {
+    $(item).remove();
+  }
+});
+
+
+
 /*** accordion module ***/
 $('.a-toggle').each(function(){
   var bottom = $(this).find('.a-toggle__content'),

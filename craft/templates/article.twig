@@ -48,7 +48,7 @@
       {% for block in blocks %}
         <section id="block{{ loop.index }}">
 
-          <h1 class="center grid-wrap--smaller">
+          <h1 class="center mt--large mb--large grid-wrap--smaller">
             <span class="block-elem">{{ loop.index }}.</span>
             {{ block.title }}
           </h1>
@@ -134,16 +134,16 @@
 
   <!-- Entries in the same category -->
   {% for category in entry.category %}
-    <div class="mb--xlarge bg-green--light">
-      <div class="pt grid-wrap">
-        <h1 class="center title mt--large mb--large">{{ category.title }}</h1>
+    <div class="article-header mb bg-green--light">
+      <div class="pt--large pb--medium mt grid-wrap--smaller">
+        <h1 class="center title">{{ category.title }}</h1>
       </div>
-      <ul class="list list--no-style pb--large u-2/5 center-block">
-        {% for entry in craft.entries.section('article').relatedTo(category) %}
-          <li class="list__item font-neutral">
-            <a href="{{ entry.url }}">{{ entry.title }}</a>
-          </li>
-        {% endfor %}
+      <ul class="list list--no-style pb--large block center-block">
+      {% for entry in craft.entries.section('article').relatedTo(category) %}
+        <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
+        </li>
+      {% endfor %}
       </ul>
     </div>
   {% endfor %}

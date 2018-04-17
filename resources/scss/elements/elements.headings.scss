@@ -31,7 +31,8 @@ h3, .article .text h2 {
   }
 }
 
-.paragraph, .lh-button, .article p, .article li, .article a, .article h3 {
+.paragraph, .lh-button, .article .accordion__button,
+.article p, .article li, .article a, .article b, .article h3 {
   font-family: $font-neutral;
   font-size: 16px;
   line-height: 26px;
@@ -43,7 +44,11 @@ h3, .article .text h2 {
   }
 }
 
-.article p, .article li, .article, .article h3 {
+.article b, .article .accordion__button {
+  font-family: $font-neutral-bold;
+}
+
+.article p, .article li, .article, .article h3, .article b, .article .accordion__button {
   line-height: 30px;
   @media (min-width: 1400px) {
     line-height: 2.4vw;
