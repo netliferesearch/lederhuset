@@ -29,7 +29,7 @@ var data = $.ajax({
 // fuse options for search
 var options = {
   shouldSort: true,
-  threshold: 0.3,
+  threshold: 0.5,
   location: 0,
   distance: 100,
   maxPatternLength: 32,
@@ -89,7 +89,7 @@ function populateResults() {
     tl.play();
   }
   $.each(result, function(index, value) {
-    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical font-neutral\"><a href='' class='font-neutral'>" + value + "</a></li>");
+    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\"><a href='"+ value +"' class='font-neutral'>" + value + "</a></li>");
     return index<7;
   })
 }
