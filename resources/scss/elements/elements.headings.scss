@@ -1,3 +1,6 @@
+$headingH3: 2.5vw;
+
+
 h1 {
   font-size: calc(50px + 3vw);
   line-height: calc(64px + 4vw);
@@ -10,13 +13,24 @@ h1 {
 h2 {
   font-size: 32px;
   @media (min-width: $mobile) {
-    font-size: 60px;
+    font-size: 4.5vw;
+  }
+  @media (min-width: $maxWidth) {
+    /*background: yellow;*/
   }
 }
 
 h3 {
-  font-size: calc(22px + .7vw);
-  line-height: calc(22px + 1.5vw);
+  font-size: $headingH3;
+}
+
+.paragraph, .lh-button {
+  font-size: 16px;
+  line-height: 26px;
+  @media (min-width: $mobile) {
+    font-size: 1.45vw;
+    line-height: 2.6vw;
+  }
 }
 
 h1, h2, h3 {

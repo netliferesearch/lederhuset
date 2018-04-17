@@ -1,8 +1,8 @@
 <div class="mt--large mb--large border--bottom">
   <!-- first block -->
   {% for block in entry.frontpage_firstBlock %}
-    <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
-      <div class="u-1/2 inline__item">
+    <div class="pb--xlarge center-block inline-wrapper">
+      <div class="u-1/2 inline__item pr">
         <h2 class="pb--small">{{ block.heading }}</h2>
         <p class="paragraph font-neutral pb--small">{{ block.text }}</p>
         <button class="lh-button" type="button" name="button" data-show="registration">
@@ -19,8 +19,8 @@
   {% endfor %}
   <!-- blocks -->
   {% for block in entry.frontpage_blocks %}
-    <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
-      <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated{% endif %}">
+    <div class="pb--xlarge center-block inline-wrapper">
+      <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated pl{% else %}pr{% endif %}">
         <h2 class="pb--small">{{ block.heading }}</h2>
         <p class="paragraph font-neutral">{{ block.text }}</p>
       </div>
@@ -33,7 +33,7 @@
 
 <!-- salesblock -->
 <div class="mt--large mb--large border--bottom">
-  <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
+  <div class="pb--xlarge center-block inline-wrapper">
     <div class="u-1/2 inline__item">
       <h2 class="pb--small">{{ siteName }}</h2>
       <div class="paragraph font-neutral pb--small">{{ entry.salesText }}</div>
@@ -58,11 +58,11 @@
   <div class="pt grid-wrap">
     <h1 class="center title mt--large mb--large">{{ siteName }}</h1>
   </div>
-  <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
+  <div class="pb--xlarge center-block inline-wrapper grid-wrap">
     <div class="u-1/2 inline__item pr">
       <img src="{{ entry.salesImage.last().getUrl('illustration') }}" alt="" />
     </div>
-    <div class="u-1/2 inline__item">
+    <div class="u-1/2 inline__item pl">
       <div class="paragraph font-neutral pb--small">{{ entry.salesText }}</div>
       <button class="lh-button mb paragraph" type="button" name="button">
         <span class="lh-button__text">Prøv gratis</span>
