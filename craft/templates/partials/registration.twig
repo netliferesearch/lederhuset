@@ -1,0 +1,75 @@
+<nav id="registration" class="login">
+  <div class="grid-wrap">
+    <div class="login__wrapper">
+      <div class="login__inner">
+        <h3 class="mb">Bli abonnement</h3>
+        <form method="post" accept-charset="UTF-8">
+            {{ getCsrfInput() }}
+            <input type="hidden" name="action" value="users/saveUser">
+            <input type="hidden" name="redirect" value="">
+
+            {% macro errorList(errors) %}
+                {% if errors %}
+                    <ul class="errors">
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endmacro %}
+
+            {% from _self import errorList %}
+
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="firstName" type="text" name="firstName"
+                  {%- if account is defined %} value="{{ account.firstName }}"{% endif -%}>
+              <span class="login__placeholder no-flicker">Fornavn</span>
+              {% if account is defined %}
+                  {{ errorList(account.getErrors('firstName')) }}
+              {% endif %}
+            </div>
+
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="firstName" type="text" name="lastName"
+                  {%- if account is defined %} value="{{ account.lastName }}"{% endif -%}>
+              <span class="login__placeholder no-flicker">Etternavn</span>
+              {% if account is defined %}
+                  {{ errorList(account.getErrors('lastName')) }}
+              {% endif %}
+            </div>
+
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="username" type="text" name="username"
+                  {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
+              <span class="login__placeholder no-flicker">Brukernavn</span>
+              {% if account is defined %}
+                  {{ errorList(account.getErrors('username')) }}
+              {% endif %}
+            </div>
+
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="email" type="text" name="email"
+                  {%- if account is defined %} value="{{ account.email }}"{% endif %}>
+              <span class="login__placeholder no-flicker">E-post</span>
+              {% if account is defined %}
+                  {{ errorList(account.getErrors('email')) }}
+              {% endif %}
+            </div>
+
+            <div class="input__wrapper mb font-neutral">
+              <input class="login__input" id="password" type="password" name="password">
+              <span class="login__placeholder no-flicker">Passord</span>
+              {% if account is defined %}
+                  {{ errorList(account.getErrors('password')) }}
+              {% endif %}
+            </div>
+
+            <div class="font-neutral">
+              <input class="login__submit" type="submit" value="Bli abonnement">
+            </div>
+
+        </form>
+      </div>
+		</div>
+  </div>
+</nav>

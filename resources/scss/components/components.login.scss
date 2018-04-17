@@ -38,7 +38,7 @@
   &__submit {
     border: 1px solid;
     padding: 14px 20px 12px 20px;
-    width: 150px;
+    min-width: 150px;
     text-align: left;
   }
   &__placeholder {
