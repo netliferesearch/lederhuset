@@ -15,7 +15,7 @@
         {% if craft.session.isLoggedIn %}
           <a class="font-neutral border--bottom" href="{{ logoutUrl }}">Logg ut</a>
         {% else %}
-          <span class="font-neutral border--bottom">Logg inn</span>
+          <a class="border--bottom font-neutral" data-show="logIn" href="#">Logg inn</a>
         {% endif %}
       </div>
 		</div>

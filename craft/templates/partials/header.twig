@@ -24,9 +24,9 @@
 
           <div class="menu__login vertical-list__item u-1/3">
             {% if craft.session.isLoggedIn %}
-              <a class="borders--bottom font-neutral" id="menu__login" href="#">{{ currentUser.firstName }}</a>
+              <a class="borders--bottom font-neutral" data-show="logIn" href="#">{{ currentUser.firstName }}</a>
             {% else %}
-              <a class="borders--bottom font-neutral" id="menu__login" href="#">Logg inn</a>
+              <a class="borders--bottom font-neutral" data-show="logIn" href="#">Logg inn</a>
             {% endif %}
           </div>
 

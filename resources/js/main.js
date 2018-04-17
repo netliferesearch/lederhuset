@@ -156,7 +156,7 @@ document.getElementById('menu__toggle').onclick = function() {
 }
 
 //login form
-$('#menu__login').on('click', function(e) {
+$('[data-show="logIn"]').on('click', function(e) {
   e.preventDefault();
   var menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
       menuWrapper = $('#login .login__wrapper');
@@ -174,7 +174,7 @@ $('#menu__login').on('click', function(e) {
 });
 
 //registration form
-$('a[data-show="becomeMember"]').on('click', function(e) {
+$('[data-show="becomeMember"]').on('click', function(e) {
   e.preventDefault();
   var menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
       menuWrapper = $('#registration .login__wrapper');
