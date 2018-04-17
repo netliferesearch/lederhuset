@@ -41,9 +41,8 @@
 </div>
 
 <!-- Get all categories that's not shown in featured -->
-{% set moreCategories = craft.categories.group('default').id('and, not ' ~ featuredIds | join(', not ')) %}
 <div class="mb--large border--bottom">
-  <h1 class="center mb--large">Utvikle virksomheten</h1>
+  <h1 class="center grid-wrap--smaller mb--large">Utvikle virksomheten</h1>
   <div class="inline-wrapper">
     {% for category in moreCategories %}
       <div class="u-1/3 inline__item pb--large pr no-pr--3">
@@ -61,7 +60,7 @@
 </div>
 
 <!-- Templates and resources (maler og ressurser) -->
-<div class="mt--large mb--large border--bottom" id="allEntries">
+<div class="mt--large mb--large" id="allEntries">
   {% for entry in craft.entries.section('formsAndTemplates') %}
     <div class="pb--xlarge center-block inline-wrapper">
       <div class="u-1/2 inline__item">

@@ -1,6 +1,7 @@
 {% extends "_layout" %}
-{% set featuredCategories = entry.categories %}
+{% set featuredCategories = entry.categories.order('title') %}
 {% set featuredIds = entry.categories.ids() %}
+{% set moreCategories = craft.categories.group('default').id('and, not ' ~ featuredIds | join(', not ')).order('title') %}
 
 {% block content %}
 	<div class="grid-wrap">
