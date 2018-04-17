@@ -6,8 +6,15 @@
   width: 100%;
   z-index: 5;
   left: 0px;
+  &.is-sticky {
+    ul {
+      opacity: 1;
+    }
+  }
   ul {
+    transition: opacity .15s linear;
     text-align: center;
+    opacity: 0;
     li {
       display: inline-block;
       margin: 0 20px;

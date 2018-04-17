@@ -16,10 +16,10 @@
 </div>
 
 <!-- Get categories in featured categories -->
-<div class="mt--large mb--large border--bottom" id="allEntries">
+<div class="mt mb--large border--bottom" id="allEntries">
   {% for category in featuredCategories %}
-  <div class="pb--xlarge grid-item--medium center-block inline-wrapper">
-    <div class="u-1/2 inline__item">
+  <div class="pb--xlarge center-block inline-wrapper">
+    <div class="u-1/2 inline__item pr">
       {% if category.image|length %}
         <img src="{{ category.image.first().getUrl('illustration') }}" alt="" />
       {% endif %}
@@ -28,8 +28,8 @@
       <h3 class="pb--small">{{ category.title }}</h3>
       <ul class="list reset-list">
         {% for entry in craft.entries.section('article').relatedTo(category) %}
-        <li class="list__item">
-          <a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a>
+        <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
+          <a class="font-neutral paragraph" href="{{entry.url}}">{{entry.title}}</a>
         </li>
         {% endfor %}
       </ul>
@@ -48,8 +48,8 @@
         <h3 class="pb--small">{{ category.title }}</h3>
         <ul class="list reset-list">
           {% for entry in craft.entries.section('article').relatedTo(category) %}
-          <li class="list__item">
-            <a class="font-neutral" href="{{entry.url}}">{{entry.title}}</a>
+          <li class="list__item pb--xsmall pt--xsmall-optical">
+            <a class="font-neutral paragraph" href="{{entry.url}}">{{entry.title}}</a>
           </li>
           {% endfor %}
         </ul>

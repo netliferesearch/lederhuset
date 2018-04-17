@@ -88,7 +88,7 @@ function populateResults() {
     tl.play();
   }
   $.each(result, function(index, value) {
-    $("#searchResults ul").append("<li class=\"list__item\"><a href='' class='font-neutral'>" + value + "</a></li>")
+    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical font-neutral\"><a href='' class='font-neutral'>" + value + "</a></li>")
   })
 }
 
@@ -96,6 +96,7 @@ function populateResults() {
 
 /*** scrollto ***/
 var sticky = new Sticky('.sticky');
+new Sticky('.sticky', { wrap: true });
 
 $('.article-anchor').click(function(e){
   e.preventDefault();

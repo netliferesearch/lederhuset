@@ -11,6 +11,13 @@ $maxWidth: 2200px;
   }
 }
 
+.grid-wrap--smaller {
+  @media (min-width: $mobile) {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+}
+
 .grid-item {
   &--small {
     max-width: 400px;
