@@ -34,8 +34,7 @@ var options = {
   distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: ['title', 'url'],
-  id: 'title'
+  keys: ['title', 'url']
 };
 
 //do this when focus on searchfield
@@ -53,7 +52,7 @@ searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
-  console.log(data.responseJSON.data, options);
+  console.log(result);
   populateResults();
 });
 
@@ -89,7 +88,7 @@ function populateResults() {
     tl.play();
   }
   $.each(result, function(index, value) {
-    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\"><a href='"+ value +"' class='font-neutral'>" + value + "</a></li>");
+    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\"><a href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
     return index<7;
   })
 }
