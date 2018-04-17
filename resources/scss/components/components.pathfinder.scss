@@ -1,6 +1,11 @@
 .pathfinder {
   min-height: calc(100vh - 350px);
   position: relative;
+  h1 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;    
+  }
   &__result {
     background: #fff;
     border: 2px solid;
@@ -42,8 +47,6 @@
     }
   }
   &__block {
-    max-width: 850px;
-    margin: 0 auto;
     &:not(:first-of-type) {
       display: none;
     }
@@ -65,19 +68,11 @@
     list-style-position: inside;
   }
   p {
-    max-width: 480px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    &.font-smaller {
-      font-size: 16px;
-    }
   }
   p, ul li, ol li, .input span {
-    font-size: 16px;
-    line-height: 1.5em;
-    @media (min-width: $mobile) {
-      font-size: 18px;
-    }
     a {
       display: inline-block;
       line-height: 1em;
@@ -88,12 +83,6 @@
       background-repeat: repeat-x;
       transition: background .2s ease,color .2s ease;
     }
-  }
-  ul li, ol li {
-    font-size: 16px;
-  }
-  .block {
-    max-width: 90%;
   }
   #pathfinder__popup {
     position: fixed;

@@ -285,9 +285,9 @@ $('.pathfinder__popup').on("click", function(e){
       popUpWrapper = $('#pathfinder__popup .popup__inner');
 
   if (popUpUrl) {
-    popUpWrapper.empty().append("<h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='font-neutral'>" + popUpText + "</p><p class='font-neutral mt--xxsmall'><a target='_blank' href='"+ popUpUrl +"'>"+popUpUrlText +"<svg width='10' height='10' viewBox='0 0 126 126'><path d='M78.2,31.6L46.9,0.3L125.5,0l0.3,78.8L94,47.1l-78.3,78.3L0.1,109.9L78.2,31.6z'/></svg></a></p>");
+    popUpWrapper.empty().append("<h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='paragraph font-neutral'>" + popUpText + "</p><p class='font-neutral mt--xxsmall'><a target='_blank' href='"+ popUpUrl +"'>"+popUpUrlText +"<svg width='10' height='10' viewBox='0 0 126 126'><path d='M78.2,31.6L46.9,0.3L125.5,0l0.3,78.8L94,47.1l-78.3,78.3L0.1,109.9L78.2,31.6z'/></svg></a></p>");
   } else {
-    popUpWrapper.empty().append("<h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='font-neutral'>" + popUpText + "</p>");
+    popUpWrapper.empty().append("<h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='paragraph font-neutral'>" + popUpText + "</p>");
   }
 
   TweenLite.to(popUpContainer, .2, {opacity:1, autoAlpha:1, ease: Quad.easeIn});
