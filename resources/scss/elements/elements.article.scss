@@ -3,9 +3,14 @@ $h3--margin-t: 3.5vw;
 
 .article {
   position: relative;
-  &-wrap {
-    position: relative;
-    overflow: hidden;
+  h1 + .block.text.paragraph {
+    p:first-child {
+      margin-top: 0px;
+    }
+  }
+  li strong, p strong {
+    font-weight: normal;
+    font-family: $font-neutral-bold;
   }
   p, ul, ol {
     margin-top: $paragraph--margin-t;
@@ -27,18 +32,22 @@ $h3--margin-t: 3.5vw;
       font-size: 1.3vw;
     }
   }
+  h3 {
+    font-family: $font-neutral-bold;
+    margin-top: $h3--margin-t;
+  }  
   a {
     color: $color-green;
     border-bottom: 1px solid;
+  }
+  &-wrap {
+    position: relative;
+    overflow: hidden;
   }
   .text {
     h2 {
       margin-top: 100px;
       font-family: $font-larish;
-    }
-    h3 {
-      font-family: $font-neutral-bold;
-      margin-top: $h3--margin-t;
     }
     h3 + p, h3 + ul, h3 + ol {
       margin-top: 0;

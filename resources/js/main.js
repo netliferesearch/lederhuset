@@ -100,13 +100,19 @@ function populateResults() {
 var sticky = new Sticky('.sticky');
 new Sticky('.sticky', { wrap: true });
 
+
 $('.article-anchor').click(function(e){
   e.preventDefault();
   var href = $(this).attr("href");
-  TweenLite.to(window, .5, {scrollTo:{y:href, offsetY:100, ease: Sine.easeOut}});
+  var offset = Math.floor($(href).offset().top);
+  console.log(href + ' offset: ' + offset);
+
+  TweenLite.to(window, .5, {scrollTo:{y:offset, offsetY:100, ease: Sine.easeOut}});
+
   $('.article-anchor').each(function () {
     $(this).removeClass('active');
   });
+
   $(this).addClass('active');
 });
 

@@ -13,7 +13,7 @@
       {% if blocks | length %}
         {% for block in blocks %}
           <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
-            <a class="article-anchor paragraph" href="#block{{ loop.index }}">{{ block.title }}</a>
+            <a class="article-anchor paragraph" href="#block{{ loop.index0 }}">{{ block.title }}</a>
           </li>
         {% endfor %}
       {% endif %}
@@ -46,12 +46,37 @@
   <article class="article mb--xlarge mt--large">
     {% if blocks | length %}
       {% for block in blocks %}
-        <section id="block{{ loop.index }}">
+        <section id="block{{ loop.index0 }}">
 
           <h1 class="center mt--large mb--large grid-wrap--smaller">
             <span class="block-elem">{{ loop.index }}.</span>
             {{ block.title }}
           </h1>
+
+          <!-- Link to pathfinder/veiviser -->
+          {% if entry.showPathfinder %}
+            {% if loop.first %}
+              <div class="article-header mb--large bg-green--light">
+                <div class="pb pt inline-wrapper center-block grid-wrap--smaller">
+                  <div class="u-1/2 inline__item pr">
+                    <img src="/assets/image-pathfinder.jpg" alt="" />
+                  </div>
+                  <div class="u-1/2 inline__item pl">
+                    <h3>Vurderer du å si opp noen?</h3>
+                    <p class="paragraph font-neutral mb--small">Vi tar deg gjennom hele prosessen og gir deg malene du trenger underveis.</p>
+                    <button class="lh-button mb paragraph" type="button" name="button">
+                      <a href="/kan-jeg-si-opp-en-ansatt">
+                        <span class="lh-button__text">Start guide</span>
+                        <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+                          <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+                        </svg>
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
 
           {% for content in block.body %}
             {% if content.type == "text" %}
@@ -119,17 +144,6 @@
         {% endfor %}
       </div>
     </section>
-  {% endif %}
-
-  <!-- Link to pathfinder/veiviser -->
-  {% if entry.showPathfinder %}
-    <div class="article-header mb--xlarge bg-green--light">
-      <div class="pt pb grid-wrap">
-        <h1 class="center title mt--large mb--large">
-          <a style="text-decoration:underline" href="/kan-jeg-si-opp-en-ansatt">Kan jeg si opp en ansatt?</a>
-        </h1>
-      </div>
-    </div>
   {% endif %}
 
   <!-- Entries in the same category -->
