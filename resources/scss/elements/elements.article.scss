@@ -5,7 +5,7 @@ $h3--margin-t: 3.5vw;
   position: relative;
   h1 {
     word-wrap: break-word;
-  }  
+  }
   h1 + .block.text.paragraph {
     p:first-child {
       margin-top: 0px;
@@ -71,6 +71,10 @@ $h3--margin-t: 3.5vw;
       border: 0;
       background: transparent;
       margin: 0;
+      transition: background-color .2s ease;
+      &:hover {
+        background: $color-green-light;
+      }
       span {
         display: block;
         max-width: 85%;

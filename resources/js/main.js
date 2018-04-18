@@ -195,8 +195,14 @@ $('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('cli
   });
 });
 
-$('.list__item--hover').each(function(){
-  var listItemLink = $(this).find('a');
+$('.list__item--hover, .accordion__button').each(function(){
+  var listItemLink;
+  
+  if ( $(this).hasClass('a-toggle__button') ) {
+    listItemLink = $(this).find('span');
+  } else {
+    listItemLink = $(this).find('a');
+  }
 
   $(this).mouseenter(function(){
     TweenMax.to(listItemLink, .3, {x:20, ease: Expo.easeOut});

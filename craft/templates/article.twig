@@ -12,8 +12,8 @@
     <ul class="list list--no-style pb--large block center-block">
       {% if blocks | length %}
         {% for block in blocks %}
-          <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
-            <a class="article-anchor paragraph" href="#block{{ loop.index0 }}">{{ block.title }}</a>
+          <li class="list__item list__item--hover font-neutral {% if loop.last %}mb--xsmall{% endif %}">
+            <a class="article-anchor paragraph pb--xsmall pt--xsmall-optical" href="#block{{ loop.index0 }}">{{ block.title }}</a>
           </li>
         {% endfor %}
       {% endif %}
