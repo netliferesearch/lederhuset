@@ -39,11 +39,8 @@ var options = {
 
 //do this when focus on searchfield
 searchfield.on("focus", function() {
-  if ($('body').hasClass('search-open')) {
-    //do nothing
-  } else {
+  if (!$('body').hasClass('search-open')) {
     searchFadeOut();
-    TweenMax.to($('.search__wrapper'), .2, {css:{borderBottomColor:'#000'}, ease: Circ.easeIn, delay:.1});
   }
 });
 
@@ -63,7 +60,6 @@ closeSearch.on('click', function() {
   searchfield.val("");
   $('.search__typed-cursor').css('display', 'block');
   tl.reverse();
-  TweenMax.to($('.search__wrapper'), .3, {css:{borderBottomColor:'transparent'}, ease: Circ.easeOut});
   TweenLite.to(fadeOutContent, .5, {opacity:1, ease: Quad.easeIn, delay:.2});
   TweenLite.to(closeSearch, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
 });

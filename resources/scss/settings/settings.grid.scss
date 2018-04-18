@@ -6,6 +6,10 @@ $maxWidth: 2200px;
   padding-left: 30px;
   padding-right: 30px;
   @media (min-width: $mobile) {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+  @media (min-width: 1400px) {
     padding-left: 10vw;
     padding-right: 10vw;
   }

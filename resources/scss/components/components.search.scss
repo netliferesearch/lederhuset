@@ -13,7 +13,7 @@
     width: 100%;
     background: transparent;
     font-family: $font-larish;
-    font-size: $headingH1;
+    font-size: $headingH3;
     border: 0;
     outline: 0;
   }
@@ -42,17 +42,67 @@
       transform: translate(0%,-50%);
     }
   }
+  &__submit {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  &__icon {
+    display: block;
+    cursor: pointer;
+    width: 2.5vw;
+    height: 2.5vw;
+    .circle {
+      position: relative;
+      display: block;
+      height: 60%;
+      width: 60%;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 2px solid #000;
+      transition: all 0.6 cubic-bezier(0.25, 1.7, 0.35, 0.8);
+      z-index: 1;
+      right: -12px;
+      top: 4px;
+    }
+    .handle {
+      position: absolute;
+      background-color: #000;
+      top: 78%;
+      right: 6px;
+      height: 5%;
+      width: 0%;
+      display: block;
+      transform: rotate(45deg);
+      border-radius: 2px;
+      &:after {
+        content: "";
+        background-color: #000;
+        width: 30px;
+        height: 2px;
+        display: block;
+        float: right;
+        border-radius: 2px;
+        transition: all .6 cubic-bezier(.25,1.7,.35,.8);
+        z-index: -1;
+      }
+    }
+  }
   &__close {
     border: 0;
     background: transparent;
-    width: 60px;
-    height: 60px;
     position: absolute;
-    top: -40px;
-    right: 40px;
+    top: -1vw;
+    right: -.7vw;
     cursor: pointer;
     visibility: hidden;
     opacity: 0;
+    width: 2.5vw;
+    height: 2.5vw;
     &:hover {
       .close__icon {
         &:after, &:before {

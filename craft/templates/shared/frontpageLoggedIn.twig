@@ -1,46 +1,51 @@
-<!-- Search -->
+<!-- Search container -->
 <div class="search pt--large">
-  <div class="u-1/2 center-block search__wrapper block">
+  <div class="search__wrapper pt--small pb--small borders">
     <input class="search__input" type="text" placeholder="Søk på noe" id="mainSearch">
-    <span class="search__typed-cursor"></span>
+    <button class="search__submit" type="submit">
+      <span class="search__icon">
+        <span class="circle"></span>
+        <span class="handle"></span>
+      </span>
+    </button>
   </div>
   <button class="search__close" id="searchClose">
     <span class="close__icon"></span>
   </button>
 </div>
 
+
 <!-- Search results -->
-<div class="search__results block u-1/2 center-block" id="searchResults">
-  <ul class="list reset-list">
-  </ul>
+<div class="search__results" id="searchResults">
+  <ul class="list reset-list"></ul>
 </div>
+
 
 <!-- Get categories in featured categories -->
 <div class="mt--large mb--large border--bottom" id="allEntries">
-  <div class="block block--large">
-    {% for category in featuredCategories %}
-      <div class="center-block inline-wrapper {% if loop.last %}pb--large{% else %}pb--xlarge{% endif %}">
-        <div class="u-1/2 inline__item pr">
-          {% if category.image|length %}
-            <img src="{{ category.image.first().getUrl('illustration') }}" alt="" />
-          {% endif %}
-        </div>
-        <div class="u-1/2 inline__item pl">
-          <h3 class="pb--small">{{ category.title }}</h3>
-          <ul class="list reset-list">
-            {% for entry in craft.entries.section('article').relatedTo(category) %}
-            <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
-              <a class="font-neutral paragraph" href="{{entry.url}}">{{entry.title}}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
+  {% for category in featuredCategories %}
+    <div class="center-block inline-wrapper {% if loop.last %}pb--large{% else %}pb--xlarge{% endif %}">
+      <div class="u-1/2 inline__item pr">
+        {% if category.image|length %}
+          <img src="{{ category.image.first().getUrl('illustration') }}" alt="" />
+        {% endif %}
       </div>
-    {% endfor %}
-  </div>
+      <div class="u-1/2 inline__item pl">
+        <h3 class="pb--small">{{ category.title }}</h3>
+        <ul class="list reset-list">
+          {% for entry in craft.entries.section('article').relatedTo(category) %}
+          <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
+            <a class="font-neutral paragraph" href="{{entry.url}}">{{entry.title}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endfor %}
 </div>
 
-<!-- Get all categories that's not shown in featured -->
+
+<!-- Get all categories that's not already shown in featured -->
 <div class="mb--large border--bottom">
   <h1 class="center grid-wrap--smaller mb--large">Utvikle virksomheten</h1>
   <div class="inline-wrapper">
@@ -59,7 +64,8 @@
   </div>
 </div>
 
-<!-- Templates and resources (maler og ressurser) -->
+
+<!-- Templates and resources container (maler og ressurser) -->
 <div class="mt--large mb--large" id="allEntries">
   {% for entry in craft.entries.section('formsAndTemplates') %}
     <div class="pb--xlarge center-block inline-wrapper">
