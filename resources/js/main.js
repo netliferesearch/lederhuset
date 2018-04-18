@@ -29,12 +29,21 @@ var data = $.ajax({
 // fuse options for search
 var options = {
   shouldSort: true,
-  threshold: 0.5,
+  threshold: 0.3,
   location: 0,
   distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: ['title', 'url', 'blocks.title']
+  keys: [{
+      name: 'title',
+      weight: 0.7
+    }, {
+      name: 'url',
+      weight: 0.7
+    }, {
+      name: 'blocks.title',
+      weight: 0.3
+    }]
 };
 
 //do this when focus on searchfield
