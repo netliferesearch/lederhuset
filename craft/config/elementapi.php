@@ -11,6 +11,13 @@ return [
             ],
             'transformer' => function (EntryModel $entry) {
                 $category = $entry->category->first();
+                $blocks = [];
+
+                foreach (($entry->blocks ?: []) as $block) {
+                  $blocks = [
+                    'title' => $block->title
+                  ];
+                }
 
                 return [
                   'id' => $entry->id,
@@ -19,6 +26,9 @@ return [
                   'category' => [
                     'id' => $category->id,
                     'title' => $category->title,
+                  ],
+                  'blocks' => [
+                    'title' => $blocks
                   ]
                 ];
             },
