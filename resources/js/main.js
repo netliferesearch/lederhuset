@@ -76,6 +76,27 @@ function searchFadeOut() {
   TweenLite.to(closeSearch, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
 }
 
+function listItemHoverEffect(){
+  $('.list__item--hover, .accordion__button').each(function(){
+    var listItemLink;
+
+    if ( $(this).hasClass('a-toggle__button') ) {
+      listItemLink = $(this).find('span');
+    } else {
+      listItemLink = $(this).find('a');
+    }
+
+    $(this).mouseenter(function(){
+      TweenMax.to(listItemLink, .3, {x:20, ease: Expo.easeOut});
+    });
+
+    $(this).mouseleave(function(){
+      TweenMax.to(listItemLink, .3, {x:0, ease: Expo.easeOut});
+    });
+  });
+}
+listItemHoverEffect();
+
 function populateResults() {
   if (searchfield.val() == '') {
     tl.reverse();
@@ -84,9 +105,10 @@ function populateResults() {
     tl.play();
   }
   $.each(result, function(index, value) {
-    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\"><a href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
+    $("#searchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
     return index<7;
-  })
+  });
+  listItemHoverEffect();
 }
 
 
@@ -192,24 +214,6 @@ $('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('cli
     TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
     TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
     $('body').removeClass('formOpen');
-  });
-});
-
-$('.list__item--hover, .accordion__button').each(function(){
-  var listItemLink;
-  
-  if ( $(this).hasClass('a-toggle__button') ) {
-    listItemLink = $(this).find('span');
-  } else {
-    listItemLink = $(this).find('a');
-  }
-
-  $(this).mouseenter(function(){
-    TweenMax.to(listItemLink, .3, {x:20, ease: Expo.easeOut});
-  });
-
-  $(this).mouseleave(function(){
-    TweenMax.to(listItemLink, .3, {x:0, ease: Expo.easeOut});
   });
 });
 
