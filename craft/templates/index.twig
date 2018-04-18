@@ -4,13 +4,9 @@
 {% set moreCategories = craft.categories.group('default').id('and, not ' ~ featuredIds | join(', not ')).order('title') %}
 
 {% block content %}
-	<div class="grid-wrap">
-
-		{% if craft.session.isLoggedIn %}
-			{% include 'shared/frontpageLoggedIn' %}
-		{% else %}
-			{% include 'shared/frontpageLoggedOut' %}
-		{% endif %}
-
-	</div>
+	{% if craft.session.isLoggedIn %}
+		{% include 'shared/frontpageLoggedIn' %}
+	{% else %}
+		{% include 'shared/frontpageLoggedOut' %}
+	{% endif %}
 {% endblock %}

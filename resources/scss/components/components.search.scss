@@ -82,7 +82,8 @@
       &:after {
         content: "";
         background-color: #000;
-        width: 30px;
+        width: 1vw;
+        min-width: 20px;
         height: 2px;
         display: block;
         float: right;
