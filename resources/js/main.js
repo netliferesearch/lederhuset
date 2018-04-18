@@ -49,7 +49,6 @@ searchfield.on('keyup change', function(e) {
   tosearch = searchfield.val();
   fuse = new Fuse(data.responseJSON.data, options);
   result = fuse.search(tosearch);
-  console.log(result);
   populateResults();
 });
 
@@ -104,6 +103,11 @@ function populateResults() {
     emptySearch();
     tl.play();
   }
+
+  if( result.length === 0 ) {
+    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\">Ingen resultater</li>");
+  }
+
   $.each(result, function(index, value) {
     $("#searchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
     return index<7;

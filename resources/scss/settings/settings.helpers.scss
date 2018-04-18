@@ -228,6 +228,9 @@
 /***** Margin and padding *****/
 $mp--xsmall: .9vw;
 $mp--xsmall-optical: 1.05vw;
+
+$mp--small-2: 1.5vw;
+
 $mp--small: 2.5vw;
 $mp: 5vw;
 $mp--medium: 5.7vw;
@@ -293,6 +296,9 @@ $mp--xxlarge: 12.5vw;
 .pb--xsmall {
   padding-bottom: $mp--xsmall;
 }
+.pb--small-2 {
+  padding-bottom: $mp--small-2;
+}
 .pb--small {
   padding-bottom: $mp--small;
 }
@@ -321,6 +327,9 @@ $mp--xxlarge: 12.5vw;
 }
 .pt--xsmall-optical {
   padding-top: $mp--xsmall-optical;
+}
+.pt--small-2 {
+  padding-top: $mp--small-2;
 }
 .pt--small {
   padding-top: $mp--small;
