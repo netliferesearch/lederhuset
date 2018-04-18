@@ -7,7 +7,7 @@
       <div class="u-1/2 inline__item pl">
         <ul class="reset-list list pb">
           {% for entry in craft.entries.section('menu').limit(10) %}
-          <li class="list__item">
+          <li class="list__item list__item--hover">
             <a class="main-menu__item pb--xsmall pt--xsmall-optical" href="{{ entry.menu_link.first().url }}">
               {{ entry.title }}
             </a>

@@ -3,6 +3,12 @@
     list-style: none;
   }
   &__item {
+    &--hover-bg {
+      transition: background-color .2s ease;
+      &:hover, &:focus {
+        background-color: $color-green-light;
+      }
+    }
     a {
       display: block;
     }

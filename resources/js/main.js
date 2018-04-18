@@ -193,7 +193,18 @@ $('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('cli
     TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
     $('body').removeClass('formOpen');
   });
+});
 
+$('.list__item--hover').each(function(){
+  var listItemLink = $(this).find('a');
+
+  $(this).mouseenter(function(){
+    TweenMax.to(listItemLink, .3, {x:20, ease: Expo.easeOut});
+  });
+
+  $(this).mouseleave(function(){
+    TweenMax.to(listItemLink, .3, {x:0, ease: Expo.easeOut});
+  });
 });
 
 

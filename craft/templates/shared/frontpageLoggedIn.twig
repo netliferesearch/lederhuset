@@ -35,8 +35,8 @@
           <h3 class="pb--small">{{ category.title }}</h3>
           <ul class="list reset-list">
             {% for entry in craft.entries.section('article').relatedTo(category) %}
-            <li class="list__item pb--xsmall pt--xsmall-optical">
-              <a class="font-neutral paragraph" href="{{entry.url}}">{{entry.title}}</a>
+            <li class="list__item list__item--hover list__item--hover-bg">
+              <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="{{entry.url}}">{{entry.title}}</a>
             </li>
             {% endfor %}
           </ul>
@@ -59,8 +59,8 @@
         <h3 class="pb--small">{{ category.title }}</h3>
         <ul class="list reset-list">
           {% for entry in craft.entries.section('article').relatedTo(category) %}
-          <li class="list__item pb--xsmall pt--xsmall-optical">
-            <a class="font-neutral paragraph" href="{{entry.url}}">{{entry.title}}</a>
+          <li class="list__item list__item--hover list__item--hover-bg">
+            <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="{{entry.url}}">{{entry.title}}</a>
           </li>
           {% endfor %}
         </ul>
