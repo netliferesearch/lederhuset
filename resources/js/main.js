@@ -158,6 +158,7 @@ function toggleActive(elem){
 //menu, login and registration form
 $('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('click', function(e) {
   var thisAttr = '#' + $(this).attr('data-show');
+  var thisExit = thisAttr + ' .search__close';
   var menuElemToHide;
   var menuWrapper;
   e.preventDefault();
@@ -167,7 +168,7 @@ $('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('cli
     menuElemToHide = $('.menu__logo-wrap, .menu__login'),
     menuWrapper = thisAttr + ' .inline-wrapper';
   } else {
-    menuElemToHide = $('.menu__logo-wrap, .vertical-list__item.right'),
+    menuElemToHide = $('.page-header'),
     menuWrapper = thisAttr + ' .login__wrapper';
   }
 
@@ -175,13 +176,24 @@ $('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('cli
     TweenMax.to(thisAttr, .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn, force3D:true});
     TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut, force3D:true});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
+    TweenLite.to(thisExit, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
     $('body').addClass('formOpen');
   } else {
     TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
     TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+    TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
     $('body').removeClass('formOpen');
   }
+
+  $(thisExit).on('click', function() {
+    TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
+    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+    TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
+    $('body').removeClass('formOpen');
+  });
+
 });
 
 

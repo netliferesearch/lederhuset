@@ -7,8 +7,10 @@
       <div class="u-1/2 inline__item pl">
         <ul class="reset-list list pb">
           {% for entry in craft.entries.section('menu').limit(10) %}
-          <li class="list__item pb--xsmall pt--xsmall-optical">
-            <a class="main-menu__item" href="{{ entry.menu_link.first().url }}">{{ entry.title }}</a>
+          <li class="list__item">
+            <a class="main-menu__item pb--xsmall pt--xsmall-optical" href="{{ entry.menu_link.first().url }}">
+              {{ entry.title }}
+            </a>
           </li>
           {% endfor %}
         </ul>
