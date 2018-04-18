@@ -34,7 +34,7 @@ var options = {
   distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: ['title', 'url']
+  keys: ['title', 'url', 'blocks.title']
 };
 
 //do this when focus on searchfield
