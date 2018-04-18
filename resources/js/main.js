@@ -87,11 +87,11 @@ function listItemHoverEffect(){
     }
 
     $(this).mouseenter(function(){
-      TweenMax.to(listItemLink, .3, {x:20, ease: Expo.easeOut});
+      TweenMax.to(listItemLink, .25, {x:15, ease: Expo.easeOut});
     });
 
     $(this).mouseleave(function(){
-      TweenMax.to(listItemLink, .3, {x:0, ease: Expo.easeOut});
+      TweenMax.to(listItemLink, .25, {x:0, ease: Expo.easeOut});
     });
   });
 }
