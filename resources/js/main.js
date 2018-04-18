@@ -7,6 +7,18 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Fuse from 'fuse.js'
 import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
+import ScrollReveal from 'scrollreveal';
+
+
+window.sr = ScrollReveal();
+sr.reveal('.inline__item', {
+  duration: 500,
+  origin: 'bottom',
+  distance: '2.5vw',
+  opacity: 0,
+  scale: 1,
+  easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)',
+});
 
 
 /*** search module ***/

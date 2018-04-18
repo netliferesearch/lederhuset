@@ -39,6 +39,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.10",
     "postcss-nested": "^3.0.0",
+    "scrollreveal": "^3.4.0",
     "sticky-js": "^1.2.0",
     "style-loader": "^0.20.1",
     "tocbot": "^4.3.0",
