@@ -340,47 +340,16 @@ $('.pathfinder__popup').on("click", function(e){
 
 
 
-
-
-
-/*$('.article-anchor').click(function(e){
-  e.preventDefault();
-  var href = $(this).attr("href");
-  var offset = Math.floor($(href).offset().top);
-  console.log(href + ' offset: ' + offset);
-
-  TweenLite.to(window, .5, {scrollTo:{y:offset, offsetY:100, ease: Sine.easeOut}});
-
-  $('.article-anchor').each(function () {
-    $(this).removeClass('active');
-  });
-
-  $(this).addClass('active');
-});*/
-
-// Select all links with hashes
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-      &&
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top - 20
-        }, 1000, function() {
-        });
-      }
+// Select all links with hashes and scroll to
+$('.article-anchor').click(function(event) {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    if (target.length) {
+      event.preventDefault();
+      $('html, body').animate({
+        scrollTop: target.offset().top - 20
+      }, 1000);
     }
-  });
+  }
+});
