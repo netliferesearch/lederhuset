@@ -21,6 +21,15 @@ img {
     height: auto;
 }
 
+[data-reveal] {
+    visibility: hidden;
+    opacity: 0;
+}
+
+[data-reveal].revealed {
+    visibility: visible;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     padding: 2px;

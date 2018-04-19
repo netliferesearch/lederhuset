@@ -7,6 +7,23 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Fuse from 'fuse.js'
 import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
+import inview from 'jquery-inview';
+
+
+/*** revealing elements ***/
+TweenLite.set($('[data-reveal]'), {y:30});
+
+$('[data-reveal]').each(function(index, elem){
+  $(this).one('inview', function (event, visible) {
+    if (visible == true) {
+      $(this).addClass('revealed');
+      console.log(index / 2 * 0.3);
+      TweenMax.to(elem, .8, {opacity:1, ease:Sine.easeInOut, delay:index / 2 * 0.3});
+      TweenMax.to(elem, 1.2, {y:0, ease:Expo.easeOut, delay:index / 2 * 0.3});
+    }
+  });
+});
+
 
 /*** search module ***/
 var result, fuse, tosearch,

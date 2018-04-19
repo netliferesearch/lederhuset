@@ -32,3 +32,9 @@
     margin-left: 2px;
   }
 }
+
+.frontpage-list {
+  &__item:nth-child(1n+6) {
+    background: red;
+  }
+}
