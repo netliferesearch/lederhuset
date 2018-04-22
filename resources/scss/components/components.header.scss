@@ -3,13 +3,16 @@
   position: relative;
   .menu {
     position: relative;
-    &__non-nav-inner {
+    &__non-nav-inner, &__non-nav {
       position: relative;
     }
     &__logo {
-      font-size: $headingH3;
+      font-size: 22px;
       color: $color-black;
       text-decoration: none;
+      @media (min-width: $mobile) {
+        font-size: $headingH3;
+      }
     }
     &__search {
       &-form {

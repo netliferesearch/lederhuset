@@ -17,9 +17,8 @@ $('[data-reveal]').each(function(index, elem){
   $(this).one('inview', function (event, visible) {
     if (visible == true) {
       $(this).addClass('revealed');
-      console.log(index / 2 * 0.3);
-      TweenMax.to(elem, .8, {opacity:1, ease:Sine.easeInOut, delay:index / 2 * 0.3});
-      TweenMax.to(elem, 1.2, {y:0, ease:Expo.easeOut, delay:index / 2 * 0.3});
+      TweenMax.to(elem, .8, {opacity:1, ease:Sine.easeInOut});
+      TweenMax.to(elem, 1.2, {y:0, ease:Expo.easeOut});
     }
   });
 });
@@ -29,7 +28,7 @@ $('[data-reveal]').each(function(index, elem){
 var result, fuse, tosearch,
     searchfield = $('#mainSearch'),
     closeSearch = $('#searchClose'),
-    fadeOutContent = $('#page-header, #allEntries'),
+    fadeOutContent = $('#page-header .menu__non-nav-inner, #allEntries'),
     tl = new TimelineLite({onReverseComplete:emptySearch});
     tl.to($("#searchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
     tl.pause();
@@ -139,6 +138,30 @@ function populateResults() {
   });
   listItemHoverEffect();
 }
+
+
+
+/*** show more list items ***/
+$('[data-showmore]').each(function(){
+  var listWrapper = $(this).parent();
+  var listWrapperHeight = listWrapper.height();
+  listWrapper.height(listWrapperHeight).css('overflow', 'hidden');
+
+  function showContent() {
+    $(listWrapper).children().css('display', 'block');
+    TweenLite.set(listWrapper, {css: {height:"auto"}});
+    TweenLite.from(listWrapper, .5, {css: {height:listWrapperHeight}, ease: Expo.easeInOut, y: 0 });
+    $(this).one("click", hideContent);
+  }
+
+  function hideContent() {
+    TweenLite.to(listWrapper, .5, {css: {height:listWrapperHeight}, delay:.1, ease: Expo.easeInOut, y: 0 });
+    $(this).one("click", showContent);
+  }
+
+  $($(this)).one("click", showContent);
+});
+
 
 
 

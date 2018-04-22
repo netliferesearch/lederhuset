@@ -34,7 +34,23 @@
 }
 
 .frontpage-list {
-  &__item:nth-child(1n+6) {
-    background: red;
+  [data-showmore] {
+    cursor: pointer;
+    button {
+      cursor: pointer;
+      background: transparent;
+      outline: 0;
+      border: 0;
+      width: 100%;
+      text-align: left;
+      svg {
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+  &__item:not(.list__item--show):nth-child(1n+5) {
+    display: none;
   }
 }

@@ -58,6 +58,8 @@ h3, .article .text h2 {
 }
 
 .lead-p {
+  font-size: 18px;
+  line-height: 28px;
   @media (min-width: $mobile) {
     font-size: 1.8vw;
         line-height: 2.9vw;
