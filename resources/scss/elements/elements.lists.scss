@@ -3,38 +3,54 @@
     list-style: none;
   }
   &__item {
-    &--hover-bg {
-      transition: background-color .2s ease;
-      &:hover, &:focus {
-        background-color: $color-green-light;
-      }
-    }
+    border-bottom: 2px solid #000;
     a {
       display: block;
     }
     &:first-child {
       border-top: 2px solid #000;
     }
-    border-bottom: 2px solid #000;
+    &--hover-bg {
+      transition: background-color .2s ease;
+      &:hover, &:focus, &.active {
+        background-color: $color-green-light;
+      }
+    }
+  }
+  &__item__wrapper {
+    height: 0;
+    overflow: hidden;
   }
 }
 
 .resources-list {
-  font-size: 0em;
-  &__item {
-    font-size: 1rem;
-    display: inline-block;
-    p {
-      max-width: 350px;
+  a {
+    border-bottom: none!important;
+    &:hover, &.focus {
+      text-decoration: underline;
+      .arrow-download {
+        transform: translateY(3px);
+      }
     }
   }
   .arrow-download {
     margin-left: 2px;
+    vertical-align: middle;
+    backface-visibility: hidden;
+    transition: transform .2s cubic-bezier(.25,.46,.45,.94);
   }
 }
 
 .frontpage-list {
+  border-bottom: 2px solid;
+  &__item {
+    &:nth-child(4), &:last-child {
+      border-bottom: 0;
+    }
+  }
   [data-showmore] {
+    border-top: 2px solid #000;
+    border-bottom: 0;
     cursor: pointer;
     button {
       cursor: pointer;
@@ -43,10 +59,23 @@
       border: 0;
       width: 100%;
       text-align: left;
+      &:hover svg, &:focus svg {
+        transform: translateY(3px);
+      }
+      &.active {
+        svg {
+          transform: translateY(0px) rotate(180deg);
+        }
+        &:hover svg, &:focus svg {
+          transform: translateY(3px) rotate(180deg);
+        }
+      }
       svg {
         width: 14px;
         height: 14px;
         vertical-align: middle;
+        backface-visibility: hidden;
+        transition: transform .2s cubic-bezier(.25,.46,.45,.94);
       }
     }
   }

@@ -1,0 +1,56 @@
+{% for content in block.body %}
+  {% if content.type == "text" %}
+    <div class="block text paragraph">
+      {{ content.text }}
+    </div>
+
+  {% elseif content.type == "example" %}
+    <div class="block example">
+      {% if content.heading | length %}
+        <b class="font-neutral-b">{{ content.heading }}</b>
+      {% else %}
+        <b class="font-neutral-b">Eksempel</b>
+      {% endif %}
+      <div class="example__top">
+        {{ content.text }}
+      </div>
+      {% if content.hiddenText | length %}
+        <div class="example__bottom">
+          {{ content.hiddenText }}
+        </div>
+        <button class="example__button" type="button" name="button">
+          <span>Vis hele</span>
+        </button>
+      {% endif %}
+    </div>
+
+  {% elseif content.type == "fact" %}
+    <div class="block fact">
+      <b class="font-neutral-b">Fakta</b>
+      {{ content.text }}
+    </div>
+
+  {% elseif content.type == "quote" %}
+    <div class="block block--large quote">
+      {% if content.smallHeading | length %}
+        <span class="quote__title font-neutral-b center">{{ content.smallHeading }}</span>
+      {% endif %}
+      <blockquote class="center">{{ content.quote }}</blockquote>
+    </div>
+
+  {% elseif content.type == "accordion" %}
+    <div class="block accordion borders a-toggle">
+      <button class="accordion__button a-toggle__button">
+        <span>{{ content.heading }}</span>
+        <svg class="accordion__arrow a-toggle__arrow" width="12" height="7" viewBox="0 0 82 48">
+          <path class="accordion__arrow-path" d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"/>
+        </svg>
+      </button>
+      <div class="accordion__content a-toggle__content">
+        <div class="accordion__inner a-toggle__inner">
+          {{ content.text }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}

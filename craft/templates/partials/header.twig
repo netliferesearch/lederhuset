@@ -50,7 +50,9 @@
       </div>
     </div>
   </div>
-  {% include 'partials/menu' %}
+  {% include "partials/menu" with {
+    'menuId' : 'menu'
+	} %}
   {% include 'partials/login' %}
   {% include 'partials/registration' %}
 </header>

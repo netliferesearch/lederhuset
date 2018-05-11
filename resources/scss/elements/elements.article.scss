@@ -105,7 +105,7 @@ $h3--margin-t: 3.5vw;
       display: none;
     }
   }
-  .example, .fact {
+  .fact {
     margin-top: $paragraph--margin-t;
     padding: $paragraph--margin-t;
     border: 2px solid;
@@ -116,10 +116,32 @@ $h3--margin-t: 3.5vw;
     }
   }
   .example {
+    padding: 4vw 3.5vw 0 3.5vw;
+    margin-top: $paragraph--margin-t * 2;
+    margin-bottom: $paragraph--margin-t * 2;
+    border: 2px solid;
     border-bottom: none;
+    &__top p:first-of-type {
+      margin-top: 0px;
+    }
+    &__bottom {
+      height: 0;
+      overflow: hidden;
+    }
+    &__button {
+      cursor: pointer;
+      color: $color-green;
+      margin: $paragraph--margin-t auto 0 auto;
+      display: block;
+      border: 0;
+      border-radius: 0;
+      background: #fff;
+      text-decoration: underline;
+    }
   }
   .quote {
     margin-top: $paragraph--margin-t * 2;
+    margin-bottom: $paragraph--margin-t * 2;
     blockquote {
       font-size: calc(34px + 1vw);
       line-height: calc(50px + 1vw);

@@ -9,6 +9,8 @@ import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
 import inview from 'jquery-inview';
 
+var imagesLoaded = require('imagesloaded');
+
 
 /*** revealing elements ***/
 TweenLite.set($('[data-reveal]'), {y:30});
@@ -70,10 +72,15 @@ searchfield.on("focus", function() {
 
 //do this on keyup change searchfield
 searchfield.on('keyup change', function(e) {
-  tosearch = searchfield.val();
-  fuse = new Fuse(data.responseJSON.data, options);
-  result = fuse.search(tosearch);
-  populateResults();
+  if(e.which === 13){
+    //do nothing
+  } else {
+    tosearch = searchfield.val();
+    fuse = new Fuse(data.responseJSON.data, options);
+    result = fuse.search(tosearch);
+    populateResults();
+    $("#searchResults ul li:first-child").removeClass('active');
+  }
 });
 
 //do this when you click on exit
@@ -139,30 +146,56 @@ function populateResults() {
   listItemHoverEffect();
 }
 
+$('#mainSearchWrapper').submit(function(event) {
+  event.preventDefault();
+  $("#searchResults ul li:first-child").addClass('active');
+  TweenMax.to($("#searchResults ul li:first-child a"), .25, {x:15, ease: Expo.easeOut});
+});
 
 
-/*** show more list items ***/
-$('[data-showmore]').each(function(){
-  var listWrapper = $(this).parent();
-  var listWrapperHeight = listWrapper.height();
-  listWrapper.height(listWrapperHeight).css('overflow', 'hidden');
+
+/*** show more list items and example module ***/
+$('[data-showmore], .example').each(function(){
+  if ( $(this).hasClass('list__item') ) {
+    var bottom = $(this).parent().find('.list__item__wrapper');
+    var bottomBtn = $(this).find('button');
+    var bottomText = ('Vis flere');
+  } else {
+    var bottom = $(this).find('.example__bottom');
+    var bottomBtn = $(this).find('button');
+    var bottomText = ('Vis hele');
+  }
 
   function showContent() {
-    $(listWrapper).children().css('display', 'block');
-    TweenLite.set(listWrapper, {css: {height:"auto"}});
-    TweenLite.from(listWrapper, .5, {css: {height:listWrapperHeight}, ease: Expo.easeInOut, y: 0 });
+    TweenLite.set(bottom, {css: {height:"auto"}});
+    TweenLite.from(bottom, .35, {css: {height:0}, ease: Expo.easeOut, y: 0 });
+    $(bottomBtn).addClass('active').find('span').text('Vis mindre');
     $(this).one("click", hideContent);
   }
 
   function hideContent() {
-    TweenLite.to(listWrapper, .5, {css: {height:listWrapperHeight}, delay:.1, ease: Expo.easeInOut, y: 0 });
+    TweenLite.to(bottom, .35, {css: {height:0}, ease: Expo.easeOut, y: 0});
+    $(bottomBtn).removeClass('active').find('span').text(bottomText);
     $(this).one("click", showContent);
   }
 
-  $($(this)).one("click", showContent);
+  $(this).one("click", showContent);
 });
 
 
+
+
+/*** images loaded ***/
+$('.image__container').each(function () {
+  var _thisImg = $(this).find('img');
+  var _thisBgImg = $(this).find('.image__notloaded');
+
+  imagesLoaded(_thisImg, function() {
+    TweenLite.to(_thisImg, .3, {opacity:1, ease: Quad.easeIn});
+    TweenLite.to(_thisBgImg, .3, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
+  });
+
+});
 
 
 /*** scrollto ***/
@@ -215,42 +248,62 @@ function toggleActive(elem){
 }
 
 //menu, login and registration form
-$('[data-show="login"], [data-show="registration"], [data-show="menu"]').on('click', function(e) {
+$('[data-show="menu"]').on('click', function(e) {
   var thisAttr = '#' + $(this).attr('data-show');
   var thisExit = thisAttr + ' .search__close';
-  var menuElemToHide;
-  var menuWrapper;
+  var menuElemToHide = $('.menu__logo-wrap, .menu__login');
+  var menuWrapper = thisAttr + ' .inline-wrapper';
   e.preventDefault();
   toggleActive(this);
 
-  if ( $(this).hasClass('menu__toggle')) {
-    menuElemToHide = $('.menu__logo-wrap, .menu__login'),
-    menuWrapper = thisAttr + ' .inline-wrapper';
-  } else {
-    menuElemToHide = $('.page-header'),
-    menuWrapper = thisAttr + ' .login__wrapper';
+  function exitMenu(){
+    TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
+    TweenMax.to($('.page-header'), .2, {backgroundColor:'#fff', ease: Quad.easeIn, delay:.1});
+    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+    TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
+    $('body').removeClass('formOpen');
   }
 
   if( $(this).hasClass('active') ){
     TweenMax.to(thisAttr, .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn, force3D:true});
+    TweenMax.to($('.page-header'), .2, {backgroundColor:'#c3eee8', ease: Quad.easeIn});
     TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut, force3D:true});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
     TweenLite.to(thisExit, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
     $('body').addClass('formOpen');
   } else {
-    TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
-    TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
-    $('body').removeClass('formOpen');
+    exitMenu();
   }
 
   $(thisExit).on('click', function() {
-    TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-    TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
-    TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
-    $('body').removeClass('formOpen');
+    exitMenu();
+  });
+});
+
+$('[data-show="login"], [data-show="registration"]').each(function(){
+  $(this).on('click', function(e) {
+    var thisAttr = '#' + $(this).attr('data-show');
+    var thisExit = thisAttr + ' .search__close';
+    var menuElemToHide = $('.page-header');
+    var menuWrapper = thisAttr + ' .login__wrapper';
+    e.preventDefault();
+    toggleActive(this);
+
+    TweenMax.to(thisAttr, .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn, force3D:true});
+    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut, force3D:true});
+    TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
+    TweenLite.to(thisExit, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
+    $('body').addClass('formOpen');
+
+    $(thisExit).on('click', function() {
+      TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
+      TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
+      TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
+      TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
+      $('body').removeClass('formOpen');
+    });
+
   });
 });
 
@@ -266,6 +319,24 @@ function checkInputVal(){
 
 $('.login__input').blur(checkInputVal);
 $('.login__input').each(checkInputVal);
+
+
+
+// Select all links with hashes and scroll to
+$('.article-anchor').click(function(event) {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    if (target.length) {
+      event.preventDefault();
+      $('html, body').animate({
+        scrollTop: target.offset().top - 20
+      }, 1000);
+    }
+  }
+});
+
+
 
 /*** pathfinder module ***/
 var clickedPath = [];
@@ -388,20 +459,4 @@ $('.pathfinder__popup').on("click", function(e){
     TweenLite.to($('#pathfinderClose'), .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
   });
 
-});
-
-
-
-// Select all links with hashes and scroll to
-$('.article-anchor').click(function(event) {
-  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    if (target.length) {
-      event.preventDefault();
-      $('html, body').animate({
-        scrollTop: target.offset().top - 20
-      }, 1000);
-    }
-  }
 });

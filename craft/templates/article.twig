@@ -30,15 +30,6 @@
         <span class=" hamburger__button-bar hamburger__button-bar--bottom no-flicker"></span>
       </div>
     </div>
-    {#
-    <ul class="reset-list bg-white pb--xsmall pt--xsmall-optical">
-      {% for block in blocks %}
-        <li class="font-neutral">
-          <a class="article-anchor paragraph" href="#block{{ loop.index }}">{{ loop.index }}. {{ block.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-    #}
   </nav>
   {% endif %}
 
@@ -77,49 +68,10 @@
             {% endif %}
           {% endif %}
 
-          {% for content in block.body %}
-            {% if content.type == "text" %}
-              <div class="block text paragraph">
-                {{ content.text }}
-              </div>
-
-            {% elseif content.type == "example" %}
-              <div class="block example">
-                <b class="font-neutral-b">Eksempel</b>
-                {{ content.text }}
-              </div>
-
-            {% elseif content.type == "fact" %}
-              <div class="block fact">
-                <b class="font-neutral-b">Fakta</b>
-                {{ content.text }}
-              </div>
-
-            {% elseif content.type == "quote" %}
-              <div class="block block--large quote">
-                {% if content.smallHeading | length %}
-                  <span class="quote__title font-neutral-b center">{{ content.smallHeading }}</span>
-                {% endif %}
-                <blockquote class="center">{{ content.quote }}</blockquote>
-              </div>
-
-            {% elseif content.type == "accordion" %}
-              <div class="block accordion borders a-toggle">
-                <button class="accordion__button a-toggle__button">
-                  <span>{{ content.heading }}</span>
-                  <svg class="accordion__arrow a-toggle__arrow" width="12" height="7" viewBox="0 0 82 48">
-                  	<path class="accordion__arrow-path" d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"/>
-                  </svg>
-                </button>
-                <div class="accordion__content a-toggle__content">
-                  <div class="accordion__inner a-toggle__inner">
-                    {{ content.text }}
-                  </div>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-
+          {% include "shared/bodyContent" with {
+            entry: entry,
+            'block' : block
+        	} %}
         </section>
       {% endfor %}
     {% endif %}

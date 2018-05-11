@@ -1,4 +1,7 @@
 .virke-header {
+  background: #fff;
+  z-index: 3;
+  position: relative;
   &__wrapper {
     font-size: 0em;
     opacity: .4;
