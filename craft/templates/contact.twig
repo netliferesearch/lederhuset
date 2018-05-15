@@ -8,5 +8,11 @@
     <h1 class="center title mt--large mb--large">{{ entry.title }}</h1>
   </header>
 
+  <article class="article mb--xlarge mt--large">
+    {% include "shared/bodyContent" with {
+      'block' : entry
+    } %}
+  </article>
+
 </div>
 {% endblock %}

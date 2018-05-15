@@ -5,13 +5,11 @@ $h3--margin-t: 3.5vw;
   position: relative;
   h1 {
     word-wrap: break-word;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  h1 + .block.text.paragraph {
-    p:first-child {
-      margin-top: 0px;
-    }
-  }
-  h1 + .block.fact {
+  h1 + .block.text.paragraph p:first-child, h1 + .block.fact {
     margin-top: 0px;
   }
   li strong, p strong {
@@ -19,12 +17,30 @@ $h3--margin-t: 3.5vw;
     font-family: $font-neutral-bold;
   }
   p, ul, ol {
-    margin-top: $paragraph--margin-t;
+    margin-top: 20px;
+    @media (min-width: $mobile) {
+      margin-top: $paragraph--margin-t;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 40px;
+    }
   }
   ul, ol {
-    padding-left: 1.2vw;
+    padding-left: 16px;
+    @media (min-width: $mobile) {
+      padding-left: 1.2vw;
+    }
+    @media (min-width: $maxWidth) {
+      padding-left: 22px;
+    }
     li {
-      padding-left: .5vw;
+      padding-left: 5px;
+      @media (min-width: $mobile) {
+        padding-left: .5vw;
+      }
+      @media (min-width: $maxWidth) {
+        padding-left: 10px;
+      }
     }
   }
   ol + ul {
@@ -40,11 +56,17 @@ $h3--margin-t: 3.5vw;
   }
   h3 {
     font-family: $font-neutral-bold;
-    margin-top: $h3--margin-t;
+    margin-top: 40px;
+    @media (min-width: $mobile) {
+      margin-top: $h3--margin-t;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 60px;
+    }
   }
   a {
     color: $color-green;
-    border-bottom: 1px solid;
+    border-bottom: 2px solid;
   }
   &-wrap {
     position: relative;
@@ -60,18 +82,30 @@ $h3--margin-t: 3.5vw;
     }
   }
   .accordion {
-    margin-top: $paragraph--margin-t;
+    margin-top: 20px;
+    @media (min-width: $mobile) {
+      margin-top: $paragraph--margin-t;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 40px;
+    }
     &__button {
       font-family: $font-neutral-bold;
       cursor: pointer;
       width: 100%;
       position: relative;
       text-align: left;
-      padding: 20px 0px;
       border: 0;
       background: transparent;
       margin: 0;
+      padding: 15px 0;
       transition: background-color .2s ease;
+      @media (min-width: $mobile) {
+        padding: 1vw 0;
+      }
+      @media (min-width: $maxWidth) {
+        padding: 20px 0;
+      }
       &:hover {
         background: $color-green-light;
       }
@@ -81,7 +115,7 @@ $h3--margin-t: 3.5vw;
       }
     }
     &__arrow {
-      width: 1vw;
+      width: 12px;
       height: auto;
       position: absolute;
       top: 50%;
@@ -90,6 +124,11 @@ $h3--margin-t: 3.5vw;
       -webkit-transition: -webkit-transform 0.28s cubic-bezier(0.39, 0.575, 0.565, 1);
       transform: translate(0%, -50%);
       -webkit-transform: translate(0%, -50%);
+      @media (min-width: $mobile) {
+        width: 1vw;
+      }
+      @media (min-width: $maxWidth) {
+      }
       &.clicked {
         transform: translate(0%, -50%) rotate(-180deg);
         -webkit-transform: translate(0%, -50%) rotate(-180deg);
@@ -100,15 +139,26 @@ $h3--margin-t: 3.5vw;
       height: 0;
     }
     &__inner {
-      padding-bottom: 26px;
-      margin-top: -24px;
+      padding-bottom: 40px;
+      margin-top: -40px;
       display: none;
     }
   }
   .fact {
-    margin-top: $paragraph--margin-t;
-    padding: $paragraph--margin-t;
     border: 2px solid;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 25px;
+    @media (min-width: $mobile) {
+      margin-top: $paragraph--margin-t * 2;
+      margin-bottom: $paragraph--margin-t * 2;
+      padding: $paragraph--margin-t;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      padding: 50px;
+    }
   }
   .fact {
     b + p, b + ul, b + ol {
@@ -116,11 +166,21 @@ $h3--margin-t: 3.5vw;
     }
   }
   .example {
-    padding: 4vw 3.5vw 0 3.5vw;
-    margin-top: $paragraph--margin-t * 2;
-    margin-bottom: $paragraph--margin-t * 2;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 25px 25px 0 25px;
     border: 2px solid;
     border-bottom: none;
+    @media (min-width: $mobile) {
+      margin-top: $paragraph--margin-t * 2;
+      margin-bottom: $paragraph--margin-t * 2;
+      padding: 4vw 3.5vw 0 3.5vw;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      padding: 80px 70px 0 70px;
+    }
     &__top p:first-of-type {
       margin-top: 0px;
     }
@@ -131,12 +191,18 @@ $h3--margin-t: 3.5vw;
     &__button {
       cursor: pointer;
       color: $color-green;
-      margin: $paragraph--margin-t auto 0 auto;
+      margin: 20px auto 0 auto;
       display: block;
       border: 0;
       border-radius: 0;
       background: #fff;
       text-decoration: underline;
+      @media (min-width: $mobile) {
+        margin: $paragraph--margin-t auto 0 auto;
+      }
+      @media (min-width: $maxWidth) {
+        margin: 40px auto 0 auto;
+      }
     }
   }
   .quote {

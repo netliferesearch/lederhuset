@@ -6,6 +6,9 @@
     border-bottom: 2px solid #000;
     a {
       display: block;
+      @media (max-width: $mobile) {
+        line-height: 1.5;
+      }
     }
     &:first-child {
       border-top: 2px solid #000;
@@ -25,9 +28,8 @@
 
 .resources-list {
   a {
-    border-bottom: none!important;
+    border-bottom: 2px solid #000;
     &:hover, &.focus {
-      text-decoration: underline;
       .arrow-download {
         transform: translateY(3px);
       }
@@ -71,11 +73,20 @@
         }
       }
       svg {
-        width: 14px;
-        height: 14px;
+        width: 11px;
+        height: 11px;
         vertical-align: middle;
         backface-visibility: hidden;
         transition: transform .2s cubic-bezier(.25,.46,.45,.94);
+        @media (min-width: $mobile) {
+          width: 14px;
+          height: 14px;
+        }
+        @media (min-width: $maxWidth) {
+          width: 25px;
+          height: 16px;
+          margin-top: -2px;
+        }
       }
     }
   }

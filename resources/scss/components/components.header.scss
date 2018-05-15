@@ -14,14 +14,15 @@
       @media (min-width: $mobile) {
         font-size: $headingH3;
       }
+      @media (min-width: $maxWidth) {
+        font-size: 60px;
+        line-height: 70px;
+      }
     }
     &__search {
       &-form {
         display: inline-block;
         border-bottom: 1px solid $color-black;
-      }
-      &-icon {
-
       }
     }
   }

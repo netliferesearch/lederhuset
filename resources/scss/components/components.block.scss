@@ -1,8 +1,17 @@
 .block {
-  &__full {
-    @media (max-width: $mobile) {
-      img {
-      }
-    }
+  width: 100%;
+  margin: 0 auto;
+  @media (min-width: $mobile) {
+    width: calc(50% - 2.5vw);
   }
+  &--medium {
+    width: calc(63.66666% - 2.5vw);
+  }
+  &--large {
+    width: calc(83.333333% - 2.5vw);
+  }
+}
+
+@media (min-width: $maxWidth) {
+
 }

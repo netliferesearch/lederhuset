@@ -34,7 +34,7 @@
   {% endif %}
 
   <!-- article blocks/main content -->
-  <article class="article mb--xlarge mt--large">
+  <article class="article mb--large mt--large">
     {% if blocks | length %}
       {% for block in blocks %}
         <section id="block{{ loop.index0 }}">
@@ -99,13 +99,13 @@
 
   <!-- Entries in the same category -->
   {% for category in entry.category %}
-    <div class="article-header mb bg-green--light">
+    <div class="article-header mb--xlarge bg-green--light">
       <div class="pt--large pb--medium mt grid-wrap--smaller">
         <h1 class="center title">{{ category.title }}</h1>
       </div>
       <ul class="list list--no-style pb--large block center-block">
       {% for entry in craft.entries.section('article').relatedTo(category) %}
-        <li class="list__item pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
+        <li class="list__item list__item--hover pb--xsmall pt--xsmall-optical font-neutral {% if loop.last %}mb--xsmall{% endif %}">
           <a class="paragraph" href="{{ entry.url }}">{{ entry.title }}</a>
         </li>
       {% endfor %}

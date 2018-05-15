@@ -28,6 +28,10 @@ $maxWidth: 2200px;
       padding-left: 7.5vw;
       padding-right: 7.5vw;
     }
+    @media (min-width: $maxWidth) {
+      padding-left: 145px;
+      padding-right: 145px;
+    }
   }
 }
 

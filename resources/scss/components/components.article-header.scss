@@ -1,4 +1,7 @@
 .article-header {
+  @media (max-width: $mobile) {
+    padding: 0 25px;
+  }
   h1 {
     word-wrap: break-word;
   }

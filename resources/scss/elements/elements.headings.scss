@@ -1,15 +1,18 @@
-$headingH1: 6.5vw;
+$headingH1: 5.2vw;
 $headingH3: 2.5vw;
 
 
 h1 {
   margin: 0;
+  font-size: 34px;
+  line-height: 1.375;
   @media (min-width: $mobile) {
-    font-size: $headingH1;
-    line-height: 8.6vw;
+    font-size: 5.2vw;
+    line-height: 7.3vw;
   }
   @media (min-width: $maxWidth) {
-
+    line-height: 130px;
+    font-size: 100px;
   }
 }
 
@@ -23,12 +26,16 @@ h2 {
   }
 }
 
-h3, .article .text h2 {
+h3, .article .text h2, .search__input {
+  font-size: 26px;
+  line-height: 1.375;
   @media (min-width: $mobile) {
     font-size: $headingH3;
     line-height: 3.5vw;
   }
   @media (min-width: $maxWidth) {
+    font-size: 50px;
+    line-height: 60px;
   }
 }
 
@@ -42,8 +49,8 @@ h3, .article .text h2 {
     line-height: 2.2vw;
   }
   @media (min-width: $maxWidth) {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 26px;
+    line-height: 38px;
   }
 }
 
@@ -57,6 +64,7 @@ h3, .article .text h2 {
     line-height: 2.4vw;
   }
   @media (min-width: $maxWidth) {
+    line-height: 46px;
   }
 }
 
