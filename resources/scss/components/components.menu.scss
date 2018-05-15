@@ -9,19 +9,27 @@
   height: 100%;
   backface-visibility: hidden;
   background: $color-green-light;
-  padding: 20vh 0;
+  padding: 150px 0px;
   color: $color-black;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  @media (min-width: $mobile) {
+    padding: 20vh 0;
+  }
   &__items {
     list-style: none;
   }
   &__item {
     display: block;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.5;
     @media (min-width: $mobile) {
-      font-size: 30px;
+      font-size: 1.8vw;
+      line-height: 2.9vw;
+    }
+    @media (min-width: $maxWidth) {
+      font-size: 40px;
+      line-height: 1.375;
     }
   }
   .inline__item img {

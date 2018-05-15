@@ -9,5 +9,13 @@ footer {
     opacity: 1;
     visibility: visible;
     overflow-y: hidden;
+    @media (max-width: $mobile) {
+      padding: 60px 0px;
+      height: auto;
+      position: relative;
+    }
+    @media (min-width: $maxWidth) {
+      padding: 200px 0px;
+    }
   }
 }

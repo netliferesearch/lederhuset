@@ -1,0 +1,8 @@
+.block {
+  &__full {
+    @media (max-width: $mobile) {
+      img {
+      }
+    }
+  }
+}

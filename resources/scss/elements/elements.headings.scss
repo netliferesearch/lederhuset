@@ -19,6 +19,7 @@ h2 {
     font-size: 4.5vw;
   }
   @media (min-width: $maxWidth) {
+    font-size: 80px;
   }
 }
 
@@ -41,6 +42,8 @@ h3, .article .text h2 {
     line-height: 2.2vw;
   }
   @media (min-width: $maxWidth) {
+    font-size: 32px;
+    line-height: 42px;
   }
 }
 
@@ -62,9 +65,11 @@ h3, .article .text h2 {
   line-height: 28px;
   @media (min-width: $mobile) {
     font-size: 1.8vw;
-        line-height: 2.9vw;
+    line-height: 2.9vw;
   }
   @media (min-width: $maxWidth) {
+    font-size: 40px;
+    line-height: 1.375;
   }
 }
 

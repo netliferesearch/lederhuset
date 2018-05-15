@@ -2,7 +2,7 @@
   <div class="mt--large mb--large border--bottom">
     <!-- first block -->
     {% for block in entry.frontpage_firstBlock %}
-      <div class="pb--xlarge center-block inline-wrapper">
+      <div class="pb--xlarge center-block inline-wrapper block__full">
         <div class="u-1/2 inline__item pr">
           <h2 class="pb--small">{{ block.heading }}</h2>
           <p class="lead-p font-neutral pb--small">{{ block.text }}</p>
@@ -13,7 +13,7 @@
             </svg>
           </button>
         </div>
-        <div class="u-1/2 inline__item pl">
+        <div class="u-1/2 inline__item pl pt--mobile">
           <img src="{{ block.image.first().getUrl('illustrationLarge') }}" alt="" />
         </div>
       </div>
@@ -21,12 +21,12 @@
 
     <!-- blocks -->
     {% for block in entry.frontpage_blocks %}
-      <div class="pb--xlarge center-block inline-wrapper">
+      <div class="pb--xlarge center-block inline-wrapper block__full">
         <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated pl{% else %}pr{% endif %}">
           <h2 class="pb--small">{{ block.heading }}</h2>
           <p class="lead-p font-neutral">{{ block.text }}</p>
         </div>
-        <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated pr{% else %}pl{% endif %}">
+        <div class="u-1/2 inline__item pt--mobile {% if loop.index0 % 2 == 0 %}inline__item--floated pr{% else %}pl{% endif %}">
           <img src="{{ block.image.first().getUrl('illustrationLarge') }}" alt="" />
         </div>
       </div>
@@ -35,7 +35,7 @@
 
   <!-- salesblock -->
   <div class="mt--large mb--large border--bottom">
-    <div class="pb--xlarge center-block inline-wrapper">
+    <div class="pb--xlarge center-block inline-wrapper block__full">
       <div class="u-1/2 inline__item pr">
         <h2 class="pb--small">{{ siteName }}</h2>
         <div class="lead-p font-neutral pb--small">{{ entry.salesText }}</div>
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="article-header mb bg-green--light">
+  <div class="article-header mb bg-green--light block__full">
     <div class="pt--large pb--medium mt grid-wrap--smaller">
       <h1 class="center title">{{ siteName }}</h1>
     </div>

@@ -8,8 +8,11 @@ import Fuse from 'fuse.js'
 import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
 import inview from 'jquery-inview';
+import picturefill from 'picturefill';
 
 var imagesLoaded = require('imagesloaded');
+// Picture element HTML5 shiv
+document.createElement( "picture" );
 
 
 /*** revealing elements ***/

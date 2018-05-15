@@ -13,9 +13,13 @@ $maxWidth: 2200px;
     padding-left: 10vw;
     padding-right: 10vw;
   }
+  @media (min-width: $maxWidth) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
   &--inline_items {
     padding-left: 30px;
-    padding-right: 30px;    
+    padding-right: 30px;
     @media (min-width: $mobile) {
       padding-left: 5vw;
       padding-right: 5vw;
