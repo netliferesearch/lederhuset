@@ -13,7 +13,7 @@
       {% if blocks | length %}
         {% for block in blocks %}
           <li class="list__item list__item--hover font-neutral {% if loop.last %}mb--xsmall{% endif %}">
-            <a class="article-anchor paragraph pb--xsmall pt--xsmall-optical" href="#block{{ loop.index0 }}">{{ block.title }}</a>
+            <a class="article-anchor paragraph pb--xsmall pt--xsmall-optical" href="#{{ block.id }}">{{ block.title }}</a>
           </li>
         {% endfor %}
       {% endif %}
@@ -22,24 +22,20 @@
 
   <!-- article sticky nav -->
   {% if blocks | length %}
-  <nav id="articleSticky" data-sticky-class="is-sticky" class="sticky-nav sticky grid-wrap">
-    <div data-show="article-menu" class="article-menu__toggle hamburger__toggle">
-      <div class="article-menu__button hamburger__button no-flicker">
-        <span class="hamburger__button-bar hamburger__button-bar--top no-flicker"></span>
-        <span class="hamburger__button-bar hamburger__button-bar--middle no-flicker"></span>
-        <span class=" hamburger__button-bar hamburger__button-bar--bottom no-flicker"></span>
+    <nav class="sticky sticky--nav" id="sticky" data-sticky-class="is-sticky">
+      <div class="toc">
+        <div class="toc-wrapper borders pb--xsmall pt--xsmall"></div>
       </div>
-    </div>
-  </nav>
+    </nav>
   {% endif %}
 
   <!-- article blocks/main content -->
-  <article class="article mb--large mt--large">
+  <article class="article mb--large">
     {% if blocks | length %}
       {% for block in blocks %}
-        <section id="block{{ loop.index0 }}">
+        <section id="article__wrapper article__wrapper--{{ loop.index }}">
 
-          <h1 class="center mt--large mb--large grid-wrap--smaller">
+          <h1 class="center pt--large mb--large grid-wrap--smaller" id="{{ block.id }}">
             {{ block.title }}
           </h1>
 

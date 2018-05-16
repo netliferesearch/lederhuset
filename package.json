@@ -32,6 +32,7 @@
     "file-loader": "^1.1.6",
     "fuse.js": "^3.2.0",
     "gsap": "^1.20.4",
+    "headroom.js": "^0.9.4",
     "imagesloaded": "^4.1.4",
     "jquery": "^3.3.1",
     "jquery-inview": "^1.1.2",
@@ -45,7 +46,7 @@
     "postcss-nested": "^3.0.0",
     "sticky-js": "^1.2.0",
     "style-loader": "^0.20.1",
-    "tocbot": "^4.3.0",
+    "tocbot": "^4.3.2",
     "typed.js": "^2.0.6",
     "vue2-autocomplete": "git://github.com/nystudio107/vue2-autocomplete.git#master",
     "webpack": "^3.10.0"

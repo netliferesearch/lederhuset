@@ -1,4 +1,4 @@
-{% set featuredCategories = craft.categories.group('default').order('title') %}
+{% set featuredCategories = craft.categories.group('default') %}
 
 <div class="grid-wrap">
   <!-- Search container -->
@@ -86,7 +86,7 @@
   <div class="pt--large borders--top">
     {% for entry in craft.entries.section('formsAndTemplates') %}
       <div class="pb--large center-block inline-wrapper">
-        <div class="u-1/2 inline__item" data-reveal>
+        <div class="u-1/2 inline__item pr" data-reveal>
           <h2 class="pb--small">{{ entry.title }}</h2>
           <p class="paragraph font-neutral">
             <a class="underline" href="{{ entry.url }}">Se alle skjema og maler</a>

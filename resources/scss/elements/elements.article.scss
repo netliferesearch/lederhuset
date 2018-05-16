@@ -3,14 +3,30 @@ $h3--margin-t: 3.5vw;
 
 .article {
   position: relative;
+  &--single {
+    .block:first-child {
+      margin-top: -50px;
+    }
+  }
   h1 {
     word-wrap: break-word;
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
+    outline: 0;
   }
   h1 + .block.text.paragraph p:first-child, h1 + .block.fact {
     margin-top: 0px;
+  }
+  h3 {
+    font-family: $font-neutral-bold;
+    margin-top: 40px;
+    @media (min-width: $mobile) {
+      margin-top: $h3--margin-t;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 60px;
+    }
   }
   li strong, p strong {
     font-weight: normal;
@@ -52,16 +68,6 @@ $h3--margin-t: 3.5vw;
       top: 8px;
       left: 3px;
       font-size: 1.3vw;
-    }
-  }
-  h3 {
-    font-family: $font-neutral-bold;
-    margin-top: 40px;
-    @media (min-width: $mobile) {
-      margin-top: $h3--margin-t;
-    }
-    @media (min-width: $maxWidth) {
-      margin-top: 60px;
     }
   }
   a {

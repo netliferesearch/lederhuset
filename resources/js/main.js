@@ -9,10 +9,39 @@ import Sticky from 'sticky-js';
 import tocbot from 'tocbot';
 import inview from 'jquery-inview';
 import picturefill from 'picturefill';
+import Headroom from 'headroom.js';
 
 var imagesLoaded = require('imagesloaded');
+
+
+
 // Picture element HTML5 shiv
 document.createElement( "picture" );
+
+if( $('.toc-wrapper').length ){
+  tocbot.init({
+    tocSelector: '.toc-wrapper',
+    contentSelector: '.article',
+    headingSelector: 'h1',
+    scrollSmoothDuration:720,
+    linkClass: 'toc__link',
+    listItemClass: 'font-neutral',
+    activeLinkClass: 'active',
+    listClass: 'list'
+  });
+};
+
+
+// init headroom
+/*var myElement = document.getElementById("sticky");
+if( $('#sticky').length ){
+  var headroom  = new Headroom(myElement);
+  headroom.init();
+};*/
+
+
+var sticky = new Sticky('.sticky');
+new Sticky('.sticky', { wrap: true });
 
 
 /*** revealing elements ***/
@@ -201,12 +230,6 @@ $('.image__container').each(function () {
 });
 
 
-/*** scrollto ***/
-var sticky = new Sticky('.sticky');
-new Sticky('.sticky', { wrap: true });
-
-
-
 
 //Remove empty p tags from article
 $('p').each(function(index, item) {
@@ -333,7 +356,7 @@ $('.article-anchor').click(function(event) {
     if (target.length) {
       event.preventDefault();
       $('html, body').animate({
-        scrollTop: target.offset().top - 20
+        scrollTop: target.offset().top
       }, 1000);
     }
   }
