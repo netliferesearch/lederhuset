@@ -32,13 +32,6 @@ if( $('.toc-wrapper').length ){
 };
 
 
-// init headroom
-/*var myElement = document.getElementById("sticky");
-if( $('#sticky').length ){
-  var headroom  = new Headroom(myElement);
-  headroom.init();
-};*/
-
 
 var sticky = new Sticky('.sticky');
 new Sticky('.sticky', { wrap: true });
@@ -60,19 +53,21 @@ $('[data-reveal]').each(function(index, elem){
 
 /*** search module ***/
 var result, fuse, tosearch,
-    searchfield = $('#mainSearch'),
+    searchfield = $('#mainSearch, #resourcesSearch'),
     closeSearch = $('#searchClose'),
-    fadeOutContent = $('#page-header .menu__non-nav-inner, #allEntries'),
+    placeholderText = $(searchfield).attr('placeholder'),
+    fadeOutContent = $('#page-header .menu__non-nav-inner, #allEntries, #allFormEntries, #virke-header .virke-header__wrapper'),
     tl = new TimelineLite({onReverseComplete:emptySearch});
-    tl.to($("#searchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
+    tl.to($("#searchResults ul, #resourcesSearchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
     tl.pause();
 
 // get search data from json api
 var data = $.ajax({
   url: "/api.json",
-  success: function(result) {
-    console.log(result);
-  }
+});
+
+var resourcesData = $.ajax({
+  url: "/resourcesApi.json",
 });
 
 // fuse options for search
@@ -95,6 +90,20 @@ var options = {
     }]
 };
 
+// fuse options for resources search
+var resourcesOptions = {
+  shouldSort: true,
+  threshold: 0.4,
+  location: 0,
+  distance: 70,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: [{
+      name: 'title',
+      weight: 0.7
+    }]
+};
+
 //do this when focus on searchfield
 searchfield.on("focus", function() {
   if (!$('body').hasClass('search-open')) {
@@ -107,18 +116,23 @@ searchfield.on('keyup change', function(e) {
   if(e.which === 13){
     //do nothing
   } else {
+    if ($('#resourcesSearch').length){
+      fuse = new Fuse(resourcesData.responseJSON.data, resourcesOptions);
+      $("#resourcesSearchResults ul li:first-child").removeClass('active');
+    } else {
+      fuse = new Fuse(data.responseJSON.data, options);
+      $("#searchResults ul li:first-child").removeClass('active');
+    }
     tosearch = searchfield.val();
-    fuse = new Fuse(data.responseJSON.data, options);
     result = fuse.search(tosearch);
     populateResults();
-    $("#searchResults ul li:first-child").removeClass('active');
   }
 });
 
 //do this when you click on exit
 closeSearch.on('click', function() {
   $('body').removeClass('search-open');
-  searchfield.attr("placeholder", 'Søk på noe');
+  searchfield.attr("placeholder", placeholderText);
   searchfield.val("");
   $('.search__typed-cursor').css('display', 'block');
   tl.reverse();
@@ -127,7 +141,7 @@ closeSearch.on('click', function() {
 });
 
 function emptySearch(){
-  $("#searchResults ul").empty();
+  $("#searchResults ul, #resourcesSearchResults ul").empty();
 }
 
 function searchFadeOut() {
@@ -167,14 +181,21 @@ function populateResults() {
     tl.play();
   }
 
-  if( result.length === 0 ) {
-    $("#searchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\">Ingen resultater</li>");
-  }
+  if ( result != null) {
+    if ( result.length === 0 ) {
+      $("#searchResults ul, #resourcesSearchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\">Ingen resultater</li>");
+    }
 
-  $.each(result, function(index, value) {
-    $("#searchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
-    return index<7;
-  });
+    $.each(result, function(index, value) {
+      if ( $(searchfield).is('#resourcesSearch') ) {
+        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' class='font-neutral'>" + value.title + "</a></li>");
+      } else {
+        $("#searchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
+      }
+      return index<7;
+    });
+
+  }
   listItemHoverEffect();
 }
 

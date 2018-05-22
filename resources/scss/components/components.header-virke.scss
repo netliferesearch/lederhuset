@@ -2,9 +2,11 @@
   background: #fff;
   z-index: 3;
   position: relative;
+  .grid-wrap {
+    opacity: .4;
+  }
   &__wrapper {
     font-size: 0em;
-    opacity: .4;
     border-bottom: 2px solid #bbb;
   }
   &__item {

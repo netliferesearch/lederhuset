@@ -30,6 +30,28 @@ return [
                   'blocks' => $bodyBlocks
                 ];
             },
-        ]
+        ],
+        'resourcesApi.json' => [
+          'elementType' => 'Entry',
+          'criteria' => ['section' => 'templatesAndResources'],
+          'transformer' => function (EntryModel $entry) {
+            $category = $entry->templatesAndResourcesCategory->first();
+            $bodyBlocks = [];
+
+            foreach ($entry->blocks as $block) {
+              $bodyBlocks[] = [
+                'title' => $block->title,
+              ];
+            }
+
+            return [
+              'id' => $entry->id,
+              'title' => $entry->title,
+              'category' => [
+                'title' => $category->title,
+              ]
+            ];
+          },
+        ],
     ]
 ];

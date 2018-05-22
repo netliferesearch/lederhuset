@@ -1,25 +1,23 @@
 <nav {% if menuId|length %}id="{{ menuId }}"{% endif %} class="main-menu">
-  <div class="grid-wrap">
-    <div class="center-block inline-wrapper">
-      <div class="u-1/2 inline__item pr">
-        <img src="{{ globals.menuImage.first.url('menuImageLarge') }}" alt="Menu illustration" />
-      </div>
-      <div class="u-1/2 inline__item pl">
-        <ul class="reset-list list pb">
-          {% for entry in craft.entries.section('menu').limit(10) %}
-          <li class="list__item list__item--hover">
-            <a class="main-menu__item pb--xsmall pt--xsmall-optical" href="{{ entry.menu_link.first().url }}">
-              {{ entry.title }}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% if craft.session.isLoggedIn %}
-          <a class="font-neutral borders--bottom paragraph" href="{{ logoutUrl }}">Logg ut</a>
-        {% else %}
-          <a class="font-neutral borders--bottom paragraph" data-show="login" href="#">Logg inn</a>
-        {% endif %}
-      </div>
-		</div>
+  <div class="grid-wrap center-block inline-wrapper">
+    <div class="u-1/2 inline__item pr">
+      <img src="{{ globals.menuImage.first.url('menuImageLarge') }}" alt="Menu illustration" />
+    </div>
+    <div class="u-1/2 inline__item pl">
+      <ul class="reset-list list pb">
+        {% for entry in craft.entries.section('menu').limit(10) %}
+        <li class="list__item list__item--hover">
+          <a class="main-menu__item pb--xsmall pt--xsmall-optical" href="{{ entry.menu_link.first().url }}">
+            {{ entry.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if craft.session.isLoggedIn %}
+        <a class="font-neutral borders--bottom paragraph" href="{{ logoutUrl }}">Logg ut</a>
+      {% else %}
+        <a class="font-neutral borders--bottom paragraph" data-show="login" href="#">Logg inn</a>
+      {% endif %}
+    </div>
   </div>
 </nav>
