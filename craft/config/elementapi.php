@@ -36,6 +36,7 @@ return [
           'criteria' => ['section' => 'templatesAndResources'],
           'transformer' => function (EntryModel $entry) {
             $category = $entry->templatesAndResourcesCategory->first();
+            $file = $entry->file->first();
             $bodyBlocks = [];
 
             foreach ($entry->blocks as $block) {
@@ -47,6 +48,8 @@ return [
             return [
               'id' => $entry->id,
               'title' => $entry->title,
+              'description' => $entry->description,
+              'file' => $file ? $file->url : null,
               'category' => [
                 'title' => $category->title,
               ]

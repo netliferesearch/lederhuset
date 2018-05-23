@@ -2,6 +2,15 @@
   &--no-style {
     list-style: none;
   }
+  &__title {
+    color: $color-green;
+    display: block;
+    max-width: 93%;
+  }
+  &__description {
+    display: block;
+    max-width: 93%;
+  }
   &__item {
     border-bottom: 2px solid #000;
     a {
@@ -20,6 +29,30 @@
       }
     }
     &--resources {
+      a {
+        position: relative;
+        &:hover {
+          .list__arrow-download {
+            transform: translateY(8px);
+          }
+          .search__arrow-download {
+            transform: translate(0%, -50%);
+          }
+        }
+      }
+      .list__arrow-download {
+        position: absolute;
+        right: 0;
+        top: 28%;
+        transition: transform .2s cubic-bezier(.25,.46,.45,.94);
+        path {
+          fill: $color-green;
+        }
+      }
+      .search__arrow-download {
+        top: 50%;
+        transform: translate(0%, -50%);
+      }
     }
   }
   &__item__wrapper {

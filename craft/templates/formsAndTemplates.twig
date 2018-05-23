@@ -41,8 +41,11 @@
             {% for entry in relatedEntries.limit(4) %}
               <li class="list__item list__item--resources list__item--hover-bg frontpage-list__item">
                 <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="{{ entry.file.first().getUrl('') }}">
-                  <span>{{ entry.title }}</span>
-                  <svg class="arrow-download" width="20" height="13" viewBox="0 0 171 254">
+                  <span class="list__title">{{ entry.title }}</span>
+                  {% if entry.description | length %}
+                    <span class="list__description">{{ entry.description }}</span>
+                  {% endif %}
+                  <svg class="list__arrow-download arrow-download" width="20" height="13" viewBox="0 0 171 254">
                   	<path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
                   </svg>
                 </a>
@@ -54,10 +57,13 @@
               <div class="list__item__wrapper">
                 <div class="list__item__wrapper-inner">
                   {% for entry in relatedEntries.offset(4) %}
-                    <li class="list__item list__item--hover-bg frontpage-list__item">
+                    <li class="list__item list__item--resources list__item--hover-bg frontpage-list__item">
                       <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="{{ entry.file.first().getUrl('') }}">
-                        <span>{{ entry.title }}</span>
-                        <svg class="arrow-download" width="20" height="13" viewBox="0 0 171 254">
+                        <span class="list__title">{{ entry.title }}</span>
+                        {% if entry.description | length %}
+                          <span class="list__description">{{ entry.description }}</span>
+                        {% endif %}
+                        <svg class="list__arrow-download arrow-download" width="20" height="13" viewBox="0 0 171 254">
                         	<path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
                         </svg>
                       </a>

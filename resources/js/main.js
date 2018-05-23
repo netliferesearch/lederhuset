@@ -101,6 +101,15 @@ var resourcesOptions = {
   keys: [{
       name: 'title',
       weight: 0.7
+    }, {
+      name: 'file',
+      weight: 0.7
+    }, {
+      name: 'description',
+      weight: 0.1
+    }, {
+      name: 'category.title',
+      weight: 0.3
     }]
 };
 
@@ -188,7 +197,7 @@ function populateResults() {
 
     $.each(result, function(index, value) {
       if ( $(searchfield).is('#resourcesSearch') ) {
-        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' class='font-neutral'>" + value.title + "</a></li>");
+        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--hover list__item--resources list__item--hover-bg\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "</span><span class='list__description'>" + value.description + "</span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='13' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
       } else {
         $("#searchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
       }
