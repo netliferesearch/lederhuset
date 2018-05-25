@@ -3,21 +3,29 @@
 
 {% block content %}
 <div class="grid-wrap contact">
-  <div class="mb--xlarge borders--bottom">
-    <div class="center pb--large pt--large">
+  <div class="mb--xlarge">
+    <div class="center pb--large pt--large" data-reveal>
       <h1 class=""><a class="hover hover--green" href="tel:{{ entry.phone|replace({' ':''}) }}">Tlf. {{ entry.phone }}</a></h1>
       <h1 class=""><a class="hover hover--green" href="tel:{{ entry.email }}">{{ entry.email }}</a></h1>
     </div>
-    {% for block in entry.contactBody %}
-      <div class="inline-wrapper borders--top pt--small pb--small">
-        <div class="inline__item u-1/2">
-          <p class="paragraph font-neutral">{{ block.heading }}</p>
-        </div>
-        <div class="inline__item contact__text article u-1/2">
-          {{ block.text }}
-        </div>
+    <div class="inline-wrapper borders--top pt--small pb" data-reveal>
+      <div class="inline__item u-1/2">
+        <p class="paragraph font-neutral">Adresse</p>
       </div>
-    {% endfor %}
+      <div class="inline__item contact__text u-1/2">
+        <h3 class="pb--medium break-pre">{{ entry.address }}</h3>
+        <h3>{{ entry.poBox }}</h3>
+      </div>
+    </div>
+    <div class="inline-wrapper borders--top pt--small pb" data-reveal>
+      <div class="inline__item u-1/2">
+        <p class="paragraph font-neutral">Hjelp</p>
+      </div>
+      <div class="inline__item contact__text u-1/2">
+        <h3><a class="hover hover--green" href="tel:{{ entry.phone|replace({' ':''}) }}">Tlf. {{ entry.phone }}</a></h3>
+        <h3><a class="hover hover--green" href="tel:{{ entry.email }}">{{ entry.email }}</a></h3>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

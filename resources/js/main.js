@@ -248,6 +248,8 @@ $('[data-showmore], .example').each(function(){
     var bottomText = ('Vis hele');
   }
 
+  console.log();
+
   function showContent() {
     TweenLite.set(bottom, {css: {height:"auto"}});
     TweenLite.from(bottom, .35, {css: {height:0}, ease: Expo.easeOut, y: 0 });
