@@ -214,6 +214,28 @@ $('#mainSearchWrapper').submit(function(event) {
 
 
 
+
+
+var $window = $(window);
+
+function resizeCheck(){
+  var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  var footerHeight = $('.page-footer').height();
+
+  $('main').css('margin-bottom', footerHeight);
+
+  if ( pageWidth <= 769 ) {
+  } else {
+  }
+}
+
+resizeCheck();
+$window.resize(resizeCheck);
+
+
+
+
 /*** show more list items and example module ***/
 $('[data-showmore], .example').each(function(){
   if ( $(this).hasClass('list__item') ) {
