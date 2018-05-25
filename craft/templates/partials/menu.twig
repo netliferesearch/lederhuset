@@ -1,5 +1,5 @@
 <nav {% if menuId|length %}id="{{ menuId }}"{% endif %} class="main-menu">
-  <div class="grid-wrap center-block inline-wrapper {% if menuId|length %}pb--large pt--large{% endif %}">
+  <div class="grid-wrap center-block inline-wrapper {% if menuId == 'footerMenu' %}pb--large pt--large{% endif %}">
     <div class="u-1/2 inline__item pr">
       <img src="{{ globals.menuImage.first.url('menuImageLarge') }}" alt="Menu illustration" />
     </div>
