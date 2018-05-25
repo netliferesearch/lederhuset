@@ -1,0 +1,58 @@
+{% extends "_layout" %}
+
+{% block content %}
+	<div class="grid-wrap mt--large">
+    <header class="grid-wrap">
+      <h1 class="center mt mb">Kan jeg si opp en ansatt?</h1>
+    </header>
+
+    <div class="center-block inline-wrapper pb--large">
+
+      <!-- top -->
+      <div class="u-1/2 inline__item pr">
+        <img src="/assets/guide.jpg" alt="">
+      </div>
+      <div class="u-1/2 inline__item pl">
+        <p class="paragraph font-neutral pb--small">I denne guiden hjelper vi deg å vurdere og gjennomføre en oppsigelse. Du må svare på en spørsmål som gjør at vi kan gi deg riktige råd. Avhengig av hvordan du svarer kan guiden ta veldig kort tid - eller helt opp til ca. 30 min.</p>
+        <button class="lh-button" name="button">
+          <span class="lh-button__text">Gå til første spørsmål</span>
+          <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+            <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="u-1/2 center-block">
+        <!-- list -->
+        <div class="inline-wrapper mb--small mt--large">
+          <div class="inline__item pb--large">
+            <h3 class="pb--small">Gå tilbake i svar:</h3>
+            <ul class="list reset-list frontpage-list">
+              <li class="list__item list__item--resources list__item--hover-bg frontpage-list__item">
+                <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="#">Hvor ligger problemet som gjør at du vurderer oppsigelse?</a>
+              </li>
+              <li class="list__item list__item--resources list__item--hover-bg frontpage-list__item">
+                <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="#">Kan du dokumentere at du har saklig grunn?</a>
+              </li>
+              <li class="list__item list__item--resources list__item--hover-bg frontpage-list__item">
+                <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="#">Har du hatt drøftelsesmøte?</a>
+              </li>
+              <li class="list__item list__item--resources list__item--hover-bg frontpage-list__item">
+                <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="#">Hva ble utfallet av drøftelsesmøtet?</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- block -->
+        <div class="">
+          <h3 class="pb--small">Hvor ligger problemet som gjør at du vurderer oppsigelse?</h3>
+          <button class="lh-button lh-button--check lh-button--checked">Hos den ansatte</button>
+          <button class="lh-button lh-button--check">Hos virksomheten</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

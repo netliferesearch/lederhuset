@@ -10,7 +10,6 @@ import tocbot from 'tocbot';
 import inview from 'jquery-inview';
 import picturefill from 'picturefill';
 import Headroom from 'headroom.js';
-import Lazyload from 'lazyload';
 
 var imagesLoaded = require('imagesloaded');
 
