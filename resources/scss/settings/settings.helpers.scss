@@ -179,6 +179,13 @@
   transition: transform .15s cubic-bezier(.25,.46,.45,.94);
 }
 
+.hover {
+  transition: color .15s ease-out;
+  &--green:hover {
+    color: $color-green;
+  }
+}
+
 .lh-button {
   border: 2px solid #000;
   color: #000;
@@ -224,17 +231,13 @@
 /***** Margin and padding *****/
 $mp--xsmall: .9vw;
 $mp--xsmall-optical: 1.05vw;
-
 $mp--small-2: 1.5vw;
-
 $mp--small: 2.5vw;
 $mp: 5vw;
 $mp--medium: 5.7vw;
-
 $mp--large: 7.5vw;
 $mp--xlarge: 10vw;
 $mp--xxlarge: 12.5vw;
-
 
 //margin bottom
 .mb--xxsmall {

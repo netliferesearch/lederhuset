@@ -10,7 +10,7 @@
       {% if craft.session.isLoggedIn %}
         <h3 class="mb--xsmall">{{ currentUser.name }}</h3>
         <p class="font-neutral paragraph mb">{{ currentUser.email }}</p>
-        <a class="font-neutral border--bottom" href="{{ logoutUrl }}">Logg ut</a>
+        <a class="font-neutral borders--bottom paragraph" href="{{ logoutUrl }}">Logg ut</a>
       {% else %}
         <h3 class="mb--small">Logg inn</h3>
         <form method="post" accept-charset="UTF-8">

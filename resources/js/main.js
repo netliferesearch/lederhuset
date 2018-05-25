@@ -10,10 +10,9 @@ import tocbot from 'tocbot';
 import inview from 'jquery-inview';
 import picturefill from 'picturefill';
 import Headroom from 'headroom.js';
+import Lazyload from 'lazyload';
 
 var imagesLoaded = require('imagesloaded');
-
-
 
 // Picture element HTML5 shiv
 document.createElement( "picture" );
@@ -253,8 +252,8 @@ $('.image__container').each(function () {
   var _thisBgImg = $(this).find('.image__notloaded');
 
   imagesLoaded(_thisImg, function() {
-    TweenLite.to(_thisImg, .3, {opacity:1, ease: Quad.easeIn});
-    TweenLite.to(_thisBgImg, .3, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
+    TweenLite.to(_thisImg, .4, {opacity:1, ease: Quad.easeIn, delay:.2});
+    TweenLite.to(_thisBgImg, .4, {opacity:0, autoAlpha: 0, ease: Quad.easeOut, delay:.2});
   });
 
 });

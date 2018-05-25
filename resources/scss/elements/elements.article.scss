@@ -72,7 +72,11 @@ $h3--margin-t: 3.5vw;
   }
   a {
     color: $color-green;
-    border-bottom: 2px solid;
+    text-decoration: underline;
+    transition: all .15s ease-out;
+    &:hover, &:focus {
+      color: #000;
+    }
   }
   &-wrap {
     position: relative;

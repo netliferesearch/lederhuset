@@ -2,17 +2,22 @@
 {% set blocks = entry.blocks %}
 
 {% block content %}
-<div class="grid-wrap">
-
-  <header class="mb">
-    <h1 class="center title mt--large mb--large">{{ entry.title }}</h1>
-  </header>
-
-  <article class="article mb--xlarge mt--large">
-    {% include "shared/bodyContent" with {
-      'block' : entry
-    } %}
-  </article>
-
+<div class="grid-wrap contact">
+  <div class="mb--xlarge borders--bottom">
+    <div class="center pb--large pt--large">
+      <h1 class=""><a class="hover hover--green" href="tel:{{ entry.phone|replace({' ':''}) }}">Tlf. {{ entry.phone }}</a></h1>
+      <h1 class=""><a class="hover hover--green" href="tel:{{ entry.email }}">{{ entry.email }}</a></h1>
+    </div>
+    {% for block in entry.contactBody %}
+      <div class="inline-wrapper borders--top pt--small pb--small">
+        <div class="inline__item u-1/2">
+          <p class="paragraph font-neutral">{{ block.heading }}</p>
+        </div>
+        <div class="inline__item contact__text article u-1/2">
+          {{ block.text }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

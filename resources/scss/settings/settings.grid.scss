@@ -3,8 +3,8 @@ $maxWidth: 2200px;
 .grid-wrap {
   max-width: $maxWidth;
   margin: 0 auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   @media (min-width: $mobile) {
     padding-left: 7vw;
     padding-right: 7vw;
@@ -18,8 +18,8 @@ $maxWidth: 2200px;
     padding-right: 200px;
   }
   &--inline_items {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     @media (min-width: $mobile) {
       padding-left: 5vw;
       padding-right: 5vw;

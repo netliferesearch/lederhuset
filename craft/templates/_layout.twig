@@ -24,16 +24,12 @@
   {% endcache %}
 
   <main id="top">
-		{% if craft.session.isLoggedIn %}
 	    {% block content %}
 	    {% endblock content %}
-		{% endif %}
   </main>
 
   {% cache if not craft.config.devMode %}
-		{% if craft.session.isLoggedIn %}
-    	{% include 'partials/footer' %}
-		{% endif %}
+		{% include 'partials/footer' %}
   {% endcache %}
 
   {% includeJsFile "/webpack-dist/bundle.js" %}

@@ -83,13 +83,13 @@
 
 <div class="grid-wrap">
   <!-- Templates and resources container (maler og ressurser) -->
-  <div class="pt--large borders--top">
+  <div class="pt--xlarge borders--top">
     {% for entry in craft.entries.section('formsAndTemplates') %}
       <div class="pb--large center-block inline-wrapper">
         <div class="u-1/2 inline__item pr" data-reveal>
           <h2 class="pb--small">{{ entry.title }}</h2>
           <p class="paragraph font-neutral">
-            <a class="underline" href="{{ entry.url }}">Se alle skjema og maler</a>
+            <a class="underline hover hover--green" href="{{ entry.url }}">Se alle {{ entry.title|lower }}</a>
             utviklet og oppdatert av Virkes eksperter på arbeidsrett.
           </p>
         </div>
