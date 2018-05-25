@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="grid-wrap contact">
-  <div class="mb--xlarge">
+  <div class="mb">
     <div class="center pb--large pt--large" data-reveal>
       <h1 class=""><a class="hover hover--green" href="tel:{{ entry.phone|replace({' ':''}) }}">Tlf. {{ entry.phone }}</a></h1>
       <h1 class=""><a class="hover hover--green" href="tel:{{ entry.email }}">{{ entry.email }}</a></h1>
@@ -13,8 +13,8 @@
         <p class="paragraph font-neutral">Adresse</p>
       </div>
       <div class="inline__item contact__text u-1/2">
-        <h3 class="pb--medium break-pre">{{ entry.address }}</h3>
-        <h3>{{ entry.poBox }}</h3>
+        <h3 class="pb--small break-pre">{{ entry.address }}</h3>
+        <h3 class="break-pre">{{ entry.poBox }}</h3>
       </div>
     </div>
     <div class="inline-wrapper borders--top pt--small pb" data-reveal>
