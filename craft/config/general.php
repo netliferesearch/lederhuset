@@ -44,6 +44,7 @@ return array(
     'cacheMethod' => 'redis',
     'overridePhpSessionLocation' => $parsedRedisUrl,
     'siteUrl' => $protocol . '://' . $_SERVER['HTTP_HOST'] . '/',
+    'useEmailAsUsername' => true,
     'environmentVariables' => array(
         'basePath' => realpath(getcwd() . '/public/')
     ),

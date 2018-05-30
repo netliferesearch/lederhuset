@@ -159,6 +159,7 @@ function searchFadeOut() {
   TweenLite.to(closeSearch, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
 }
 
+
 function listItemHoverEffect(){
   $('.list__item--hover, .accordion__button').each(function(){
     var listItemLink;
@@ -178,6 +179,8 @@ function listItemHoverEffect(){
     });
   });
 }
+
+
 listItemHoverEffect();
 
 function populateResults() {
@@ -211,6 +214,48 @@ $('#mainSearchWrapper').submit(function(event) {
   $("#searchResults ul li:first-child").addClass('active');
   TweenMax.to($("#searchResults ul li:first-child a"), .25, {x:15, ease: Expo.easeOut});
 });
+
+
+
+
+
+/***** edit profile *****/
+$('.edit-form').each(function(){
+  var editBtn = $(this).find('.edit-form__edit-btn'),
+      saveBtn = $(this).find('.edit-form__save-btn'),
+      currentInput = $(this).find('.edit-form__input'),
+      marginBtn = saveBtn.css('margin-top'),
+      dots = $(this).find('.edit-form__dots');
+
+  $(editBtn).on('click', function(ev){
+    ev.preventDefault();
+    currentInput.prop('disabled', false).focus().addClass('active');
+    TweenMax.to(editBtn, .4, {y:20, autoAlpha:0, ease: Expo.easeOut});
+    TweenMax.to(saveBtn, .4, {marginTop:0, autoAlpha:1, ease: Expo.easeOut, delay:.2});
+  });
+
+  $(this).submit(function(ev) {
+    TweenMax.to(saveBtn, .4, {y:20, autoAlpha:0, ease: Expo.easeOut});
+    TweenMax.to(dots, .4, {marginTop:0, autoAlpha:1, ease: Expo.easeOut, delay:.2});
+
+    ev.preventDefault();
+    $.post({
+      url: '/',
+      dataType: 'json',
+      data: $(this).serialize(),
+      success: function(response) {
+        if (response.success) {
+          currentInput.prop('disabled', true).removeClass('active');
+          TweenMax.to(dots, .4, {y:20, autoAlpha:0, ease: Expo.easeOut});
+          TweenMax.to(editBtn, .4, {y:0, autoAlpha:1, ease: Expo.easeOut, delay:.2});
+        } else {
+          alert('An error occurred. Please try again.');
+        }
+      }
+    });
+  });
+});
+
 
 
 

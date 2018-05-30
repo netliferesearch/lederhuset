@@ -1,0 +1,146 @@
+{% extends "_layout" %}
+{% block content %}
+
+<div class="grid-wrap mb--xlarge">
+  <div data-reveal class="center pb--large pt--large" data-reveal>
+    <h1>Hei, {{ currentUser.firstName }}</h1>
+  </div>
+
+  <div data-reveal class="mb--large">
+    <!-- edit username -->
+    <div class="inline-wrapper borders--top pt--small pb--small">
+      <form class="edit-form" data-edit="username" id="editUsername" method="post" accept-charset="UTF-8">
+        {{ getCsrfInput() }}
+        <input type="hidden" name="action" value="users/saveUser">
+        <input type="hidden" name="redirect" value="users/{{ currentUser.username }}">
+        <input type="hidden" name="userId" value="{{ currentUser.id }}">
+
+        <div class="inline__item edit-form__wrapper u-1/3">
+          <label class="paragraph font-neutral-b" for="userUsername">Brukernavn (e-post)</label>
+        </div>
+
+        <div class="inline__item edit-form__wrapper u-1/3">
+          <input class="paragraph font-neutral edit-form__input" type="text" id="userUsername" name="fields[username]" disabled value="{{ currentUser.username }}">
+        </div>
+
+        <div class="inline__item edit-form__wrapper right u-1/3">
+          <a class="edit-form__edit-btn paragraph font-neutral" data-edit="username" href="#">
+            <span class="color-green color-green--link">Endre</span>
+          </a>
+          <button class="edit-form__save-btn lh-button paragraph" type="submit">Lagre</button>
+          <div class="edit-form__dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--edit password -->
+    <div class="inline-wrapper borders--top borders--bottom pt--small pb--small">
+      <form class="edit-form" data-edit="password" id="editPassword" method="post" accept-charset="UTF-8">
+        {{ getCsrfInput() }}
+        <input type="hidden" name="action" value="users/saveUser">
+        <input type="hidden" name="redirect" value="users/{{ currentUser.username }}">
+        <input type="hidden" name="userId" value="{{ currentUser.id }}">
+
+        <div class="inline__item edit-form__wrapper u-1/3">
+          <label class="paragraph font-neutral-b" for="userPassword">Passord</label>
+        </div>
+
+        <div class="inline__item edit-form__wrapper u-1/3">
+          <input class="paragraph font-neutral edit-form__input" type="password" id="userPassword" name="fields[password]" disabled value="{{ currentUser.password }}">
+        </div>
+
+        <div class="inline__item edit-form__wrapper right u-1/3">
+          <a class="edit-form__edit-btn paragraph font-neutral" data-edit="password" href="#">
+            <span class="color-green color-green--link">Endre</span>
+          </a>
+          <button class="edit-form__save-btn lh-button paragraph" type="submit">Lagre</button>
+          <div class="edit-form__dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <button class="lh-button mt--small">Logg meg ut</button>
+  </div>
+
+  <div data-reveal class="mb--large">
+    <h3 class="mb--small">Personalia</h3>
+
+    <!--edit first name -->
+    <div class="inline-wrapper borders--top pt--small pb--small">
+      {% include "shared/editForm" with {
+        'fieldName' : 'firstName',
+        'fieldId' : 'userFirstName',
+        'fieldTitle' : 'Fornavn',
+        'fieldType' : 'text',
+        'fieldVal' : currentUser.firstName
+    	} %}
+    </div>
+
+    <!--edit last name -->
+    <div class="inline-wrapper borders--top pt--small pb--small">
+      {% include "shared/editForm" with {
+        'fieldName' : 'lastName',
+        'fieldId' : 'userFirstName',
+        'fieldTitle' : 'Etternavn',
+        'fieldType' : 'text',
+        'fieldVal' : currentUser.lastName
+    	} %}
+    </div>
+
+    <!--edit phone -->
+    <div class="inline-wrapper borders--top pt--small pb--small">
+      {% include "shared/editForm" with {
+        'fieldName' : 'phone',
+        'fieldId' : 'userPhone',
+        'fieldTitle' : 'Tlf./Mobil',
+        'fieldType' : 'phone',
+        'fieldVal' : currentUser.userPhone
+    	} %}
+    </div>
+
+    <!--edit company name -->
+    <div class="inline-wrapper borders--top pt--small pb--small">
+      {% include "shared/editForm" with {
+        'fieldName' : 'company',
+        'fieldId' : 'userCompanyName',
+        'fieldTitle' : 'Virksomhet',
+        'fieldType' : 'text',
+        'fieldVal' : currentUser.userCompanyName
+    	} %}
+    </div>
+
+    <!--edit organization number -->
+    <div class="inline-wrapper borders--top borders--bottom pt--small pb--small">
+      {% include "shared/editForm" with {
+        'fieldName' : 'organizationNumber',
+        'fieldId' : 'userOrganizationNumber',
+        'fieldTitle' : 'Organisasjonsnummer',
+        'fieldType' : 'text',
+        'fieldVal' : currentUser.userOrganizationNumber
+    	} %}
+    </div>
+  </div>
+
+  <div class="mb--large" data-reveal>
+    <h3 class="mb--small">Fant du ikke innstillingen din?</h3>
+    <div class="u-1/2">
+      <p class="paragraph font-neutral">På din side hos Virke Pluss finner du flere innstillinger som tariffavtaler, din kontaktperson, noe annet, etc.</p>
+      <a target="_blank" class="mt--small lh-button lh-button--icon paragraph" href="https://www.virke.no/innlogging/">
+        <span class="lh-button__text">Min side Virke Pluss</span>
+        <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+          <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

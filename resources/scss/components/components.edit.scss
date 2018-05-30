@@ -1,0 +1,76 @@
+@keyframes loadingC {
+    0 {transform: translate(0,0);}
+    50% {transform: translate(0,10px);}
+    100% {transform: translate(0,0);}
+}
+
+.edit-form {
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  &__input {
+    outline: none;
+    background: transparent;
+    border:0;
+    border-radius: 0;
+    width: 100%;
+    transition: color .15s ease-out;
+    &:disabled {
+      color: #000;
+    }
+    &.active {
+      color: $color-green;
+    }
+  }
+  &__save-btn {
+    padding: 0;
+    background: transparent;
+    outline: 0;
+    height: auto;
+    display: inline;
+    line-height: 1.2vw;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    &.lh-button {
+      margin: 20px 0 0 0;
+      padding: .5vw 1vw .3vw 1vw;
+      font-size: 1vw;
+    }
+  }
+  &__edit-btn {
+    display: inline-block;
+    span {
+      line-height: 1.2vw;
+    }
+  }
+  &__dots {
+    position:absolute;
+    right: 35px;
+    top: 5px;
+    margin: 20px 0 0 0;
+    visibility: hidden;
+    .dot {
+      position:absolute;
+      width: .5vw;
+      height: .5vw;
+      border-radius: 50%;
+      background-color:$color-green;
+      &:first-child {
+        left: -1.1vw;
+        animation: loadingC .6s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      }
+      &:nth-child(2) {
+        animation: loadingC .6s .2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      }
+      &:last-child {
+        left: 1.1vw;
+        animation: loadingC .6s .3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      }
+    }
+  }
+}

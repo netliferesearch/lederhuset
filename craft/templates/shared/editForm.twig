@@ -1,0 +1,29 @@
+<form class="edit-form" data-edit="{{ fieldName }}" method="post" accept-charset="UTF-8">
+  {{ getCsrfInput() }}
+  <input type="hidden" name="action" value="users/saveUser">
+  <input type="hidden" name="redirect" value="users/{{ currentUser.username }}">
+  <input type="hidden" name="userId" value="{{ currentUser.id }}">
+
+  <div class="inline__item edit-form__wrapper u-1/3">
+    <label class="paragraph font-neutral-b" for="{{ fieldId }}">
+      {{ fieldTitle }}
+    </label>
+  </div>
+
+  <div class="inline__item edit-form__wrapper u-1/3">
+    <input class="paragraph font-neutral edit-form__input" type="{{ fieldType }}" id="{{ fieldId }}"
+      name="fields[{{ fieldName }}]" disabled value="{{ fieldVal }}">
+  </div>
+
+  <div class="inline__item edit-form__wrapper right u-1/3">
+    <a class="edit-form__edit-btn paragraph font-neutral" data-edit="{{ fieldName }}" href="#">
+      <span class="color-green color-green--link">Endre</span>
+    </a>
+    <button class="edit-form__save-btn lh-button paragraph" type="submit">Lagre</button>
+    <div class="edit-form__dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</form>

@@ -1,42 +1,43 @@
 <nav id="login" class="login">
 
   <button class="search__close" id="loginClose">
+    <span class="close__text paragraph">Lukk</span>
     <span class="close__icon"></span>
   </button>
 
-  <div class="grid-wrap absolute-center">
+  <div class="grid-wrap">
     <div class="login__wrapper">
       <div class="login__inner">
-      {% if craft.session.isLoggedIn %}
-        <h3 class="mb--xsmall">{{ currentUser.name }}</h3>
-        <p class="font-neutral paragraph mb">{{ currentUser.email }}</p>
-        <a class="font-neutral borders--bottom paragraph" href="{{ logoutUrl }}">Logg ut</a>
-      {% else %}
-        <h3 class="mb--small">Logg inn</h3>
+
+        <h1 class="mb center">Logg inn</h1>
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="{{ craft.config.csrfTokenName }}" value="{{ craft.request.csrfToken }}">
             <input type="hidden" name="action" value="users/login">
 
-            <div class="pb--xsmall pt--xsmall">
-              <div class="input__wrapper mb--small font-neutral paragraph">
-                <input class="login__input" id="loginName" type="text" name="loginName" value="{{ craft.session.rememberedUsername }}">
-                <span class="login__placeholder no-flicker">Brukernavn (e-post)</span>
-              </div>
-
-              <div class="input__wrapper mb--small font-neutral paragraph">
-                <input class="login__input" id="password" type="password" name="password">
-                <span class="login__placeholder no-flicker">Passord</span>
-              </div>
+            <div class="input__wrapper mb">
+              <input class="login__input" id="loginName" type="text" name="loginName" value="{{ craft.session.rememberedUsername }}">
+              <span class="login__placeholder font-neutral paragraph no-flicker">Brukernavn (e-post)</span>
             </div>
 
-            <div class="font-neutral">
-              <button class="login__submit lh-button paragraph" type="submit">
-                <span class="lh-button__text">Logg inn</span>
-                <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
-                  <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
-                </svg>
-              </button>
+            <div class="input__wrapper mb">
+              <input class="login__input" id="password" type="password" name="password">
+              <span class="login__placeholder font-neutral paragraph no-flicker">Passord</span>
+            </div>
+
+            <div class="inline-wrapper">
+              <div class="u-1/2 inline__item pr">
+                <button class="login__submit lh-button lh-button--icon paragraph" type="submit">
+                  <span class="lh-button__text">Logg meg inn</span>
+                  <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
+                    <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="u-1/2 inline__item right pl">
+                <a class="font-neutral paragraph borders--bottom mr" href="#">Opprett ny bruker</a>
+                <a class="font-neutral paragraph borders--bottom" href="#">Glemt passord?</a>
+              </div>
             </div>
 
             {% if errorMessage is defined %}
@@ -45,9 +46,7 @@
             </div>
             {% endif %}
         </form>
-      {% endif %}
       </div>
 		</div>
   </div>
-
 </nav>

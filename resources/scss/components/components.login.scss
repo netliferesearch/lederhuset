@@ -8,24 +8,18 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: $color-grey-light;
-  color: #000;
+  background: $color-green-light;
+  padding: 150px 0px;
+  color: $color-black;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  #loginClose, #registrationClose {
-    top: 5vw;
-    right: 9vw;
+  @media (min-width: $mobile) {
+    padding: 20vh 0;
   }
   &__wrapper {
     position: relative;
   }
-  .absolute-center {
-    width: 100%;
-    max-width: 800px;
-    text-align: left;
-  }
   &__input, &__submit {
-    font-family: $font-neutral;
     border: 0;
     border-radius: 0;
     background: transparent;
@@ -36,12 +30,14 @@
     width: 100%;
     padding: 8px 0px;
     z-index: 1;
+    font-family: $font-larish;
   }
   &__submit {
+    font-family: $font-neutral;
   }
   &__placeholder {
     position: absolute;
-    top: 0px;
+    top: 2vw;
     left: 0;
     z-index: -1;
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -51,12 +47,16 @@
     border-bottom: 2px solid;
     &--filled .login__placeholder {
       top: -2vw;
-      font-size: 12px;
     }
   }
   &__input:focus ~ &__placeholder {
     top: -2vw;
-    font-size: 12px;
   }
-
+  input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 100px $color-green-light inset;
+  }
+  #loginClose, #registrationClose {
+    top: 5vw;
+    right: 9vw;
+  }
 }
