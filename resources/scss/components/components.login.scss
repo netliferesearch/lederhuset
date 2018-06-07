@@ -3,24 +3,35 @@
   opacity: 0;
   position: fixed;
   z-index: 9998;
+  backface-visibility: hidden;
+  background: $color-green-light;
+  color: $color-black;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
-  background: $color-green-light;
-  padding: 150px 0px;
-  color: $color-black;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  @media (min-width: $mobile) {
-    padding: 20vh 0;
+  &__outer {
+    position: relative;
+        width: 40%;
+        /* padding: 10vw 0; */
+        /* margin: 0 auto; */
+        /* margin-top: 10%; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%) scale(2.0, 2.0);
+        /* text-align: center; */
+        backface-visibility: hidden;
+        /* -webkit-font-smoothing: antialiased; */
+        zoom: 0.5;
+        /* overflow: visible; */
+        /* padding-bottom: 18px; */
   }
   &__wrapper {
     position: relative;
-    max-width: 75%;
-    margin: 0 auto;
-    margin-top: 10%;    
   }
   &__input, &__submit {
     border: 0;
