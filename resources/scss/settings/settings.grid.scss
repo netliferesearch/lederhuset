@@ -3,38 +3,38 @@ $maxWidth: 2200px;
 .grid-wrap {
   max-width: $maxWidth;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   @media (min-width: $mobile-smallest) {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-left: 7.5vw;
+    padding-right: 7.5vw;
   }
   @media (min-width: $desktop-small) {
-    padding-left: 7vw;
-    padding-right: 7vw;
-  }
-  @media (min-width: 1400px) {
     padding-left: 10vw;
     padding-right: 10vw;
+  }
+  @media (min-width: $break-1366) {
+    padding-left: 12vw;
+    padding-right: 12vw;
   }
   @media (min-width: $maxWidth) {
     padding-left: 200px;
     padding-right: 200px;
   }
   &--inline_items {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
     @media (min-width: $mobile-smallest) {
-      padding-left: 2.5vw;
-      padding-right: 2.5vw;
+      padding-left: 5.5vw;
+      padding-right: 5.5vw;
     }
     @media (min-width: $desktop-small) {
-      padding-left: 5vw;
-      padding-right: 5vw;
+      padding-left: 8.3vw;
+      padding-right: 8.3vw;
     }
-    @media (min-width: 1400px) {
-      padding-left: 7.5vw;
-      padding-right: 7.5vw;
+    @media (min-width: $break-1366) {
+      padding-left: 10.5vw;
+      padding-right: 10.5vw;
     }
     @media (min-width: $maxWidth) {
       padding-left: 145px;

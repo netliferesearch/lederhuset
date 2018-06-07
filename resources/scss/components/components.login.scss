@@ -14,24 +14,27 @@
   height: 100%;
   &__outer {
     position: relative;
-        width: 40%;
-        /* padding: 10vw 0; */
-        /* margin: 0 auto; */
-        /* margin-top: 10%; */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%) scale(2.0, 2.0);
-        /* text-align: center; */
-        backface-visibility: hidden;
-        /* -webkit-font-smoothing: antialiased; */
-        zoom: 0.5;
-        /* overflow: visible; */
-        /* padding-bottom: 18px; */
+    @media (max-width: $mobile) {
+      top: 180px;
+      padding-bottom: 150px;
+    }
+    @media (min-width: $mobile) {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      z-index: 4;
+    }
   }
   &__wrapper {
     position: relative;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    @media (min-width: $mobile) {
+      min-width: 600px;
+      width: 80%;
+    }
   }
   &__input, &__submit {
     border: 0;
@@ -42,40 +45,89 @@
   &__input {
     position: relative;
     width: 100%;
-    padding: 8px 0px;
+    padding: 18px 0px 2px 0px;
     z-index: 1;
     font-family: $font-larish;
+    @media (max-width: $mobile) {
+      font-size: 20px;
+    }
+    @media (min-width: $mobile) {
+      padding: 1vw 0;
+    }
   }
   &__submit {
     font-family: $font-neutral;
+    @media (max-width: $mobile) {
+      margin-bottom: 80px;
+    }
   }
   &__placeholder {
     position: absolute;
-    top: 2vw;
+    top: 23px;
     left: 0;
     z-index: -1;
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @media (max-width: $mobile) {
+      font-size: 14px;
+    }
+    @media (min-width: $mobile) {
+      top: 2vw;
+    }
   }
   .input__wrapper {
     position: relative;
     border-bottom: 2px solid;
     &--filled .login__placeholder {
-      top: -2vw;
+      top: -10px;
+      @media (min-width: $mobile) {
+        top: -2vw;
+      }
     }
   }
   &__input:focus ~ &__placeholder {
-    top: -2vw;
+    top: -10px;
+    @media (min-width: $mobile) {
+      top: -2vw;
+    }
   }
   input:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 100px $color-green-light inset;
   }
+  &__extra {
+    &.right {
+      @media (max-width: $mobile) {
+        text-align: left;
+      }
+    }
+  }
+  &__extra-link {
+    @media (max-width: $mobile) {
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
   #loginClose, #registrationClose {
-    top: 5vw;
-    right: 11.12vw;
+    top: 56px;
+    right: 9px;
+    width: 22px;
+    height: 22px;
+    @media (min-width: $mobile) {
+      top: 5.6vw;
+      right: 11.12vw;
+      width: 1.7vw;
+      height: 1.7vw;
+    }
     .close__text {
       position: absolute;
-      left: -69px;
-      top: 50%;
+      left: -65px;
+      top: 4px;
+      line-height: 1;
+      padding-bottom: 0;
+      @media (min-width: $mobile) {
+        left: -4vw;
+        top: -0.1vw;
+      }
     }
   }
 }

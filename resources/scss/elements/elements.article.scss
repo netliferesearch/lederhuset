@@ -126,9 +126,6 @@ $h3--margin-t: 3.5vw;
       @media (min-width: $maxWidth) {
         padding: 20px 0;
       }
-      &:hover {
-        background: $color-green-light;
-      }
       span {
         display: block;
         max-width: 85%;
@@ -226,15 +223,40 @@ $h3--margin-t: 3.5vw;
     }
   }
   .quote {
-    margin-top: $paragraph--margin-t * 2;
-    margin-bottom: $paragraph--margin-t * 2;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @media (max-width: $mobile) {
+      background: #c3eee8;
+      padding: 30px;
+    }
+    @media (min-width: $mobile) {
+      margin-top: $paragraph--margin-t * 2;
+      margin-bottom: $paragraph--margin-t * 2;
+    }
+    @media (min-width: $maxWidth) {
+
+    }
     blockquote {
-      font-size: calc(34px + 1vw);
-      line-height: calc(50px + 1vw);
+      font-size: 26px;
+      line-height: 1.375;
+      @media (min-width: $mobile) {
+        font-size: 3.5vw;
+        line-height: 4.5vw;
+      }
+      @media (min-width: $maxWidth) {
+        font-size: 80px;
+        line-height: 105px;
+      }
     }
     &__title {
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      @media (min-width: $mobile) {
+        margin-bottom: 1vw;
+      }
+      @media (min-width: $maxWidth) {
+        margin-bottom: 30px;
+      }
     }
   }
 }

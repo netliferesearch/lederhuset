@@ -171,11 +171,11 @@ function listItemHoverEffect(){
     }
 
     $(this).mouseenter(function(){
-      TweenMax.to(listItemLink, .25, {x:15, ease: Expo.easeOut});
+      TweenMax.to(listItemLink, .2, {x:12, ease: Circ.easeOut});
     });
 
     $(this).mouseleave(function(){
-      TweenMax.to(listItemLink, .25, {x:0, ease: Expo.easeOut});
+      TweenMax.to(listItemLink, .2, {x:0, ease: Circ.easeOut});
     });
   });
 }

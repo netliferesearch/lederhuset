@@ -1,11 +1,11 @@
 {% for content in block.body %}
   {% if content.type == "text" %}
-    <div class="block text paragraph">
+    <div class="block text paragraph" data-reveal>
       {{ content.text }}
     </div>
 
   {% elseif content.type == "example" %}
-    <div class="block example">
+    <div class="block example" data-reveal>
       {% if content.heading | length %}
         <b class="font-neutral-b">{{ content.heading }}</b>
       {% else %}
@@ -25,13 +25,13 @@
     </div>
 
   {% elseif content.type == "fact" %}
-    <div class="block fact">
+    <div class="block fact" data-reveal>
       <b class="font-neutral-b">Fakta</b>
       {{ content.text }}
     </div>
 
   {% elseif content.type == "quote" %}
-    <div class="block block--large quote">
+    <div class="block block--large quote" data-reveal>
       {% if content.smallHeading | length %}
         <span class="quote__title font-neutral-b center">{{ content.smallHeading }}</span>
       {% endif %}
@@ -39,7 +39,7 @@
     </div>
 
   {% elseif content.type == "accordion" %}
-    <div class="block accordion borders a-toggle">
+    <div class="block accordion borders a-toggle" data-reveal>
       <button class="accordion__button a-toggle__button">
         <span>{{ content.heading }}</span>
         <svg class="accordion__arrow a-toggle__arrow" width="12" height="7" viewBox="0 0 82 48">

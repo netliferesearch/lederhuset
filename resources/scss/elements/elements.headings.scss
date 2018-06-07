@@ -33,12 +33,25 @@ h2 {
   }
 }
 
+h2.custom-heading {
+  font-size: 26px;
+  line-height: 1.375;
+  @media (min-width: $mobile) {
+    font-size: 3.5vw;
+    line-height: 4.5vw;
+  }
+  @media (min-width: $maxWidth) {
+    font-size: 80px;
+    line-height: 105px;
+  }  
+}
+
 h3, .article .text h2, .search__input, .login__input {
   font-size: 26px;
   line-height: 1.375;
   @media (min-width: $mobile) {
-    font-size: $headingH3;
-    line-height: 3.7vw;
+    font-size: 2.2vw;
+    line-height: 3.4vw;
   }
   @media (min-width: $maxWidth) {
     font-size: 50px;
@@ -47,11 +60,11 @@ h3, .article .text h2, .search__input, .login__input {
 }
 
 .paragraph, .lh-button, .article .accordion__button, .example__button,
-.article p, .article li, .article a, .article b, .article h3, .login__placeholder {
+.article p, .article li, .article a, .article b, .article h3, .login__placeholder, .quote__title {
   font-family: $font-neutral;
   font-size: 16px;
   line-height: 26px;
-  @media (min-width: 1400px) {
+  @media (min-width: $break-1366) {
     font-size: 1.2vw;
     line-height: 2.2vw;
   }
@@ -67,7 +80,7 @@ h3, .article .text h2, .search__input, .login__input {
 
 .article p, .article li, .article, .article h3, .article b, .article .accordion__button {
   line-height: 30px;
-  @media (min-width: 1400px) {
+  @media (min-width: $break-1366) {
     line-height: 2.1vw;
   }
   @media (min-width: $maxWidth) {
