@@ -28,9 +28,7 @@
 	    {% endblock content %}
   </main>
 
-  {% cache if not craft.config.devMode %}
 		{% include 'partials/footer' %}
-  {% endcache %}
 
   {% includeJsFile "/webpack-dist/bundle.js" %}
 </body>
