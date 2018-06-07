@@ -116,6 +116,10 @@
   color: black;
 }
 
+.bg-yellow {
+  background-color: $color-yellow;
+}
+
 .color-green {
   color: $color-green;
   &--link {
@@ -197,6 +201,27 @@
   }
 }
 
+.svg__checkmark {
+  width: 60px;
+  height: 60px;
+  @media (min-width: $mobile) {
+    width: 7vw;
+    height: 7vw;
+  }
+  @media (min-width: $maxWidth) {
+    width: 120px;
+    height: 120px;
+  }
+  .st0 {
+    fill:#C3EDE9;
+  }
+  .st1 {
+    fill:none;
+    stroke:#02A695;
+    stroke-width:4;
+  }
+}
+
 .lh-button {
   display: inline-block;
   border: 2px solid #000;
@@ -213,14 +238,27 @@
     padding: .65vw 5vw .35vw 1vw;
   }
   &--icon {
+    position: relative;
     padding: 9px 15px 9px 15px;
     @media (min-width: $mobile) {
-      padding: .7vw 1.2vw .4vw 1.2vw;
+      padding: .9vw 1.3vw .6vw 1.3vw;
+    }
+    @media (min-width: $desktop-small) {
+      padding: .9vw 1.3vw .6vw 1.3vw;
+    }
+    @media (min-width: $maxWidth) {
+      padding: 18px 45px 13px 23px;
     }
   }
   &__text {
     float: left;
-    padding-right: 1.3vw;
+    padding-right: 20px;
+    @media (min-width: $mobile) {
+      padding-right: 3.3vw;
+    }
+    @media (min-width: $maxWidth) {
+      padding-right: 40px;
+    }
   }
   &__arrow {
     float: right;
@@ -233,6 +271,9 @@
       width: 12px;
       height: auto;
       min-width: .7vw;
+    }
+    @media (min-width: $maxWidth) {
+      width: 18px;
     }
   }
   a {
@@ -251,8 +292,19 @@
     }
   }
   &__arrow {
-    margin-left: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    right: 14px;
+    margin-top: 2px;
+    padding: 0;
     transition: all .2s ease;
+    @media (min-width: $mobile) {
+      right: 1.3vw;
+    }
+    @media (min-width: $mobile) {
+      margin-top: 1px;
+    }
   }
 }
 
@@ -385,6 +437,16 @@ $mp--xxlarge: 12.5vw;
 
 .mt--none, p.mt--none {
   margin-top: 0
+}
+
+.p-full {
+  padding: 30px 25px;
+  @media (min-width: $mobile) {
+    padding: 5vw;
+  }
+  @media (min-width: $maxWidth) {
+    padding: 120px;
+  }
 }
 
 //padding bottom
@@ -559,6 +621,9 @@ $mp--xxlarge: 12.5vw;
   }
   .mr--xsmall {
     margin-right: $mp--xsmall;
+  }
+  .mr--small {
+    margin-right: $mp--small-2;
   }
   .mr {
     margin-right: $mp--small;

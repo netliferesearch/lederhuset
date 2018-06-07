@@ -9,7 +9,6 @@
     <div class="login__wrapper">
       <div class="login__inner">
 
-        <h1 class="mb center">Logg inn</h1>
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="{{ craft.config.csrfTokenName }}" value="{{ craft.request.csrfToken }}">

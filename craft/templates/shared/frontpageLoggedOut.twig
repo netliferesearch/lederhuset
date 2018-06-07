@@ -1,12 +1,12 @@
 <div class="grid-wrap">
-  <div class="mt--large mb--large border--bottom">
+  <div class="mt--large mb--large">
     <!-- first block -->
     {% for block in entry.frontpage_firstBlock %}
-      <div class="pb--xlarge center-block inline-wrapper block__full">
+      <div class="center-block inline-wrapper block__full" data-reveal>
         <div class="u-1/2 inline__item pr">
           <h2 class="pb--small">{{ block.heading }}</h2>
           <p class="lead-p font-neutral pb--small">{{ block.text }}</p>
-          <button class="lh-button" type="button" name="button" data-show="registration">
+          <button class="lh-button lh-button--icon" data-show="registration">
             <span class="lh-button__text">Prøv gratis</span>
             <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
             	<path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
@@ -18,35 +18,60 @@
         </div>
       </div>
     {% endfor %}
+  </div>
+</div>
 
-    <!-- blocks -->
+<!-- selling points -->
+<div class="grid-wrap grid-wrap--inline_items mb--large">
+  <div class="inline-wrapper mb--large">
     {% for block in entry.frontpage_blocks %}
-      <div class="pb--xlarge center-block inline-wrapper block__full">
-        <div class="u-1/2 inline__item {% if loop.index0 % 2 == 0 %}inline__item--floated pl{% else %}pr{% endif %}">
-          <h2 class="pb--small">{{ block.heading }}</h2>
-          <p class="lead-p font-neutral">{{ block.text }}</p>
-        </div>
-        <div class="u-1/2 inline__item pt--mobile {% if loop.index0 % 2 == 0 %}inline__item--floated pr{% else %}pl{% endif %}">
-          <img src="{{ block.image.first().getUrl('illustrationLarge') }}" alt="" />
-        </div>
+      <div class="u-1/{{ entry.frontpage_blocks.total() }} inline__item pr pl" data-reveal>
+        <img class="pb--small" src="{{ block.image.first().getUrl('salesIllustration') }}" alt="" />
+        <h3 class="pb--xsmall">{{ block.heading }}</h3>
+        <p class="paragraph font-neutral">{{ block.text }}</p>
       </div>
     {% endfor %}
   </div>
 
-  <!-- salesblock -->
-  <div class="mt--large mb--large border--bottom">
-    <div class="pb--xlarge center-block inline-wrapper block__full">
+  <div class="inline-wrapper">
+    {% for block in entry.sellingPoints %}
+      <div class="u-1/{{ entry.sellingPoints.total() }} inline__item pr pl center" data-reveal>
+        <svg class="svg__checkmark" viewBox="0 0 60 60" width="60" height="60">
+          <path class="st0" d="M28.5,48C38.7,48,47,39.7,47,29.5S38.7,11,28.5,11S10,19.3,10,29.5S18.3,48,28.5,48"/>
+          <polyline class="st1" points="20.4,26.4 28.5,34.4 48.6,14.4 "/>
+        </svg>
+        <h3 class="pb--xsmall">{{ block.heading }}</h3>
+        <p class="paragraph font-neutral">{{ block.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="grid-wrap">
+  {% for block in entry.quoteBlock.limit(1) %}
+    <div class="u-2/3 center-block bg-yellow p-full mb--large" data-reveal>
+      <h3 class="pb">{{ block.quote }}</h3>
+      <p class="paragraph font-neutral-b">{{ block.person }}</p>
+      <p class="paragraph font-neutral">{{ block.organization }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- salesblock -->
+<div class="grid-wrap">
+  <div class="pt--large pb--large borders--top">
+    <div class="center-block inline-wrapper block__full">
       <div class="u-1/2 inline__item pr">
         <h2 class="pb--small">{{ siteName }}</h2>
         <div class="lead-p font-neutral pb--small">{{ entry.salesText }}</div>
-        <button class="lh-button mb--large" type="button" name="button" data-show="registration">
+        <button class="lh-button lh-button--icon mb--large" data-show="registration">
           <span class="lh-button__text">Prøv gratis</span>
           <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
             <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
           </svg>
         </button>
         <div class="inline-wrapper">
-          <a class="inline__item mr--xsmall font-neutral" data-show="registration" href="#">
+          <a class="inline__item mr--small font-neutral" data-show="registration" href="#">
             <span class="paragraph borders--bottom">Bli abonnement</span>
           </a>
           <a class="inline__item font-neutral" data-show="login" href="#">
@@ -61,33 +86,4 @@
       </div>
     </div>
   </div>
-
-  <div class="article-header mb--xlarge bg-green--light block__full">
-    <div class="pt--large pb--medium mt grid-wrap--smaller">
-      <h1 class="center title">{{ siteName }}</h1>
-    </div>
-    <div class="pb--large inline-wrapper center-block grid-wrap--smaller">
-      <div class="u-1/2 inline__item pr">
-        <img src="{{ entry.salesImage.last().getUrl('illustrationLarge') }}" alt="" />
-      </div>
-      <div class="u-1/2 inline__item pl">
-        <div class="lead-p font-neutral pb--small">{{ entry.salesText }}</div>
-        <button class="lh-button mb paragraph" type="button" name="button">
-          <span class="lh-button__text">Prøv gratis</span>
-          <svg class="lh-button__arrow" width="12" height="8" viewBox="0 0 177 118">
-            <path d="M117.3,47V0l58.9,58.6l-58.9,59.2V70.3H0.3V47H117.3z"/>
-          </svg>
-        </button>
-        <div class="inline-wrapper">
-          <a class="inline__item mr--xsmall font-neutral" data-show="registration" href="#">
-            <span class="paragraph borders--bottom">Bli abonnement</span>
-          </a>
-          <a class="inline__item font-neutral" data-show="login" href="#">
-            <span class="paragraph borders--bottom">Logg inn</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
