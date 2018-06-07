@@ -3,8 +3,8 @@ $maxWidth: 2200px;
 .grid-wrap {
   max-width: $maxWidth;
   margin: 0 auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   @media (min-width: $mobile-smallest) {
     padding-left: 7.5vw;
     padding-right: 7.5vw;
@@ -22,8 +22,8 @@ $maxWidth: 2200px;
     padding-right: 200px;
   }
   &--inline_items {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     @media (min-width: $mobile-smallest) {
       padding-left: 5.5vw;
       padding-right: 5.5vw;
@@ -40,21 +40,5 @@ $maxWidth: 2200px;
       padding-left: 145px;
       padding-right: 145px;
     }
-  }
-}
-
-.grid-wrap--smaller {
-  @media (min-width: $mobile) {
-    padding-left: 7vw;
-    padding-right: 7vw;
-  }
-}
-
-.grid-item {
-  &--small {
-    max-width: 400px;
-  }
-  &--medium {
-    max-width: calc(660px + 12vw);
   }
 }
