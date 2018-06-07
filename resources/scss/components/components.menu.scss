@@ -33,7 +33,7 @@
     }
   }
   .inline__item img {
-    @media (max-width: $mobile) {
+    @media (max-width: $mobile-smallest) {
       display: none;
     }
   }

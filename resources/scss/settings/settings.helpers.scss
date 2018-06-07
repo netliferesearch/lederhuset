@@ -199,6 +199,11 @@
   &--green:hover {
     color: $color-green;
   }
+  &--border {
+    transition: box-shadow .25s ease-out;
+    box-shadow: inset 0 -3px 0 currentColor;
+    padding-bottom: 7px;
+  }
 }
 
 .svg__checkmark {
@@ -318,7 +323,7 @@ $mp--xsmall-optical: 1.05vw;
 $mp--small-2: 1.5vw;
 $mp--small: 2.5vw;
 $mp: 5vw;
-$mp--medium: 5.7vw;
+$mp--medium: 5.5vw;
 $mp--large: 7.5vw;
 $mp--xlarge: 10vw;
 $mp--xxlarge: 12.5vw;
@@ -352,6 +357,16 @@ $mp--xxlarge: 12.5vw;
   margin-bottom: 35px;
   @media (min-width: $mobile) {
     margin-bottom: $mp;
+  }
+  @media (min-width: $maxWidth) {
+    margin-bottom: 120px;
+  }
+}
+
+.mb--medium {
+  margin-bottom: 25px;
+  @media (min-width: $mobile) {
+    margin-bottom: $mp--medium;
   }
   @media (min-width: $maxWidth) {
     margin-bottom: 120px;
@@ -579,6 +594,15 @@ $mp--xxlarge: 12.5vw;
   @media (min-width: $maxWidth) {
     padding-top: 160px;
   }
+  &-custom {
+    padding-top: 40px;
+    @media (min-width: $mobile) {
+      padding-top: 6.5vw;
+    }
+    @media (min-width: $maxWidth) {
+      padding-top: 140px;
+    }
+  }
 }
 
 .pt--xlarge {
@@ -605,7 +629,7 @@ $mp--xxlarge: 12.5vw;
 }
 
 //padding left and right
-@media (min-width: $mobile) {
+@media (min-width: $mobile-smallest) {
   .pl {
     padding-left: $mp--small;
   }

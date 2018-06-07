@@ -86,14 +86,13 @@
   <div class="pt--xlarge borders--top">
     {% for entry in craft.entries.section('formsAndTemplates') %}
       <div class="pb--large center-block inline-wrapper">
-        <div class="u-1/2 inline__item pr" data-reveal>
-          <h2 class="pb--small">{{ entry.title }}</h2>
-          <p class="lead-p font-neutral">
-            <a class="underline hover hover--green" href="{{ entry.url }}">Se alle {{ entry.title|lower }}</a>
+        <div class="u-2/3 inline__item pr" data-reveal>
+          <h3 class="">
+            <a class="hover--green hover hover--border" href="{{ entry.url }}">Se alle {{ entry.title|lower }}</a>
             utviklet og oppdatert av Virkes eksperter på arbeidsrett.
-          </p>
+          </h3>
         </div>
-        <div class="u-1/2 inline__item pl" data-reveal>
+        <div class="u-1/3 inline__item pl" data-reveal>
           <img src="{{ entry.image.first().getUrl('illustrationLarge') }}" alt="" />
         </div>
       </div>

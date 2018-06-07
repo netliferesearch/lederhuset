@@ -10,6 +10,10 @@ h1 {
     font-size: 5.2vw;
     line-height: 7.3vw;
   }
+  @media (max-width: $mobile) and (min-width: $mobile-smallest) {
+    font-size: 58px;
+    line-height: 1.375;
+  }
   @media (min-width: $maxWidth) {
     line-height: 130px;
     font-size: 100px;
@@ -18,11 +22,14 @@ h1 {
 
 h2 {
   font-size: 32px;
+  line-height: 1.475;
   @media (min-width: $mobile) {
     font-size: 4.5vw;
+    line-height: 6.2vw;
   }
   @media (min-width: $maxWidth) {
     font-size: 80px;
+    line-height: 110px;
   }
 }
 
@@ -31,7 +38,7 @@ h3, .article .text h2, .search__input, .login__input {
   line-height: 1.375;
   @media (min-width: $mobile) {
     font-size: $headingH3;
-    line-height: 3.5vw;
+    line-height: 3.7vw;
   }
   @media (min-width: $maxWidth) {
     font-size: 50px;
@@ -61,7 +68,7 @@ h3, .article .text h2, .search__input, .login__input {
 .article p, .article li, .article, .article h3, .article b, .article .accordion__button {
   line-height: 30px;
   @media (min-width: 1400px) {
-    line-height: 2.4vw;
+    line-height: 2.1vw;
   }
   @media (min-width: $maxWidth) {
     line-height: 46px;

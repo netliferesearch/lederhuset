@@ -2,16 +2,19 @@
   width: 100%;
   margin: 0 auto;
   @media (min-width: $mobile) {
-    width: calc(50% - 2.5vw);
+    width: 50%;
+  }
+  @media (max-width: $mobile) and (min-width: $mobile-smallest) {
+    width: 75%;
   }
   &--medium {
-    width: calc(63.66666% - 2.5vw);
+    @media (min-width: $mobile) {
+      width: calc(63.66666%);
+    }
   }
   &--large {
-    width: calc(83.333333% - 2.5vw);
+    @media (min-width: $mobile) {
+      width: calc(83.333333%);
+    }
   }
-}
-
-@media (min-width: $maxWidth) {
-
 }

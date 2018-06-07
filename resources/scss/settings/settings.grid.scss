@@ -5,7 +5,11 @@ $maxWidth: 2200px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  @media (min-width: $mobile) {
+  @media (min-width: $mobile-smallest) {
+    padding-left: 4.5vw;
+    padding-right: 4.5vw;
+  }
+  @media (min-width: $desktop-small) {
     padding-left: 7vw;
     padding-right: 7vw;
   }
@@ -20,7 +24,11 @@ $maxWidth: 2200px;
   &--inline_items {
     padding-left: 20px;
     padding-right: 20px;
-    @media (min-width: $mobile) {
+    @media (min-width: $mobile-smallest) {
+      padding-left: 2.5vw;
+      padding-right: 2.5vw;
+    }
+    @media (min-width: $desktop-small) {
       padding-left: 5vw;
       padding-right: 5vw;
     }

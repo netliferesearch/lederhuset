@@ -14,6 +14,10 @@ $h3--margin-t: 3.5vw;
     margin-left: auto;
     margin-right: auto;
     outline: 0;
+    @media (max-width: $mobile-smallest) {
+      max-width: 80%;
+      margin: 0 auto;
+    }
   }
   h1 + .block.text.paragraph p:first-child, h1 + .block.fact {
     margin-top: 0px;
@@ -35,7 +39,7 @@ $h3--margin-t: 3.5vw;
   p, ul, ol {
     margin-top: 20px;
     @media (min-width: $mobile) {
-      margin-top: $paragraph--margin-t;
+      margin-top: 2vw;
     }
     @media (min-width: $maxWidth) {
       margin-top: 40px;
@@ -70,7 +74,7 @@ $h3--margin-t: 3.5vw;
       font-size: 1.3vw;
     }
   }
-  a {
+  a:not(.resources-list a) {
     color: $color-green;
     text-decoration: underline;
     transition: all .15s ease-out;
@@ -84,7 +88,13 @@ $h3--margin-t: 3.5vw;
   }
   .text {
     h2 {
-      margin-top: 100px;
+      margin-top: 20px;
+      @media (min-width: $mobile) {
+        margin-top: 5.5vw;
+      }
+      @media (min-width: $maxWidth) {
+        margin-top: 100px;
+      }
       font-family: $font-larish;
     }
     h3 + p, h3 + ul, h3 + ol {
