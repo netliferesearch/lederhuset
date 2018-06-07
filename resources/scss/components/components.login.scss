@@ -15,8 +15,7 @@
   &__outer {
     position: relative;
     @media (max-width: $mobile) {
-      top: 180px;
-      padding-bottom: 150px;
+      top: 150px;
     }
     @media (min-width: $mobile) {
       top: 50%;
@@ -110,8 +109,10 @@
   #loginClose, #registrationClose {
     top: 56px;
     right: 9px;
-    width: 22px;
-    height: 22px;
+    width: 21px;
+    height: 21px;
+    float: right;
+    position: relative;
     @media (min-width: $mobile) {
       top: 5.6vw;
       right: 11.12vw;
