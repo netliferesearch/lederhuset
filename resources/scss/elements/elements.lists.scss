@@ -37,13 +37,16 @@
       .list__arrow-download {
         float: right;
         margin-top: 5px;
-        width: 12px;
+        width: 8px;
         height: auto;
         @media (min-width: $mobile) {
           width: 0.6vw;
+          margin-top: .55vw;
+          min-width: 8px;
         }
         @media (min-width: $maxWidth) {
           width: 14px;
+          margin-top: 5px;
         }
         path {
           fill: $color-green;
@@ -115,19 +118,18 @@
         }
       }
       svg {
-        width: 11px;
-        height: 11px;
+        width: 8px;
+        height: auto;
         fill: $color-green;
         vertical-align: middle;
         backface-visibility: hidden;
         transition: transform .2s cubic-bezier(.25,.46,.45,.94);
         @media (min-width: $mobile) {
-          width: 28px;
-          height: 18px;
+          width: 0.6vw;
+          min-width: 8px;
         }
         @media (min-width: $maxWidth) {
-          width: 28px;
-          height: 18px;
+          width: 14px;
           margin-top: -2px;
         }
       }

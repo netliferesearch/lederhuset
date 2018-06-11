@@ -4,7 +4,7 @@
 {% block content %}
 <div class="grid-wrap">
   <!-- Search container -->
-  <div class="search pt" data-reveal>
+  <div class="search pt--2" data-reveal>
     <div class="search__wrapper pt--small-2 pb--small-2 borders">
       <form id="resourcesSearchWrapper" action="" method="post">
         <input class="search__input" type="text" placeholder="Søk i skjema og maler" id="resourcesSearch">
@@ -28,7 +28,7 @@
 
 <div class="grid-wrap grid-wrap--inline_items">
   <!-- Get categories in featured categories -->
-  <div class="mt mb--small" id="allFormEntries">
+  <div class="mt--3 mb--small" id="allFormEntries">
     <div class="inline-wrapper">
       {% for category in formCategories %}
 
@@ -36,8 +36,8 @@
       {% set relatedEntries = craft.entries.section('templatesAndResources').relatedTo(category) %}
       {% set relatedEntriesCount = relatedEntries.total() %}
 
-        <div class="u-1/3 inline__item pb--large pr pl" data-reveal>
-          <h3 class="pb--small">{{ category.title }}</h3>
+        <div class="u-1/3 inline__item pb pr pl" data-reveal>
+          <h3 class="pb--smaller">{{ category.title }}</h3>
           <ul class="list reset-list frontpage-list{% if relatedEntriesCount > 4 %} frontpage-list--showmore{% endif %}">
 
             {% for entry in relatedEntries.limit(4) %}
@@ -80,8 +80,8 @@
               <li data-showmore class="list__item list__item--show list__item--hover frontpage-list__item">
                 <button class="font-neutral paragraph pb--xsmall pt--xsmall-optical">
                   <span>Vis flere</span>
-                  <svg width="20" height="13" viewBox="0 0 124 185">
-                    <path d="M74.4,123.2h49.2l-61.4,61.7l-62-61.7h49.8V0.7h24.4V123.2z"/>
+                  <svg width="20" height="30" viewBox="0 0 171 254">
+                    <path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
                   </svg>
                 </button>
               </li>
