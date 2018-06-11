@@ -161,11 +161,13 @@ function searchFadeOut() {
 
 
 function listItemHoverEffect(){
-  $('.list__item--hover, .accordion__button').each(function(){
+  $('.list__item--hover, .accordion__button, .list__item--resources').each(function(){
     var listItemLink;
 
     if ( $(this).hasClass('a-toggle__button') ) {
       listItemLink = $(this).find('span');
+    } else if ( $(this).is('.list__item--resources') ) {
+      listItemLink = $(this).find('.list__title');
     } else {
       listItemLink = $(this).find('a');
     }
@@ -198,7 +200,7 @@ function populateResults() {
 
     $.each(result, function(index, value) {
       if ( $(searchfield).is('#resourcesSearch') ) {
-        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--hover list__item--resources\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "</span><span class='list__description'>" + value.description + "</span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='13' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
+        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--resources\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "<span class='list__description'>" + value.description + "</span></span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='30' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
       } else {
         $("#searchResults ul").append("<li class=\"list__item list__item--hover\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
       }

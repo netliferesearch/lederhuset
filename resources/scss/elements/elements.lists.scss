@@ -5,11 +5,12 @@
   &__title {
     color: $color-green;
     display: block;
-    max-width: 93%;
+    max-width: 94%;
+    float: left;
   }
   &__description {
     display: block;
-    max-width: 93%;
+    color: #000;
   }
   &__item {
     border-bottom: 2px solid #000;
@@ -31,28 +32,22 @@
     &--resources {
       a {
         position: relative;
-        &:hover {
-          .list__arrow-download {
-            transform: translateY(8px);
-          }
-          .search__arrow-download {
-            transform: translate(0%, -50%);
-          }
-        }
+        overflow: hidden;
       }
       .list__arrow-download {
-        position: absolute;
-        width: 0.6vw;
+        float: right;
+        margin-top: 5px;
+        width: 12px;
         height: auto;
-        top: 1.15vw;
-        right: 0;
+        @media (min-width: $mobile) {
+          width: 0.6vw;
+        }
+        @media (min-width: $maxWidth) {
+          width: 14px;
+        }
         path {
           fill: $color-green;
         }
-      }
-      .search__arrow-download {
-        top: 50%;
-        transform: translate(0%, -50%);
       }
     }
   }
@@ -107,7 +102,7 @@
       text-align: left;
       color: $color-green;
       padding-left: 0;
-      padding-right: 0;    
+      padding-right: 0;
       &:hover svg, &:focus svg {
         transform: translateY(3px);
       }
