@@ -342,18 +342,22 @@ $mp--xxlarge: 12.5vw;
 }
 
 .mt--3 {
+  margin-top: 30px;
   @media (min-width: $mobile) {
     margin-top: $mp-3;
   }
   @media (min-width: $maxWidth) {
+    margin-top: 77px;
   }
 }
 
 .pt--2 {
+  padding-top: 30px;
   @media (min-width: $mobile) {
     padding-top: $mp-2;
   }
   @media (min-width: $maxWidth) {
+    padding-top: 66px;
   }
 }
 
@@ -511,21 +515,28 @@ $mp--xxlarge: 12.5vw;
   @media (min-width: $mobile) {
     padding-bottom: 1.2vw;
   }
+  @media (min-width: $maxWidth) {
+    padding-bottom: 27px;
+  }
 }
 
 .pb--smaller {
+  padding-bottom: 16px;
   @media (min-width: $mobile) {
     padding-bottom: $mp--small-2
   }
   @media (min-width: $maxWidth) {
+    padding-bottom: 33px;
   }
 }
 
 .mb--smaller {
+  margin-bottom: 18px;
   @media (min-width: $mobile) {
     margin-bottom: $mp--small-2
   }
   @media (min-width: $maxWidth) {
+    margin-bottom: 33px;
   }
 }
 
@@ -609,6 +620,9 @@ $mp--xxlarge: 12.5vw;
   padding-top: 12px;
   @media (min-width: $mobile) {
     padding-top: 1.2vw;
+  }
+  @media (min-width: $maxWidth) {
+    padding-top: 27px;
   }
 }
 

@@ -98,13 +98,21 @@
     border: 0;
     background: transparent;
     position: absolute;
-    top: 2.8vw;
-    right: -1vw;
     cursor: pointer;
     visibility: hidden;
     opacity: 0;
-    width: 2.5vw;
-    height: 2.5vw;
+    top: 15px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    @media (min-width: $mobile) {
+      top: 2.8vw;
+      right: -1vw;
+      width: 2.5vw;
+      height: 2.5vw;
+    }
+    @media (min-width: $maxWidth) {
+    }
     &:hover {
       .close__icon {
         &:after, &:before {

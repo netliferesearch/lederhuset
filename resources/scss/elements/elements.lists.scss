@@ -42,9 +42,10 @@
       }
       .list__arrow-download {
         position: absolute;
+        width: 0.6vw;
+        height: auto;
+        top: 1.15vw;
         right: 0;
-        top: 28%;
-        transition: transform .2s cubic-bezier(.25,.46,.45,.94);
         path {
           fill: $color-green;
         }
@@ -66,11 +67,11 @@
 .resources-list {
   a {
     border-bottom: 2px solid #000;
-    &:hover, &.focus {
+    /*&:hover, &.focus {
       .arrow-download {
         transform: translateY(3px);
       }
-    }
+    }*/
   }
   .arrow-download {
     margin-left: 2px;
@@ -81,6 +82,11 @@
 }
 
 .frontpage-list {
+  &--showmore {
+    .list__item:last-child {
+      border-bottom: 0;
+    }
+  }
   &__item {
     border-top: 2px solid;
     border-bottom: 0;
@@ -119,12 +125,12 @@
         backface-visibility: hidden;
         transition: transform .2s cubic-bezier(.25,.46,.45,.94);
         @media (min-width: $mobile) {
-          width: 14px;
-          height: 14px;
+          width: 28px;
+          height: 18px;
         }
         @media (min-width: $maxWidth) {
-          width: 25px;
-          height: 16px;
+          width: 28px;
+          height: 18px;
           margin-top: -2px;
         }
       }

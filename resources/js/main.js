@@ -198,9 +198,9 @@ function populateResults() {
 
     $.each(result, function(index, value) {
       if ( $(searchfield).is('#resourcesSearch') ) {
-        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--hover list__item--resources list__item--hover-bg\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "</span><span class='list__description'>" + value.description + "</span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='13' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
+        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--hover list__item--resources\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "</span><span class='list__description'>" + value.description + "</span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='13' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
       } else {
-        $("#searchResults ul").append("<li class=\"list__item list__item--hover list__item--hover-bg\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
+        $("#searchResults ul").append("<li class=\"list__item list__item--hover\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
       }
       return index<7;
     });
@@ -293,17 +293,15 @@ $('[data-showmore], .example').each(function(){
     var bottomText = ('Vis hele');
   }
 
-  console.log();
-
   function showContent() {
-    TweenLite.set(bottom, {css: {height:"auto"}});
-    TweenLite.from(bottom, .35, {css: {height:0}, ease: Expo.easeOut, y: 0 });
+    TweenMax.set(bottom, {height:"auto"});
+    TweenMax.from(bottom, .32, {height:0, ease:Circ.easeInOut});
     $(bottomBtn).addClass('active').find('span').text('Vis mindre');
     $(this).one("click", hideContent);
   }
 
   function hideContent() {
-    TweenLite.to(bottom, .35, {css: {height:0}, ease: Expo.easeOut, y: 0});
+    TweenMax.to(bottom, .32, {height:0, ease: Circ.easeInOut});
     $(bottomBtn).removeClass('active').find('span').text(bottomText);
     $(this).one("click", showContent);
   }

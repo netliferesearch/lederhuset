@@ -29,7 +29,7 @@
             {% from _self import errorList %}
 
             <div class="input__wrapper mb">
-              <input class="login__input" id="firstName" type="text" name="firstName"
+              <input class="login__input" id="regFirstName" type="text" name="firstName"
                   {%- if account is defined %} value="{{ account.firstName }}"{% endif -%}>
               <span class="login__placeholder font-neutral paragraph no-flicker">Fornavn</span>
               {% if account is defined %}
@@ -38,7 +38,7 @@
             </div>
 
             <div class="input__wrapper mb">
-              <input class="login__input" id="lastName" type="text" name="lastName"
+              <input class="login__input" id="regLastName" type="text" name="lastName"
                   {%- if account is defined %} value="{{ account.lastName }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Etternavn</span>
               {% if account is defined %}
@@ -47,7 +47,7 @@
             </div>
 
             <div class="input__wrapper mb">
-              <input class="login__input" id="userPhone" type="tel" name="userPhone"
+              <input class="login__input" id="regUserPhone" type="tel" name="userPhone"
                   {%- if account is defined %} value="{{ account.userPhone }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Tlf./Mobil</span>
               {% if account is defined %}
@@ -56,7 +56,7 @@
             </div>
 
             <div class="input__wrapper mb">
-              <input class="login__input" id="userCompanyName" type="text" name="userCompanyName"
+              <input class="login__input" id="regUserCompanyName" type="text" name="userCompanyName"
                   {%- if account is defined %} value="{{ account.userCompanyName }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Virksomhet</span>
               {% if account is defined %}
@@ -65,7 +65,7 @@
             </div>
 
             <div class="input__wrapper mb">
-              <input class="login__input" id="userOrganizationNumber" type="text" name="userOrganizationNumber"
+              <input class="login__input" id="regUserOrganizationNumber" type="text" name="userOrganizationNumber"
                   {%- if account is defined %} value="{{ account.userOrganizationNumber }}"{% endif -%}>
               <span class="login__placeholder no-flicker">Organisasjonsnummer</span>
               {% if account is defined %}
@@ -74,7 +74,7 @@
             </div>
 
             <div class="input__wrapper mb">
-              <input class="login__input" id="email" type="email" name="email"
+              <input class="login__input" id="regEmail" type="email" name="email"
                   {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
               <span class="login__placeholder no-flicker">E-post (brukernavn)</span>
               {% if account is defined %}
