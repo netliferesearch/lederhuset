@@ -24,15 +24,25 @@
       transform: translate(-50%, -50%);
       z-index: 4;
     }
+    @media (min-width: $maxWidth) {
+      max-width: 1200px;
+      margin: 0;
+      padding: 0;
+    }
   }
   &__wrapper {
     position: relative;
-    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     @media (min-width: $mobile) {
+      max-width: 1000px;
       min-width: 600px;
       width: 80%;
+    }
+    @media (min-width: $maxWidth) {
+      margin-top: 25px;
+      max-width: 100%;
+      width: 100%;
     }
   }
   &__input, &__submit {
@@ -53,6 +63,9 @@
     @media (min-width: $mobile) {
       padding: 1vw 0;
     }
+    @media (min-width: $maxWidth) {
+      padding: 22px 0;
+    }
   }
   &__submit {
     font-family: $font-neutral;
@@ -72,6 +85,9 @@
     @media (min-width: $mobile) {
       top: 2vw;
     }
+    @media (min-width: $maxWidth) {
+      top: 44px;
+    }
   }
   .input__wrapper {
     position: relative;
@@ -81,12 +97,18 @@
       @media (min-width: $mobile) {
         top: -2vw;
       }
+      @media (min-width: $maxWidth) {
+        top: -44px;
+      }
     }
   }
   &__input:focus ~ &__placeholder {
     top: -10px;
     @media (min-width: $mobile) {
       top: -2vw;
+    }
+    @media (min-width: $maxWidth) {
+      top: -44px;
     }
   }
   input:-webkit-autofill {
@@ -119,6 +141,12 @@
       width: 1.7vw;
       height: 1.7vw;
     }
+    @media (min-width: $maxWidth) {
+      right: 0;
+      width: 35px;
+      height: 35px;
+      top: 120px;
+    }
     .close__text {
       position: absolute;
       left: -65px;
@@ -128,6 +156,10 @@
       @media (min-width: $mobile) {
         left: -4vw;
         top: -0.1vw;
+      }
+      @media (min-width: $maxWidth) {
+        top: 6px;
+        left: -68px;
       }
     }
   }

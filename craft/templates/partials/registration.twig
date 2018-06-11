@@ -1,15 +1,15 @@
 <nav id="registration" class="login">
 
-  <button class="search__close" id="loginClose">
-    <span class="close__text paragraph">Lukk</span>
-    <span class="close__icon"></span>
-  </button>
-
   <div class="grid-wrap">
+    <button class="search__close" id="loginClose">
+      <span class="close__text borders--bottom paragraph">Lukk</span>
+      <span class="close__icon"></span>
+    </button>
+  </div>
+
+  <div class="grid-wrap login__outer">
     <div class="login__wrapper">
       <div class="login__inner">
-
-        <h1 class="mb center">Bli abonnement</h1>
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="{{ craft.config.csrfTokenName }}" value="{{ craft.request.csrfToken }}">
@@ -100,6 +100,7 @@
 
         </form>
       </div>
+
 		</div>
   </div>
 </nav>

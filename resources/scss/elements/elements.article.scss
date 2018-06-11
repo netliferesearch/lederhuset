@@ -45,6 +45,9 @@ $h3--margin-t: 3.5vw;
       margin-top: 40px;
     }
   }
+  em {
+    font-family: $font-neutral-italic;
+  }
   ul, ol {
     padding-left: 16px;
     @media (min-width: $mobile) {

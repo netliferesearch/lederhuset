@@ -17,7 +17,7 @@
     border: 0;
     outline: 0;
     padding-left: 0;
-    padding-right: 0;    
+    padding-right: 0;
   }
   &__input::placeholder {
       color: #000;
@@ -129,8 +129,13 @@
         position: absolute;
         width: 100%;
         height: 2px;
+        right: -30px;
         background: #000;
         transition: transform .15s cubic-bezier(.455,.03,.515,.955);
+        @media (min-width: $maxWidth) {
+          height: 3px;
+          right: -34px;
+        }
       }
       &:after {
         transform: translateX(-30px) rotate(-45deg)

@@ -24,6 +24,15 @@
        url('fonts/NeutralBP-Medium.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Neutral-Italic';
+  font-style: normal;
+  src: url('fonts/NeutralBP-Italic.eot');
+  src: url('fonts/NeutralBP-Italic.eot?#iefix') format('embedded-opentype'),
+       url('fonts/NeutralBP-Italic.woff2') format('woff2'),
+       url('fonts/NeutralBP-Italic.woff') format('woff');
+}
+
 /*
 @font-face {
   font-family: 'LarishNeue-Italic';
@@ -33,16 +42,6 @@
        url('fonts/LarishNeueSemibold-Italic.woff2') format('woff2'),
        url('fonts/LarishNeueSemibold-Italic.woff') format('woff'),
        url('fonts/LarishNeueSemibold-Italic.svg#LarishNeueSemibold-Italic') format('svg');
-}
-
-@font-face {
-  font-family: 'Neutral-Italic';
-  font-style: normal;
-  src: url('fonts/NeutralBP-Italic.eot');
-  src: url('fonts/NeutralBP-Italic.eot?#iefix') format('embedded-opentype'),
-       url('fonts/NeutralBP-Italic.woff2') format('woff2'),
-       url('fonts/NeutralBP-Italic.woff') format('woff'),
-       url('fonts/NeutralBP-Italic.svg#NeutralBP-Italic') format('svg');
 }
 
 @font-face {
@@ -79,3 +78,4 @@
 $font-larish: 'LarishNeue-Regular', sans-serif;
 $font-neutral: 'Neutral-Regular', sans-serif;
 $font-neutral-bold: 'Neutral-Bold', sans-serif;
+$font-neutral-italic: 'Neutral-Italic', sans-serif;
