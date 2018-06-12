@@ -119,13 +119,7 @@
 
     <!--edit organization number -->
     <div class="inline-wrapper borders--top borders--bottom pt--small pb--small">
-      {% include "shared/editForm" with {
-        'fieldName' : 'organizationNumber',
-        'fieldId' : 'userOrganizationNumber',
-        'fieldTitle' : 'Organisasjonsnummer',
-        'fieldType' : 'text',
-        'fieldVal' : currentUser.userOrganizationNumber
-    	} %}
+      {{ currentUser.userOrganizationNumber }}
     </div>
   </div>
 

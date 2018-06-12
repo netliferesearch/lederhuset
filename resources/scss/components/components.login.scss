@@ -12,6 +12,14 @@
   right: 0;
   width: 100%;
   height: 100%;
+  .login__close-wrapper {
+    z-index: 9999;
+    position: relative;
+    background: #fff;
+  }
+  .inline-wrapper:last-child {
+    padding-bottom: 1px;
+  }
   &__outer {
     position: relative;
     @media (max-width: $mobile) {
@@ -136,10 +144,12 @@
     float: right;
     position: relative;
     @media (min-width: $mobile) {
-      top: 5.6vw;
-      right: 11.12vw;
+      top: 5vw;  
+      right: 0;
       width: 1.7vw;
       height: 1.7vw;
+      min-width: 27px;
+      min-height: 27px;
     }
     @media (min-width: $maxWidth) {
       right: 0;

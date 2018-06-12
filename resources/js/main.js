@@ -269,7 +269,9 @@ function resizeCheck(){
   var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
   var footerHeight = $('.page-footer').height();
+  var hambugerOffset = $(".hamburger__button").offset().top;
 
+  $('.login #loginClose, .login #registrationClose').css('top', hambugerOffset);
   $('main').css('margin-bottom', footerHeight);
 
   if ( pageWidth <= 769 ) {
