@@ -85,6 +85,9 @@ $h3--margin-t: 3.5vw;
       color: #000;
     }
   }
+  a.link--keyword {
+    border-bottom: 2px dotted;
+  }
   &-wrap {
     position: relative;
     overflow: hidden;

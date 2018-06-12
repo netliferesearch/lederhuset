@@ -24,8 +24,8 @@ return [
                   'title' => $entry->title,
                   'url' => $entry->url,
                   'category' => [
-                    'id' => $category->id,
-                    'title' => $category->title,
+                    'id' => (isset($category->id)) ? $category->id : '',
+                    'title' => (isset($category->title)) ? $category->title : '',
                   ],
                   'blocks' => $bodyBlocks
                 ];

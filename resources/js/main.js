@@ -71,9 +71,10 @@ var resourcesData = $.ajax({
 // fuse options for search
 var options = {
   shouldSort: true,
-  threshold: 0.4,
+  //includeMatches: true,
+  threshold: 0.6,
   location: 0,
-  distance: 70,
+  distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
   keys: [{
@@ -259,6 +260,43 @@ $('.edit-form').each(function(){
 });
 
 
+// keywords popup article
+$('.article a[href*="keywords"]').each(function() {
+  $(this).addClass('link--keyword');
+  $(this).on('click', function(e){
+    e.preventDefault();
+    var thisAttr = $(this).attr('href');
+
+    TweenLite.to('#keyword', .25, {opacity:1, autoAlpha:1, ease: Quad.easeIn});
+    //myTimeline.fromTo(element, 1, {left:0, opacity:1}, {left:100, opacity:0.5});
+
+    var thisData = $.ajax({
+      url: thisAttr,
+      success: function(data) {
+        $('#keyword .keyword__content').append(data);
+
+        //TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
+        TweenLite.fromTo('#keyword .keyword__box', .6, {y:30}, {y:0, ease: Expo.easeOut});
+        TweenLite.fromTo('#keyword .keyword__box', .3, {opacity:0}, {opacity:1, ease: Circ.easeOut});
+      }
+    });
+
+
+/*
+    if (popUpUrl) {
+      popUpWrapper.empty().append("<button class='search__close' id='pathfinderClose'><span class='close__icon'></span></button><h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='paragraph font-neutral'>" + popUpText + "</p><p class='font-neutral mt--xxsmall'><a target='_blank' href='"+ popUpUrl +"'>"+popUpUrlText +"<svg width='10' height='10' viewBox='0 0 126 126'><path d='M78.2,31.6L46.9,0.3L125.5,0l0.3,78.8L94,47.1l-78.3,78.3L0.1,109.9L78.2,31.6z'/></svg></a></p>");
+    } else {
+      popUpWrapper.empty().append("<button class='search__close' id='pathfinderClose'><span class='close__icon'></span></button><h3 class='mb--xsmall'>" + popUpTitle + "</h3><p class='paragraph font-neutral'>" + popUpText + "</p>");
+    }
+
+    TweenLite.to(popUpContainer, .2, {opacity:1, autoAlpha:1, ease: Quad.easeIn});
+    TweenLite.fromTo(popUpWrapper, .7, {opacity:0, y:-50}, {opacity:1, y:0, ease: Elastic.easeOut.config(1, 0.75)});
+    TweenLite.to($('#pathfinderClose'), .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
+*/
+
+
+  });
+});
 
 
 

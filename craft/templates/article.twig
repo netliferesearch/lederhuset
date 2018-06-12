@@ -2,6 +2,7 @@
 {% set blocks = entry.blocks %}
 
 {% block content %}
+
 <div class="grid-wrap article-wrap">
 
   <!-- article header -->
@@ -31,6 +32,29 @@
 
   <!-- article blocks/main content -->
   <article class="article mb--large">
+
+    <!-- keyword block -->
+    <div id="keyword" class="keyword">
+      <div class="keyword__wrapper">
+        <div class="keyword__box text left">
+          <div class="keyword__content"></div>
+          <button class="keyword__close close" id="keywordClose">
+            <div class="close__text-wrapper">
+              <span class="close__text borders--bottom paragraph">Lukk</span>
+            </div>
+            <div class="close__icon-wrapper">
+              <span class="close__icon"></span>
+            </div>
+          </button>
+        </div>
+        <div class="keyword__dots dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+
     {% if blocks | length %}
       {% for block in blocks %}
         <section id="article__wrapper article__wrapper--{{ loop.index }}">
