@@ -43,7 +43,7 @@ h2.custom-heading {
   @media (min-width: $maxWidth) {
     font-size: 80px;
     line-height: 105px;
-  }  
+  }
 }
 
 h3, .article .text h2, .search__input, .login__input {
@@ -59,7 +59,7 @@ h3, .article .text h2, .search__input, .login__input {
   }
 }
 
-.paragraph, .lh-button, .article .accordion__button, .example__button,
+.paragraph, .lh-button, .article .accordion__button, .example__button, .lh-button__radio,
 .article p, .article li, .article a, .article b, .article h3, .login__placeholder, .quote__title {
   font-family: $font-neutral;
   font-size: 16px;

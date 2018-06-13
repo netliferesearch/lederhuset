@@ -2,6 +2,27 @@
 
 {% block content %}
 
+<div class="grid-wrap">
+	<div class="lh-button__radio" style="display: inline-block; margin-right: 20px; margin-top: 20px;">
+		<input type="radio" class="radio__input sc-dnqmqq iMTppp" aria-label="Den ansatte" name="begrunnelse" id="begrunnelse.ansatte" value="ansatte">
+		<label class="radio__label" for="begrunnelse.ansatte">
+			<div data-id="begrunnelse.ansatte">
+				<div>Den ansatte</div>
+			</div>
+		</label>
+	</div>
+
+	<div class="lh-button__radio" style="display: inline-block; margin-right: 20px; margin-top: 20px;">
+		<input type="radio" class="radio__input sc-dnqmqq iMTppp" aria-label="Bedriften" name="begrunnelse" id="begrunnelse.bedriften" value="bedriften">
+		<label class="radio__label" for="begrunnelse.bedriften">
+			<div data-id="begrunnelse.bedriften">
+				<div>Bedriften</div>
+			</div>
+		</label>
+	</div>	
+</div>
+
+
 	{% if craft.session.isLoggedIn %}
 		{% include 'shared/frontpageLoggedIn' %}
 	{% else %}
