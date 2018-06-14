@@ -1,11 +1,20 @@
 .block {
   width: 100%;
   margin: 0 auto;
+  @media (max-width: $mobile) {
+    max-width: 500px;
+  }
   @media (min-width: $mobile) {
-    width: 50%;
+    width: 75%;
   }
   @media (max-width: $mobile) and (min-width: $mobile-smallest) {
     width: 75%;
+  }
+  @media (min-width: 900px) {
+    width: 70%;
+  }
+  @media (min-width: $desktop-small) {
+    width: 50%;
   }
   &--medium {
     @media (min-width: $mobile) {

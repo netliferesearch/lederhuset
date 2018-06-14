@@ -2,6 +2,11 @@ $paragraph--margin-t: 2.5vw;
 $h3--margin-t: 3.5vw;
 
 .article {
+  h2 {
+    @media (max-width: $mobile) {
+      max-width: 500px;
+    }
+  }
   position: relative;
   &--single {
     .block:first-child {

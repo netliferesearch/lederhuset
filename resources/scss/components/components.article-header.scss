@@ -1,13 +1,17 @@
 .article-header {
   @media (max-width: $mobile) {
     padding: 0 25px;
+    .list__item {
+      max-width: 500px;
+      margin: 0 auto;      
+    }
   }
   h1 {
     word-wrap: break-word;
     @media (min-width: $mobile) {
       padding-left: 7vw;
       padding-right: 7vw;
-    }    
+    }
   }
 }
 
