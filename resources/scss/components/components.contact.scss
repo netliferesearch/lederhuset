@@ -2,4 +2,55 @@
   p:first-child {
     margin-top: 0px;
   }
+  &__image {
+    @media (max-width: $mobile-smallest) {
+      margin-top: 20px;
+      img {
+        max-width: 250px;
+      }
+    }
+  }
+  &__top {
+    @media (max-width: $mobile) and (min-width: $mobile-smallest) {
+      &.pt--large {
+        padding-top: 70px;
+      }
+    }
+  }
+  &__bottom {
+  }
+  &__item {
+    @media (max-width: $desktop-small) {
+      width: 50%;
+      &.pb--small {
+        padding-bottom: 4vw;
+      }
+    }
+    @media (max-width: $mobile) {
+      &.pb--small {
+        padding-bottom: 30px;
+      }
+    }
+    a {
+      transition: color .15s ease-out;
+      border-bottom: 1px solid currentColor;
+      &:hover, &:focus {
+        color: $color-green;
+      }
+    }
+  }
+  .lead-p {
+    @media (min-width: $mobile) {
+      font-size: 1.9vw;
+      line-height: 2.9vw;
+    }
+    @media (min-width: $desktop-small) {
+      font-size: 1.6vw;
+      line-height: 2.7vw;
+    }
+    @media (min-width: $maxWidth) {
+      font-size: 32px;
+      line-height: 1.375;
+    }
+  }
 }
