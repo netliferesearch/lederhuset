@@ -120,8 +120,10 @@
   <!-- Entries in the same category -->
   {% for category in entry.category %}
     <div class="pb--large center-block inline-wrapper">
+      {% set relatedEntries = craft.entries.section('article').relatedTo(category) %}
+      {% set relatedEntriesCount = relatedEntries.total() %}
 
-      <div class="u-1/2 inline__item pr" data-reveal>
+      <div class="u-1/2 inline__item pr pl" data-reveal>
         <div class="image__container">
           <img class="image__notloaded" src="{{ category.image.first().getUrl('illustrationNotLoaded') }}" />
           {% if category.image|length %}
@@ -131,12 +133,8 @@
       </div>
 
       <div class="u-1/2 inline__item pl" data-reveal>
-        <h2 class="custom-heading pb--smaller">{{ category.title }}</h2>
-        <ul class="list reset-list frontpage-list">
-          <!-- set entries related to category and count them -->
-          {% set relatedEntries = craft.entries.section('article').relatedTo(category) %}
-          {% set relatedEntriesCount = relatedEntries.total() %}
-
+        <h3 class="pb--smaller">{{ category.title }}</h3>
+        <ul class="list reset-list frontpage-list{% if relatedEntriesCount > 4 %} frontpage-list--showmore{% endif %}">
           {% for entry in relatedEntries.limit(4) %}
             <li class="list__item list__item--hover frontpage-list__item">
               <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="{{ entry.url }}">{{ entry.title }}</a>
@@ -148,7 +146,7 @@
             <div class="list__item__wrapper">
               <div class="list__item__wrapper-inner">
                 {% for entry in relatedEntries.offset(4) %}
-                  <li class="list__item list__item--hover list__item--hover-bg frontpage-list__item">
+                  <li class="list__item list__item--hover frontpage-list__item">
                     <a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="{{ entry.url }}">{{ entry.title }}</a>
                   </li>
                 {% endfor %}
@@ -159,15 +157,15 @@
             <li data-showmore class="list__item list__item--show list__item--hover frontpage-list__item">
               <button class="font-neutral paragraph pb--xsmall pt--xsmall-optical">
                 <span>Vis flere</span>
-                <svg width="20" height="13" viewBox="0 0 124 185">
-                  <path d="M74.4,123.2h49.2l-61.4,61.7l-62-61.7h49.8V0.7h24.4V123.2z"/>
+                <svg width="20" height="30" viewBox="0 0 171 254">
+                  <path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
                 </svg>
               </button>
             </li>
           {% endif %}
-
         </ul>
       </div>
+
     </div>
   {% endfor %}
 
