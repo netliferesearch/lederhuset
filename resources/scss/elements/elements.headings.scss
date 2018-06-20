@@ -47,7 +47,7 @@ h2.custom-heading {
   }
 }
 
-h3, .article .text h2, .search__input, .login__input {
+h3, .article .text h2, .search__input, .input__input {
   font-size: 26px;
   line-height: 1.375;
   @media (min-width: $mobile) {
@@ -65,7 +65,7 @@ h3, .article .text h2, .search__input, .login__input {
 }
 
 .paragraph, .lh-button, .article .accordion__button, .example__button, .lh-button__radio,
-.article p, .article li, .article a, .article b, .article h3, .login__placeholder, .quote__title {
+.article p, .article li, .article a, .article b, .article h3, .input__placeholder, .quote__title {
   font-family: $font-neutral;
   font-size: 16px;
   line-height: 26px;

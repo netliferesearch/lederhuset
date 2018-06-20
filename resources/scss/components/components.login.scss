@@ -90,18 +90,8 @@
     }
     .close__text {
       position: absolute;
-      left: -65px;
-      top: 4px;
       line-height: 1;
       padding-bottom: 0;
-      @media (min-width: $mobile) {
-        left: -4vw;
-        top: -0.1vw;
-      }
-      @media (min-width: $maxWidth) {
-        top: 6px;
-        left: -68px;
-      }
     }
   }
 }
