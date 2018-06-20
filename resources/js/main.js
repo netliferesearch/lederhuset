@@ -293,6 +293,26 @@ $('#keywordClose').on("click", function(){
 
 
 
+// article scroll check
+if ($('.article-header').length){
+  var topofDiv = $(".article-header").offset().top;
+  var height = $(".article-header").outerHeight();
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() > (topofDiv + height)){
+      $('#toTop').addClass('visible');
+    } else {
+      $('#toTop').removeClass('visible');
+    }
+  });
+}
+
+
+
+
+
+
+// browser resize check
 var $window = $(window);
 
 function resizeCheck(){

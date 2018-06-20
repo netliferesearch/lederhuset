@@ -1,0 +1,71 @@
+.input {
+  &__wrapper {
+    position: relative;
+    border-bottom: 2px solid;
+    &--filled .login__placeholder {
+      top: -10px;
+      @media (min-width: $mobile) {
+        top: -2vw;
+      }
+      @media (min-width: $maxWidth) {
+        top: -44px;
+      }
+    }
+  }
+  &__input:focus ~ &__placeholder {
+    top: -10px;
+    @media (min-width: $mobile) {
+      top: -2vw;
+    }
+    @media (min-width: $maxWidth) {
+      top: -44px;
+    }
+  }
+  &__input, &__submit {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    outline: 0;
+  }
+  &__input {
+    position: relative;
+    width: 100%;
+    padding: 18px 0px 2px 0px;
+    z-index: 1;
+    font-family: $font-larish;
+    @media (max-width: $mobile) {
+      font-size: 20px;
+    }
+    @media (min-width: $mobile) {
+      padding: 1vw 0;
+    }
+    @media (min-width: $maxWidth) {
+      padding: 22px 0;
+    }
+  }  
+  &__placeholder {
+    position: absolute;
+    top: 23px;
+    left: 0;
+    z-index: -1;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @media (max-width: $mobile) {
+      font-size: 14px;
+    }
+    @media (min-width: $mobile) {
+      top: 2vw;
+    }
+    @media (min-width: $maxWidth) {
+      top: 44px;
+    }
+  }
+  &__submit {
+    font-family: $font-neutral;
+    @media (max-width: $mobile) {
+      margin-bottom: 80px;
+    }
+  }
+  input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 100px $color-green-light inset;
+  }
+}

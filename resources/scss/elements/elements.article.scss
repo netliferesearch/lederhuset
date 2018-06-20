@@ -293,3 +293,13 @@ $h3--margin-t: 3.5vw;
     }
   }
 }
+
+#toTop {
+  position: fixed;
+  right: 2vw;
+  bottom: 1.5vw;
+  visibility: hidden;
+  &.visible {
+    visibility: visible;
+  }
+}
