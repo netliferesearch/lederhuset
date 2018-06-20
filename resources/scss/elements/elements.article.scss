@@ -292,14 +292,65 @@ $h3--margin-t: 3.5vw;
       }
     }
   }
+  .related-items {
+    .list__item {
+      max-width: 500px;
+    }
+  }
 }
 
 #toTop {
   position: fixed;
   right: 2vw;
   bottom: 1.5vw;
-  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.25s ease-out;
+  @media (max-width: $mobile) {
+    background: $color-green-light;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 1;
+    right: 5px;
+    bottom: 80px;
+  }
+  &:hover, &:focus {
+    .arrow-top {
+      transform: translateY(-4px) rotate(180deg);
+      @media (max-width: $mobile) {
+        transform: translateY(10px) translateX(20px) rotate(180deg);
+      }
+    }
+  }
   &.visible {
-    visibility: visible;
+    opacity: 1;
+  }
+  .paragraph {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.1111;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+    @media (min-width: $break-1366) {
+      font-size: 1vw;
+    }
+    @media (min-width: $maxWidth) {
+      font-size: 20px;
+    }
+
+  }
+  .arrow-top {
+    width: 10px;
+    height: auto;
+    display: inline-block;
+    backface-visibility: hidden;
+    transform: translateY(-1px) rotate(180deg);
+    vertical-align: middle;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @media (max-width: $mobile) {
+      transform: translateY(13px) translateX(20px) rotate(180deg);
+    }
   }
 }

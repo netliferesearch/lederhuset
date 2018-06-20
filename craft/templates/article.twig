@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="grid-wrap article-wrap">
+<div class="grid-wrap article-wrap" data-sticky-container>
 
   <!-- article header -->
   <header class="article-header bg-green--light" data-reveal>
@@ -23,8 +23,11 @@
 
   <!-- article sticky nav -->
   {% if blocks | length %}
-  <div id="toTop" class="">
+  <div id="toTop" class="sticky">
     <p class="paragraph">Til toppen</p>
+    <svg class="arrow-top" width="20" height="30" viewBox="0 0 171 254">
+      <path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
+    </svg>          
   </div>
   {% endif %}
 
@@ -117,7 +120,7 @@
 
   <!-- Entries in the same category -->
   {% for category in entry.category %}
-    <div class="pb--large center-block inline-wrapper">
+    <div class="pb--large center-block inline-wrapper related-items">
       {% set relatedEntries = craft.entries.section('article').relatedTo(category) %}
       {% set relatedEntriesCount = relatedEntries.total() %}
 

@@ -31,8 +31,8 @@ if( $('.toc-wrapper').length ){
 
 
 
-var sticky = new Sticky('.sticky');
-new Sticky('.sticky', { wrap: true });
+/*var sticky = new Sticky('.sticky');
+new Sticky('.sticky', { wrap: true });*/
 
 
 /*** revealing elements ***/
@@ -305,10 +305,10 @@ if ($('.article-header').length){
       $('#toTop').removeClass('visible');
     }
   });
+  $('#toTop').on("click", function(){
+    TweenLite.to(window, .6, {scrollTo:{y:0}, ease: Sine.easeInOut});
+  });
 }
-
-
-
 
 
 
