@@ -69,27 +69,17 @@
   }
   #loginClose, #registrationClose {
     top: 56px;
-    right: 9px;
-    width: 21px;
-    height: 21px;
     float: right;
     position: relative;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    padding: 0;
     @media (min-width: $mobile) {
-      top: 5vw;
       right: 0;
-      width: 1.7vw;
-      height: 1.7vw;
-      min-width: 27px;
-      min-height: 27px;
-    }
-    @media (min-width: $maxWidth) {
-      right: 0;
-      width: 35px;
-      height: 35px;
-      top: 120px;
     }
     .close__text {
-      position: absolute;
       line-height: 1;
       padding-bottom: 0;
     }

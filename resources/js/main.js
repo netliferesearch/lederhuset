@@ -460,7 +460,7 @@ $('[data-show="menu"]').on('click', function(e) {
 $('[data-show="login"], [data-show="registration"]').each(function(){
   $(this).on('click', function(e) {
     var thisAttr = '#' + $(this).attr('data-show');
-    var thisExit = thisAttr + ' .search__close';
+    var thisExit = thisAttr + ' .close';
     var menuElemToHide = $('.page-header');
     var menuWrapper = thisAttr + ' .login__wrapper';
     e.preventDefault();
@@ -493,8 +493,8 @@ function checkInputVal(){
   }
 }
 
-$('.login__input').blur(checkInputVal);
-$('.login__input').each(checkInputVal);
+$('.input__input').blur(checkInputVal);
+$('.input__input').each(checkInputVal);
 
 
 

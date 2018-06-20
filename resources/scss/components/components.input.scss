@@ -61,6 +61,7 @@
   }
   &__submit {
     font-family: $font-neutral;
+    position: relative;
     @media (max-width: $mobile) {
       margin-bottom: 80px;
     }
