@@ -167,6 +167,8 @@ function listItemHoverEffect(){
 
     if ( $(this).hasClass('a-toggle__button') ) {
       listItemLink = $(this).find('span');
+    } else if ( $(this).is('.a-list-toggle__button') ) {
+      listItemLink = $(this).find('span');
     } else if ( $(this).is('.list__item--resources') ) {
       listItemLink = $(this).find('.list__title');
     } else {
