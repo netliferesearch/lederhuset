@@ -54,5 +54,27 @@
         </div>
       </div>
     </div>
+
+    {% elseif content.type == "accordion2" %}
+      <div class="block accordion accordion__list borders" data-reveal>
+
+        {% for listItem in content.block %}
+          <div class="accordion__item">
+            <button class="accordion__button a-list-toggle__button">
+              <span>{{ listItem.heading }}</span>
+              <svg class="accordion__arrow a-toggle__arrow" width="12" height="7" viewBox="0 0 82 48">
+                <path class="accordion__arrow-path" d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"/>
+              </svg>
+            </button>
+            <div class="accordion__content a-toggle__content">
+              <div class="accordion__inner a-toggle__inner">
+                <div class="accordion__wrap">
+                  {{ listItem.text }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
   {% endif %}
 {% endfor %}

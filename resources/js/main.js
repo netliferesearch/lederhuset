@@ -368,7 +368,7 @@ $('p').each(function(index, item) {
 
 
 /*** accordion module ***/
-$('.a-toggle').each(function(){
+$('.a-toggle, .accordion__item').each(function(){
   var bottom = $(this).find('.a-toggle__content'),
       bottomContent = $(this).find('.a-toggle__inner'),
       btnSvg = $(this).find('.a-toggle__arrow');
@@ -377,7 +377,7 @@ $('.a-toggle').each(function(){
     $(this).add(btnSvg).addClass('clicked');
     $(bottomContent).fadeIn();
     TweenLite.set(bottom, {css: {height:"auto"}});
-    TweenLite.from(bottom, .3, {css: {height:0}, ease: Expo.easeInOut, y: 0 });
+    TweenLite.from(bottom, .32, {css: {height:0}, ease: Circ.easeInOut, y: 0 });
     TweenLite.to(bottom, .1, {css: {opacity:1}, delay:0.1, ease: Quad.easeIn, y: 0 });
     $(this).one("click", hideContent);
   }
@@ -385,14 +385,15 @@ $('.a-toggle').each(function(){
   function hideContent() {
     $(this).add(btnSvg).removeClass('clicked');
     $(bottomContent).fadeOut();
-    TweenLite.to(bottom, .3, {css: {height:0}, opacity:0, delay:.1, ease: Expo.easeInOut, y: 0 });
+    TweenLite.to(bottom, .32, {css: {height:0}, opacity:0, delay:.1, ease: Circ.easeInOut, y: 0 });
     $(this).one("click", showContent);
   }
-
-  $($(this).find('.a-toggle__button')).one("click", showContent);
+  if ( $(this).is('.accordion__item') ) {
+    $($(this).find('.a-list-toggle__button')).one("click", showContent);
+  } else {
+    $($(this).find('.a-toggle__button')).one("click", showContent);
+  }
 });
-
-
 
 
 /*** toggle menu ***/

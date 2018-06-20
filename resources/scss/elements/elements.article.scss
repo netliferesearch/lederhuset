@@ -120,6 +120,18 @@ $h3--margin-t: 3.5vw;
     @media (min-width: $maxWidth) {
       margin-top: 40px;
     }
+    &__wrap {
+      padding-bottom: 20px;
+      @media (min-width: $mobile) {
+        padding-bottom: 2vw;
+      }
+      @media (min-width: $maxWidth) {
+        padding-bottom: 40px;
+      }
+      p:first-child {
+        margin-top: 0;
+      }
+    }
     &__button {
       font-family: $font-neutral-bold;
       cursor: pointer;
@@ -128,14 +140,16 @@ $h3--margin-t: 3.5vw;
       text-align: left;
       border: 0;
       background: transparent;
-      margin: 0;
-      padding: 15px 0;
+      margin: 15px 0;
+      padding: 0;
       transition: background-color .2s ease;
       @media (min-width: $mobile) {
-        padding: 1vw 0;
+        margin: 1vw 0;
+        padding: 0;
       }
       @media (min-width: $maxWidth) {
-        padding: 20px 0;
+        margin: 20px 0;
+        padding: 0;
       }
       span {
         display: block;
@@ -156,6 +170,7 @@ $h3--margin-t: 3.5vw;
         width: 1vw;
       }
       @media (min-width: $maxWidth) {
+        width: 20px;
       }
       &.clicked {
         transform: translate(0%, -50%) rotate(-180deg);
@@ -167,9 +182,16 @@ $h3--margin-t: 3.5vw;
       height: 0;
     }
     &__inner {
-      padding-bottom: 40px;
-      margin-top: -40px;
       display: none;
+    }
+    &__list {
+
+    }
+    &__item {
+      border-bottom: 2px solid currentColor;
+      &:last-child {
+        border-bottom: 0;
+      }
     }
   }
   .fact {
