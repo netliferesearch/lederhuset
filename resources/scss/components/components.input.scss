@@ -1,4 +1,5 @@
 .input {
+  position: relative;
   &__wrapper {
     position: relative;
     border-bottom: 2px solid;
@@ -66,7 +67,39 @@
       margin-bottom: 80px;
     }
   }
+  &__error-box {
+    background: $color-red;
+    padding: 1vw;
+    width: 100%;
+    display: block;
+    position: absolute;
+    display: none;
+  }
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+    margin-top: 10px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  &__icon--success {
+    width: 2vw;
+  }
+  &__icon--error {
+    width: 1.4vw;
+  }
   input:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 100px $color-green-light inset;
   }
+}
+.error-box {
+  background: $color-red;
+  padding: 1vw;
+  width: 100%;
+  display: block;
+  position: absolute;
+  display: none;  
 }

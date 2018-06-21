@@ -262,6 +262,85 @@ $('.edit-form').each(function(){
 });
 
 
+/***** login form submit and validation *****/
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function validatePassword(){
+  if ($('#login-pass .login__input').val().length > 4) {
+    if ( $('#login-pass .input__icon--error').hasClass('is-visible') ) {
+      TweenLite.to('#login-pass .input__icon--error', .75, {opacity:0, autoAlpha:0, marginTop:10, ease: Elastic.easeOut.config(1, 0.65)});
+      TweenLite.to('#login-pass .input__icon--success', .8, {opacity:1, autoAlpha:1, marginTop:0, delay:.3, ease: Elastic.easeOut.config(1, 0.4)});
+    } else {
+      TweenLite.to('#login-pass .input__icon--success', .8, {opacity:1, autoAlpha:1, marginTop:0, ease: Elastic.easeOut.config(1, 0.4)});
+    }
+    $('#login-pass .input__icon--success').addClass('is-visible');
+    $('#login-pass .input__icon--error').removeClass('is-visible');
+  } else {
+    if ( $('#login-pass .input__icon--success').hasClass('is-visible') ) {
+      TweenLite.to('#login-pass .input__icon--success', .75, {opacity:0, autoAlpha:0, marginTop:10, ease: Elastic.easeOut.config(1, 0.65)});
+      TweenLite.to('#login-pass .input__icon--error', .8, {opacity:1, autoAlpha:1, marginTop:0, delay:.3, ease: Elastic.easeOut.config(1, 0.4)});
+    } else {
+      TweenLite.to('#login-pass .input__icon--error', .8, {opacity:1, autoAlpha:1, marginTop:0, ease: Elastic.easeOut.config(1, 0.4)});
+    }
+    $('#login-pass .input__icon--error').addClass('is-visible');
+    $('#login-pass .input__icon--success').removeClass('is-visible');
+  }
+}
+$("#login-pass .login__input").change(validatePassword);
+
+function validate() {
+  var $result = $(".login-errors");
+  var email = $(".login__input").val();
+  $result.text("");
+
+  if (validateEmail(email)) {
+    console.log(email);
+    if ( $('#login-email .input__icon--error').hasClass('is-visible') ) {
+      TweenLite.to('#login-email .input__icon--error', .75, {opacity:0, autoAlpha:0, marginTop:10, ease: Elastic.easeOut.config(1, 0.65)});
+      TweenLite.to('#login-email .input__icon--success', .8, {opacity:1, autoAlpha:1, marginTop:0, delay:.3, ease: Elastic.easeOut.config(1, 0.4)});
+    } else {
+      TweenLite.to('#login-email .input__icon--success', .8, {opacity:1, autoAlpha:1, marginTop:0, ease: Elastic.easeOut.config(1, 0.4)});
+    }
+    $('#login-email .input__icon--success').addClass('is-visible');
+    $('#login-email .input__icon--error').removeClass('is-visible');
+  } else {
+    if ( $('#login-email .input__icon--success').hasClass('is-visible') ) {
+      TweenLite.to('#login-email .input__icon--success', .75, {opacity:0, autoAlpha:0, marginTop:10, ease: Elastic.easeOut.config(1, 0.65)});
+      TweenLite.to('#login-email .input__icon--error', .8, {opacity:1, autoAlpha:1, marginTop:0, delay:.3, ease: Elastic.easeOut.config(1, 0.4)});
+    } else {
+      TweenLite.to('#login-email .input__icon--error', .8, {opacity:1, autoAlpha:1, marginTop:0, ease: Elastic.easeOut.config(1, 0.4)});
+    }
+    $('#login-email .input__icon--error').addClass('is-visible');
+    $('#login-email .input__icon--success').removeClass('is-visible');
+  }
+  return false;
+}
+$(".login__input").change(validate);
+
+$('#login-form').submit(function(ev) {
+    ev.preventDefault();
+    $.post({
+        url: '/',
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function(response) {
+            if (response.success) {
+              TweenLite.to('.login__success', .5, {opacity:1, autoAlpha:1, marginTop:0, ease: Power2.easeOut});
+              $(document.body).css({'cursor' : 'wait'});
+              location.reload();
+            } else {
+                // response.error will be an object containing any validation errors that occurred, indexed by field name
+                // e.g. response.error.fromName => ['From Name is required']
+                alert('An error occurred. Please try again.');
+            }
+        }
+    });
+});
+
+
 // keywords popup article
 var keywordWrapper = $('#keyword .keyword__box');
 

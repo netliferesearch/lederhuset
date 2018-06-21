@@ -1,5 +1,4 @@
 <nav id="login" class="login">
-
   <div class="grid-wrap">
     <button class="login__close close" id="loginClose">
       <div class="close__text-wrapper">
@@ -10,24 +9,28 @@
       </div>
     </button>
   </div>
-
   <div class="grid-wrap login__outer">
     <div class="login__wrapper">
-      <div class="login__inner input">
-        <form method="post" accept-charset="UTF-8">
+      <div class="login__inner">
+        <form id="login-form" method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
             <input type="hidden" name="{{ craft.config.csrfTokenName }}" value="{{ craft.request.csrfToken }}">
             <input type="hidden" name="action" value="users/login">
 
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="loginName" type="text" name="loginName" value="{{ craft.session.rememberedUsername }}">
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Brukernavn (e-post)</span>
-            </div>
+            {% include "shared/input" with {
+              'inputId' : 'login-email',
+              'inputType' : 'text',
+              'inputVal' : craft.session.rememberedUsername,
+              'inputPlaceholder' : 'Brukernavn (e-post)',
+              'inputName' : 'loginName'
+          	} %}
 
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="password" type="password" name="password">
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Passord</span>
-            </div>
+            {% include "shared/input" with {
+              'inputId' : 'login-pass',
+              'inputType' : 'password',
+              'inputPlaceholder' : 'Passord',
+              'inputName' : 'password'
+          	} %}
 
             <div class="inline-wrapper">
               <div class="u-1/2 inline__item pr">
@@ -44,14 +47,18 @@
               </div>
             </div>
 
-            {% if errorMessage is defined %}
-            <div class="mt--small">
-              <p class="paragraph font-neutral">{{ errorMessage }}</p>
+            <div class="error-box mt">
+              <p class="paragraph font-neutral">Feil brukernavn eller passord</p>
             </div>
-            {% endif %}
         </form>
       </div>
-
 		</div>
   </div>
 </nav>
+<div class="login__success">
+  <div class="dots">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
