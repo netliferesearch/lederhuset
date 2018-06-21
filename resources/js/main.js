@@ -320,6 +320,17 @@ function validate() {
 }
 $(".login__input").change(validate);
 
+var showErrorBox = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            executed = true;
+            TweenMax.set('.error-box__wrapper', {height:"auto"});
+            TweenMax.from('.error-box__wrapper', .62, {height:0, ease:Circ.easeInOut});
+        }
+    };
+})();
+
 $('#login-form').submit(function(ev) {
     ev.preventDefault();
     $.post({
@@ -329,12 +340,11 @@ $('#login-form').submit(function(ev) {
         success: function(response) {
             if (response.success) {
               TweenLite.to('.login__success', .5, {opacity:1, autoAlpha:1, marginTop:0, ease: Power2.easeOut});
+              TweenMax.to('.error-box__wrapper', .62, {height:0, ease: Circ.easeInOut});
               $(document.body).css({'cursor' : 'wait'});
               location.reload();
             } else {
-                // response.error will be an object containing any validation errors that occurred, indexed by field name
-                // e.g. response.error.fromName => ['From Name is required']
-                alert('An error occurred. Please try again.');
+              showErrorBox();
             }
         }
     });
