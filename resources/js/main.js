@@ -236,19 +236,21 @@ $window.resize(resizeCheck);
 $('.video').each(function(){
   var videoOverlay = $(this).find('.video__play');
   var play = $(this).find('.video__icon');
-  var video = $(this).find('.video__video');
+  var video = document.getElementById('video');
+  var videoContainer = $(this).find('.video__container');
 
   function playVideo(){
-    video.get(0).play();
+    video.play();
     videoOverlay.css('display', 'none');
   }
 
-  video.on('click', function(){
-    if (video.get(0).paused == false) {
-      this.pause();
+  videoContainer.on('click', function(){
+    if (video.paused == false) {
+      video.pause();
       videoOverlay.css('display', 'block');
       TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeOut});
     } else {
+      video.play();
       TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
     }
   });
