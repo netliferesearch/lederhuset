@@ -21,14 +21,14 @@
               'inputId' : 'login-email',
               'inputType' : 'text',
               'inputVal' : craft.session.rememberedUsername,
-              'inputPlaceholder' : 'Brukernavn (e-post)',
+              'inputPlaceholder' : 'Brukernavn (e-post)*',
               'inputName' : 'loginName'
           	} %}
 
             {% include "shared/input" with {
               'inputId' : 'login-pass',
               'inputType' : 'password',
-              'inputPlaceholder' : 'Passord',
+              'inputPlaceholder' : 'Passord*',
               'inputName' : 'password'
           	} %}
 
@@ -50,7 +50,7 @@
             <div class="error-box">
               <div class="error-box__wrapper">
                 <div class="error-box__inner mt">
-                  <p class="paragraph font-neutral">Feil brukernavn eller passord</p>
+                  <p class="paragraph font-neutral">Ugyldig e-post eller passord.</p>
                 </div>
               </div>
             </div>

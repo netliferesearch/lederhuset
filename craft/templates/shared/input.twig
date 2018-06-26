@@ -1,6 +1,6 @@
 <div id="{{ inputId }}" class="input mb">
   <div class="input__wrapper">
-    <input class="login__input input__input" id="{{ inputId }}-input" type="{{ inputType }}" name="{{ inputName }}" {% if inputVal is defined %}value="{{ inputVal }}"{% endif %}>
+    <input required class="login__input input__input" id="{{ inputId }}-input" type="{{ inputType }}" name="{{ inputName }}" {% if inputVal is defined %}value="{{ inputVal }}"{% endif %}>
     <span class="login__placeholder input__placeholder paragraph no-flicker">{{ inputPlaceholder }}</span>
     <svg class="input__icon input__icon--success" width="11" height="8" viewBox="0 0 11 8.2">
       <path d="M0,4.8l0.7-0.7l2.8,2.7L10.3,0L11,0.7L3.5,8.2L0,4.8z"/>

@@ -11,217 +11,23 @@ import inview from 'jquery-inview';
 import picturefill from 'picturefill';
 import Headroom from 'headroom.js';
 
-var imagesLoaded = require('imagesloaded');
+/*** includes ***/
+import revealElements from './revealElements';
+import search from './search';
 
-// Picture element HTML5 shiv
+var imagesLoaded = require('imagesloaded');
 document.createElement( "picture" );
 
-if( $('.toc-wrapper').length ){
-  tocbot.init({
-    tocSelector: '.toc-wrapper',
-    contentSelector: '.article',
-    headingSelector: 'h1',
-    scrollSmoothDuration:720,
-    linkClass: 'toc__link',
-    listItemClass: 'font-neutral',
-    activeLinkClass: 'active',
-    listClass: 'list'
-  });
-};
+/**
+ * Since this script is included in the <head> we have to listen
+ * for the DOMContentLoaded event.
+ */
+document.addEventListener("DOMContentLoaded", function(event) {
 
+  revealElements();
+  search();
 
-
-/*var sticky = new Sticky('.sticky');
-new Sticky('.sticky', { wrap: true });*/
-
-
-/*** revealing elements ***/
-TweenLite.set($('[data-reveal]'), {y:30});
-
-$('[data-reveal]').each(function(index, elem){
-  $(this).one('inview', function (event, visible) {
-    if (visible == true) {
-      $(this).addClass('revealed');
-      TweenMax.to(elem, .8, {opacity:1, ease:Sine.easeInOut});
-      TweenMax.to(elem, 1.2, {y:0, ease:Expo.easeOut});
-    }
-  });
 });
-
-
-/*** search module ***/
-var result, fuse, tosearch,
-    searchfield = $('#mainSearch, #resourcesSearch'),
-    closeSearch = $('#searchClose'),
-    placeholderText = $(searchfield).attr('placeholder'),
-    fadeOutContent = $('#page-header .menu__non-nav-inner, #allEntries, #allFormEntries, #virke-header .virke-header__wrapper'),
-    tl = new TimelineLite({onReverseComplete:emptySearch});
-    tl.to($("#searchResults ul, #resourcesSearchResults ul"), .3, {y:0, opacity:1, ease:Quad.easeOut});
-    tl.pause();
-
-// get search data from json api
-var data = $.ajax({
-  url: "/api.json",
-});
-
-var resourcesData = $.ajax({
-  url: "/resourcesApi.json",
-});
-
-// fuse options for search
-var options = {
-  shouldSort: true,
-  threshold: 0.4,
-  location: 0,
-  findAllMatches: true,
-  distance: 70,
-  maxPatternLength: 32,
-  minMatchCharLength: 1,
-  keys: [{
-      name: 'title',
-      weight: 0.7
-    }, {
-      name: 'url',
-      weight: 0.7
-    }, {
-      name: 'blocks.title',
-      weight: 0.3
-    }]
-};
-
-// fuse options for resources search
-var resourcesOptions = {
-  shouldSort: true,
-  threshold: 0.4,
-  location: 0,
-  distance: 70,
-  maxPatternLength: 32,
-  minMatchCharLength: 1,
-  keys: [{
-      name: 'title',
-      weight: 0.7
-    }, {
-      name: 'file',
-      weight: 0.7
-    }, {
-      name: 'description',
-      weight: 0.1
-    }, {
-      name: 'category.title',
-      weight: 0.3
-    }]
-};
-
-//do this when focus on searchfield
-searchfield.on("focus", function() {
-  if (!$('body').hasClass('search-open')) {
-    searchFadeOut();
-  }
-});
-
-//do this on keyup change searchfield
-searchfield.on('keyup change', function(e) {
-  if(e.which === 13){
-    //do nothing
-  } else {
-    if ($('#resourcesSearch').length){
-      fuse = new Fuse(resourcesData.responseJSON.data, resourcesOptions);
-      $("#resourcesSearchResults ul li:first-child").removeClass('active');
-    } else {
-      fuse = new Fuse(data.responseJSON.data, options);
-      $("#searchResults ul li:first-child").removeClass('active');
-    }
-    tosearch = searchfield.val();
-    result = fuse.search(tosearch);
-    populateResults();
-  }
-});
-
-//do this when you click on exit
-closeSearch.on('click', function() {
-  $('body').removeClass('search-open');
-  searchfield.attr("placeholder", placeholderText);
-  searchfield.val("");
-  $('.search__typed-cursor').css('display', 'block');
-  tl.reverse();
-  TweenLite.to(fadeOutContent, .5, {opacity:1, ease: Quad.easeIn, delay:.2});
-  TweenLite.to(closeSearch, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
-});
-
-function emptySearch(){
-  $("#searchResults ul, #resourcesSearchResults ul").empty();
-}
-
-function searchFadeOut() {
-  $('body').addClass('search-open');
-  searchfield.attr("placeholder", '');
-  $('.search__typed-cursor').css('display', 'none');
-  TweenLite.to(fadeOutContent, .5, {opacity:0, ease: Expo.easeOut, onComplete:populateResults});
-  TweenLite.to(closeSearch, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
-}
-
-
-function listItemHoverEffect(){
-  $('.list__item--hover, .accordion__button, .list__item--resources').each(function(){
-    var listItemLink;
-
-    if ( $(this).hasClass('a-toggle__button') ) {
-      listItemLink = $(this).find('span');
-    } else if ( $(this).is('.a-list-toggle__button') ) {
-      listItemLink = $(this).find('span');
-    } else if ( $(this).is('.list__item--resources') ) {
-      listItemLink = $(this).find('.list__title');
-    } else {
-      listItemLink = $(this).find('a');
-    }
-
-    $(this).mouseenter(function(){
-      TweenMax.to(listItemLink, .2, {x:12, ease: Circ.easeOut});
-    });
-
-    $(this).mouseleave(function(){
-      TweenMax.to(listItemLink, .2, {x:0, ease: Circ.easeOut});
-    });
-  });
-}
-
-
-listItemHoverEffect();
-
-function populateResults() {
-  if (searchfield.val() == '') {
-    tl.reverse();
-  } else {
-    emptySearch();
-    tl.play();
-  }
-
-  if ( result != null) {
-    if ( result.length === 0 ) {
-      $("#searchResults ul, #resourcesSearchResults ul").append("<li class=\"list__item pb--xsmall pt--xsmall-optical paragraph font-neutral\">Ingen resultater</li>");
-    }
-
-    $.each(result, function(index, value) {
-      if ( $(searchfield).is('#resourcesSearch') ) {
-        $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--resources\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "<span class='list__description'>" + value.description + "</span></span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='30' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
-      } else {
-        $("#searchResults ul").append("<li class=\"list__item list__item--hover\"><a class='pb--xsmall pt--xsmall-optical paragraph font-neutral' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a></li>");
-      }
-      return index<7;
-    });
-
-  }
-  listItemHoverEffect();
-}
-
-$('#mainSearchWrapper').submit(function(event) {
-  event.preventDefault();
-  $("#searchResults ul li:first-child").addClass('active');
-  TweenMax.to($("#searchResults ul li:first-child a"), .25, {x:15, ease: Expo.easeOut});
-});
-
-
-
 
 
 /***** edit profile *****/
@@ -409,9 +215,11 @@ function resizeCheck(){
   var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
   var footerHeight = $('.page-footer').height();
   var hambugerOffset = $(".hamburger__button").offset().top;
+  var videoHeight = $('.video__video').height();
 
   $('.login #loginClose, .login #registrationClose').css('top', hambugerOffset);
   $('main').css('margin-bottom', footerHeight);
+  $('.video__wrapper').height(videoHeight);
 
   if ( pageWidth <= 769 ) {
   } else {
@@ -420,6 +228,42 @@ function resizeCheck(){
 
 resizeCheck();
 $window.resize(resizeCheck);
+
+
+
+
+/*** video ***/
+$('.video').each(function(){
+  var videoOverlay = $(this).find('.video__play');
+  var play = $(this).find('.video__icon');
+  var video = $(this).find('.video__video');
+
+  function playVideo(){
+    video.get(0).play();
+    videoOverlay.css('display', 'none');
+  }
+
+  video.on('click', function(){
+    if (video.get(0).paused == false) {
+      this.pause();
+      videoOverlay.css('display', 'block');
+      TweenLite.to(videoOverlay, .3, {opacity:1, ease:Circ.easeInOut});
+    } else {
+      TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
+    }
+  });
+
+  play.on('click', function(){
+    TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
+  });
+
+  video.on('ended',function(){
+    TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeInOut});
+  });
+
+});
+
+
 
 
 

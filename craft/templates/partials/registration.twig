@@ -13,7 +13,6 @@
 
   <div class="grid-wrap registration__outer">
     <div class="registration__wrapper login__wrapper pb--xlarge">
-      <h2 class="center pb--small">Registrer deg</h2>
       <div class="registration__inner input">
         <form method="post" accept-charset="UTF-8">
             {{ getCsrfInput() }}
@@ -33,66 +32,83 @@
 
             {% from _self import errorList %}
 
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="regFirstName" type="text" name="firstName"
-                  {%- if account is defined %} value="{{ account.firstName }}"{% endif -%}>
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Fornavn</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('firstName')) }}
-              {% endif %}
+            <div class="inline-wrapper mb pb--small-2">
+              <div class="u-1/2 inline__item pr">
+                <div class="input__wrapper">
+                  <input class="login__input input__input" id="regFirstName" type="text" name="firstName"
+                      {%- if account is defined %} value="{{ account.firstName }}"{% endif -%}>
+                  <span class="login__placeholder input__placeholder paragraph no-flicker">Fornavn*</span>
+                  {% if account is defined %}
+                      {{ errorList(account.getErrors('firstName')) }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="u-1/2 inline__item pl">
+                <div class="input__wrapper">
+                  <input class="login__input input__input" id="regLastName" type="text" name="lastName"
+                      {%- if account is defined %} value="{{ account.lastName }}"{% endif -%}>
+                  <span class="login__placeholder input__placeholder paragraph no-flicker">Etternavn*</span>
+                  {% if account is defined %}
+                      {{ errorList(account.getErrors('lastName')) }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="regLastName" type="text" name="lastName"
-                  {%- if account is defined %} value="{{ account.lastName }}"{% endif -%}>
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Etternavn</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('lastName')) }}
-              {% endif %}
+            <div class="inline-wrapper mb pb--small-2">
+              <div class="u-1/2 inline__item pr">
+                <div class="input__wrapper">
+                  <input class="login__input input__input" id="regUserPhone" type="tel" name="userPhone"
+                      {%- if account is defined %} value="{{ account.userPhone }}"{% endif -%}>
+                  <span class="login__placeholder input__placeholder paragraph no-flicker">Tlf./Mobil*</span>
+                  {% if account is defined %}
+                      {{ errorList(account.getErrors('userPhone')) }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="u-1/2 inline__item pl">
+                <div class="input__wrapper">
+                  <input class="login__input input__input" id="reg-password" type="password" name="password">
+                  <span class="login__placeholder input__placeholder paragraph no-flicker">Passord*</span>
+                  {% if account is defined %}
+                      {{ errorList(account.getErrors('password')) }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="regUserPhone" type="tel" name="userPhone"
-                  {%- if account is defined %} value="{{ account.userPhone }}"{% endif -%}>
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Tlf./Mobil</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('userPhone')) }}
-              {% endif %}
+            <div class="inline-wrapper mb pb--small-2">
+              <div class="u-1/2 inline__item pr">
+                <div class="input__wrapper">
+                  <input class="login__input input__input" id="regUserCompanyName" type="text" name="userCompanyName"
+                      {%- if account is defined %} value="{{ account.userCompanyName }}"{% endif -%}>
+                  <span class="login__placeholder input__placeholder paragraph no-flicker">Virksomhet*</span>
+                  {% if account is defined %}
+                      {{ errorList(account.getErrors('userCompanyName')) }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="u-1/2 inline__item pl">
+                <div class="input__wrapper">
+                  <input class="login__input input__input" id="regUserOrganizationNumber" type="text" name="userOrganizationNumber"
+                      {%- if account is defined %} value="{{ account.userOrganizationNumber }}"{% endif -%}>
+                  <span class="login__placeholder input__placeholder paragraph no-flicker">Organisasjonsnummer*</span>
+                  {% if account is defined %}
+                      {{ errorList(account.getErrors('userOrganizationNumber')) }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="regUserCompanyName" type="text" name="userCompanyName"
-                  {%- if account is defined %} value="{{ account.userCompanyName }}"{% endif -%}>
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Virksomhet</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('userCompanyName')) }}
-              {% endif %}
-            </div>
-
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="regUserOrganizationNumber" type="text" name="userOrganizationNumber"
-                  {%- if account is defined %} value="{{ account.userOrganizationNumber }}"{% endif -%}>
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Organisasjonsnummer</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('userOrganizationNumber')) }}
-              {% endif %}
-            </div>
-
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="regEmail" type="email" name="email"
-                  {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
-              <span class="login__placeholder input__placeholder paragraph no-flicker">E-post (brukernavn)</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('email')) }}
-              {% endif %}
-            </div>
-
-            <div class="input__wrapper mb">
-              <input class="login__input input__input" id="reg-password" type="password" name="password">
-              <span class="login__placeholder input__placeholder paragraph no-flicker">Passord</span>
-              {% if account is defined %}
-                  {{ errorList(account.getErrors('password')) }}
-              {% endif %}
+            <div class="inline-wrapper mb pb--xsmall">
+              <div class="input__wrapper">
+                <input class="login__input input__input" id="regEmail" type="email" name="email"
+                    {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
+                <span class="login__placeholder input__placeholder paragraph no-flicker">E-post (brukernavn)*</span>
+                {% if account is defined %}
+                    {{ errorList(account.getErrors('email')) }}
+                {% endif %}
+              </div>
             </div>
 
             <button class="login__submit input__submit lh-button lh-button--icon paragraph" type="submit">
