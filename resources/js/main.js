@@ -215,7 +215,7 @@ function resizeCheck(){
   var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
   var footerHeight = $('.page-footer').height();
   var hambugerOffset = $(".hamburger__button").offset().top;
-  var videoHeight = $('.video__video').height();
+  var videoHeight = $('.video__video').outerHeight();
 
   $('.login #loginClose, .login #registrationClose').css('top', hambugerOffset);
   $('main').css('margin-bottom', footerHeight);
