@@ -247,7 +247,7 @@ $('.video').each(function(){
     if (video.get(0).paused == false) {
       this.pause();
       videoOverlay.css('display', 'block');
-      TweenLite.to(videoOverlay, .3, {opacity:1, ease:Circ.easeInOut});
+      TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeOut});
     } else {
       TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
     }
@@ -258,7 +258,7 @@ $('.video').each(function(){
   });
 
   video.on('ended',function(){
-    TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeInOut});
+    TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeOut});
   });
 
 });
