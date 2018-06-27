@@ -363,14 +363,14 @@ function toggleActive(elem){
 $('[data-show="menu"]').on('click', function(e) {
   var thisAttr = '#' + $(this).attr('data-show');
   var thisExit = thisAttr + ' .search__close';
-  var menuElemToHide = $('.menu__logo-wrap, .menu__login');
+  var menuElemToHide = $('.menu__logo-wrap, .menu__login, .virke-header__wrapper');
   var menuWrapper = thisAttr + ' .inline-wrapper';
   e.preventDefault();
   toggleActive(this);
 
   function exitMenu(){
     TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-    TweenMax.to($('.page-header'), .2, {backgroundColor:'#fff', ease: Quad.easeIn, delay:.1});
+    TweenMax.to($('.page-header, .virke-header'), .2, {backgroundColor:'#fff', ease: Quad.easeIn, delay:.1});
     TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
     TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
@@ -379,7 +379,7 @@ $('[data-show="menu"]').on('click', function(e) {
 
   if( $(this).hasClass('active') ){
     TweenMax.to(thisAttr, .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn, force3D:true});
-    TweenMax.to($('.page-header'), .2, {backgroundColor:'#c3eee8', ease: Quad.easeIn});
+    TweenMax.to($('.page-header, .virke-header'), .2, {backgroundColor:'#c3eee8', ease: Quad.easeIn});
     TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut, force3D:true});
     TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn});
     TweenLite.to(thisExit, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
@@ -394,26 +394,26 @@ $('[data-show="menu"]').on('click', function(e) {
 });
 
 $('[data-show="login"], [data-show="registration"]').each(function(){
+  var menuElemToHide = $('.page-header, .virke-header');
+  var thisAttr = '#' + $(this).attr('data-show');
+  var thisExit = thisAttr + ' .close';
+  var menuWrapper = thisAttr + ' .login__wrapper';
+
   $(this).on('click', function(e) {
-    var thisAttr = '#' + $(this).attr('data-show');
-    var thisExit = thisAttr + ' .close';
-    var menuElemToHide = $('.page-header');
-    var menuWrapper = thisAttr + ' .login__wrapper';
     e.preventDefault();
     toggleActive(this);
-
-    TweenMax.to(thisAttr, .2, {autoAlpha:1, opacity:1, ease: Quad.easeIn, force3D:true});
-    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut, force3D:true});
-    TweenMax.to(menuElemToHide, .15, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-    TweenLite.to(thisExit, .5, {opacity:1, autoAlpha: 1, ease: Quad.easeIn});
     $('body').addClass('formOpen');
+    TweenMax.to(menuElemToHide, .25, {autoAlpha:0, opacity:0, ease: Circ.easeOut});
+    TweenMax.to(thisAttr, .25, {autoAlpha:1, opacity:1, ease:Circ.easeOut});
+    TweenLite.fromTo(menuWrapper, .9, {opacity:0, y:30}, {opacity:1, y:0, ease:Expo.easeOut});
+    TweenLite.to(thisExit, .25, {opacity:1, autoAlpha: 1, ease: Circ.easeOut});
 
     $(thisExit).on('click', function() {
-      TweenMax.to(thisAttr, .2, {autoAlpha:0, opacity:0, ease: Quad.easeIn, delay:.1});
-      TweenLite.fromTo(menuWrapper, .8, {opacity:1, y:0}, {opacity:0, y:50, ease:Expo.easeOut});
-      TweenMax.to(menuElemToHide, .15, {autoAlpha:1, opacity:1, ease: Quad.easeIn, delay:.1});
-      TweenLite.to(thisExit, .5, {opacity:0, autoAlpha: 0, ease: Quad.easeOut});
       $('body').removeClass('formOpen');
+      TweenLite.fromTo(menuWrapper, .9, {opacity:1, y:0}, {opacity:0, y:40, ease:Expo.easeOut});
+      TweenMax.to(menuElemToHide, .5, {autoAlpha:1, opacity:1, ease: Circ.easeOut, delay:.15});
+      TweenLite.to(thisExit, .5, {autoAlpha:0, opacity:0, ease:Circ.easeOut, delay:.15});
+      TweenMax.to(thisAttr, .5, {autoAlpha:0, opacity:0, ease:Circ.easeOut, delay:.15});
     });
 
   });
