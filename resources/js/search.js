@@ -24,7 +24,25 @@ export default function init() {
     url: "https://data.brreg.no/enhetsregisteret/api/enheter",
   });
 
-  console.log(companyData);
+  var companyOptions = {
+    shouldSort: true,
+    threshold: 0.4,
+    location: 0,
+    findAllMatches: true,
+    distance: 70,
+    maxPatternLength: 32,
+    minMatchCharLength: 1,
+    keys: [{
+        name: 'title',
+        weight: 0.7
+      }, {
+        name: 'url',
+        weight: 0.7
+      }, {
+        name: 'blocks.title',
+        weight: 0.3
+      }]
+  };
 
   // fuse options for search
   var options = {

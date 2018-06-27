@@ -103,7 +103,6 @@ function validate() {
   $result.text("");
 
   if (validateEmail(email)) {
-    console.log(email);
     if ( $('#login-email .input__icon--error').hasClass('is-visible') ) {
       TweenLite.to('#login-email .input__icon--error', .75, {opacity:0, autoAlpha:0, marginTop:10, ease: Elastic.easeOut.config(1, 0.65)});
       TweenLite.to('#login-email .input__icon--success', .8, {opacity:1, autoAlpha:1, marginTop:0, delay:.3, ease: Elastic.easeOut.config(1, 0.4)});
@@ -215,7 +214,7 @@ function resizeCheck(){
   var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
   var footerHeight = $('.page-footer').height();
   var hambugerOffset = $(".hamburger__button").offset().top;
-  var videoHeight = $('.video__video').outerHeight();
+  var videoHeight = $('#video').outerHeight();
 
   $('.login #loginClose, .login #registrationClose').css('top', hambugerOffset);
   $('main').css('margin-bottom', footerHeight);
@@ -259,9 +258,11 @@ $('.video').each(function(){
     TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
   });
 
+/*
   video.on('ended',function(){
+    videoOverlay.css('display', 'block');
     TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeOut});
-  });
+  });*/
 
 });
 
