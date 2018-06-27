@@ -240,6 +240,7 @@ $('.video').each(function(){
 
   function playVideo(){
     video.play();
+    alert('test');
     videoOverlay.css('display', 'none');
   }
 
