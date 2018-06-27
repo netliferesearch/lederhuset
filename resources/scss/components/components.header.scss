@@ -2,6 +2,11 @@
   z-index: 9999;
   position: relative;
   background: #fff;
+  .vertical-list__item {
+    @media (max-width: $mobile) {
+      width: 33.33333%;
+    }
+  }
   .menu {
     position: relative;
     &__non-nav-inner, &__non-nav {
