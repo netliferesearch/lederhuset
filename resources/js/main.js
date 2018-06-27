@@ -257,13 +257,6 @@ $('.video').each(function(){
   play.on('click', function(){
     TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
   });
-
-/*
-  video.on('ended',function(){
-    videoOverlay.css('display', 'block');
-    TweenLite.to(videoOverlay, .4, {opacity:1, ease:Circ.easeOut});
-  });*/
-
 });
 
 
