@@ -235,7 +235,7 @@ $window.resize(resizeCheck);
 $('.video').each(function(){
   var videoOverlay = $(this).find('.video__play');
   var play = $(this).find('.video__icon');
-  var video = document.getElementById('video');
+  var video = document.getElementsByTagName('video')[0];
   var videoContainer = $(this).find('.video__container');
 
   function playVideo(){

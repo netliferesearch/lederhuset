@@ -55,6 +55,9 @@
       width: 100%;
     }
   }
+  &__inner {
+    padding: 1px 0;
+  }
   &__extra {
     &.right {
       @media (max-width: $mobile) {
