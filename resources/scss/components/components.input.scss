@@ -79,18 +79,36 @@
   &__icon {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 30px;
     transform: translateY(-50%);
     height: auto;
     margin-top: 10px;
     visibility: hidden;
     opacity: 0;
+    @media (min-width: $mobile) {
+      top: 50%;
+    }
+    @media (min-width: $maxWidth) {
+      top: 55px;
+    }
   }
   &__icon--success {
-    width: 2vw;
+    width: 20px;
+    top: 28px;
+    @media (min-width: $mobile) {
+      width: 2vw;
+    }
+    @media (min-width: $maxWidth) {
+      width: 40px;      
+    }
   }
   &__icon--error {
-    width: 1.4vw;
+    width: 14px;
+    @media (min-width: $mobile) {
+      width: 1.4vw;
+    }
+    @media (min-width: $maxWidth) {
+    }
   }
   input:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 100px $color-green-light inset;
