@@ -1,0 +1,17 @@
+.home {
+  &__selling-points {
+    .selling-points__block:not(:last-child) {
+      padding-bottom: 50px;
+    }
+    .selling-points__point {
+      padding-bottom: 40px;
+      p {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+    }
+    .selling-points__point:last-child {
+      padding-bottom: 10px;
+    }
+  }
+}

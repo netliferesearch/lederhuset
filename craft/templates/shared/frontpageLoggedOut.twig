@@ -4,7 +4,7 @@
     {% for block in entry.frontpage_firstBlock %}
       <div class="center-block inline-wrapper block__full" data-reveal>
         <div class="u-1/2 inline__item pr">
-          <h2 class="pb--small">{{ block.heading }}</h2>
+          <h2 class="pb--small custom-heading">{{ block.heading }}</h2>
           <p class="lead-p font-neutral pb--small">{{ block.text }}</p>
           <button class="lh-button lh-button--icon" data-show="registration">
             <span class="lh-button__text">Prøv gratis</span>
@@ -24,7 +24,7 @@
 <!-- video -->
 <div class="grid-wrap mb--large">
   <div class="u-3/4 center-block" data-reveal>
-    <h3 class="pb--small center">Slik fungerer det</h3>
+    <h2 class="pb--small custom-heading center">Slik fungerer det</h2>
     <div class="video">
       <div class="video__top-frame"></div>
       <div class="video__wrapper">
@@ -49,10 +49,10 @@
 </div>
 
 <!-- selling points -->
-<div class="grid-wrap grid-wrap--inline_items mb--large">
+<div class="grid-wrap grid-wrap--inline_items mb--large home__selling-points">
   <div class="inline-wrapper mb--large">
     {% for block in entry.frontpage_blocks %}
-      <div class="u-1/{{ entry.frontpage_blocks.total() }} inline__item pr pl" data-reveal>
+      <div class="u-1/{{ entry.frontpage_blocks.total() }} inline__item pr pl selling-points__block" data-reveal>
         <img class="pb--small" src="{{ block.image.first().getUrl('salesIllustration') }}" alt="" />
         <h3 class="pb--xsmall">{{ block.heading }}</h3>
         <p class="paragraph font-neutral">{{ block.text }}</p>
@@ -62,7 +62,7 @@
 
   <div class="inline-wrapper">
     {% for block in entry.sellingPoints %}
-      <div class="u-1/{{ entry.sellingPoints.total() }} inline__item pr pl center" data-reveal>
+      <div class="u-1/{{ entry.sellingPoints.total() }} inline__item pr pl center selling-points__point" data-reveal>
         <svg class="svg__checkmark" viewBox="0 0 60 60" width="60" height="60">
           <path class="st0" d="M28.5,48C38.7,48,47,39.7,47,29.5S38.7,11,28.5,11S10,19.3,10,29.5S18.3,48,28.5,48"/>
           <polyline class="st1" points="20.4,26.4 28.5,34.4 48.6,14.4 "/>
@@ -74,22 +74,24 @@
   </div>
 </div>
 
+{% if entry.quoteBlock | length %}
 <div class="grid-wrap">
   {% for block in entry.quoteBlock.limit(1) %}
-    <div class="u-2/3 center-block bg-yellow p-full mb--large" data-reveal>
+    <div class="u-2/3 center-block bg-green--light p-full mb--large" data-reveal>
       <h3 class="pb">{{ block.quote }}</h3>
       <p class="paragraph font-neutral-b">{{ block.person }}</p>
       <p class="paragraph font-neutral">{{ block.organization }}</p>
     </div>
   {% endfor %}
 </div>
+{% endif %}
 
 <!-- salesblock -->
 <div class="grid-wrap">
   <div class="pt--large pb--large borders--top">
     <div class="center-block inline-wrapper block__full">
       <div class="u-1/2 inline__item pr">
-        <h2 class="pb--small">{{ siteName }}</h2>
+        <h2 class="pb--small custom-heading">{{ siteName }}</h2>
         <div class="lead-p font-neutral pb--small">{{ entry.salesText }}</div>
         <button class="lh-button lh-button--icon mb--large" data-show="registration">
           <span class="lh-button__text">Prøv gratis</span>

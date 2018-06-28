@@ -3,6 +3,11 @@ $h3--margin-t: 3.5vw;
 
 .article {
   h2 {
+    font-size: 3.5vw;
+    line-height: 4.5vw;
+    padding-top: 3.4vw;
+    margin-bottom: 3.05vw;
+
     @media (max-width: $mobile) {
       max-width: 500px;
     }
@@ -82,6 +87,19 @@ $h3--margin-t: 3.5vw;
       font-size: 1.3vw;
     }
   }
+  p {
+    margin-top: 1.2vw;
+  }
+  p, li, a {
+    font-size: 1.1vw;
+    line-height: 1.7vw;
+  }
+  h3 + p, h3 + ul, h3 + ol {
+    margin-top: 0;
+  }
+  h3 {
+    padding-bottom: 2px;
+  }
   a:not(.resources-list a) {
     color: $color-green;
     text-decoration: underline;
@@ -97,19 +115,24 @@ $h3--margin-t: 3.5vw;
     position: relative;
     overflow: hidden;
   }
+  &--resources {
+    h2 {
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
   .text {
     h2 {
       margin-top: 20px;
+      padding-top: 0;
+      margin-bottom: 0;
       @media (min-width: $mobile) {
-        margin-top: 5.5vw;
+        margin-top: 3.1vw;
       }
       @media (min-width: $maxWidth) {
         margin-top: 100px;
       }
       font-family: $font-larish;
-    }
-    h3 + p, h3 + ul, h3 + ol {
-      margin-top: 0;
     }
   }
   .accordion {
