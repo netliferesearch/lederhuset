@@ -1,17 +1,27 @@
 .home {
-  &__selling-points {
-    .selling-points__block:not(:last-child) {
-      padding-bottom: 50px;
-    }
-    .selling-points__point {
-      padding-bottom: 40px;
-      p {
-        max-width: 280px;
-        margin: 0 auto;
+  @media (max-width: $mobile) {
+    &__selling-points {
+      .selling-points__block:not(:last-child) {
+        padding-bottom: 35px;
+      }
+      .selling-points__point {
+        padding-bottom: 40px;
+        p {
+          max-width: 280px;
+          margin: 0 auto;
+        }
+      }
+      .selling-points__point:last-child {
+        padding-bottom: 10px;
       }
     }
-    .selling-points__point:last-child {
-      padding-bottom: 10px;
+    &__try-free {
+      a:first-child {
+        padding-right: 15px;
+      }
+      .bottom {
+        margin-bottom: 35px;
+      }
     }
   }
 }

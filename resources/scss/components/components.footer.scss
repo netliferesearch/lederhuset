@@ -12,16 +12,11 @@ footer {
     position: initial;
     height: auto;
     padding: 0;
-
-    /*
     @media (max-width: $mobile) {
-      padding: 60px 0px;
-      height: auto;
-      position: relative;
+      .mobile-image {
+        display: block;
+      }
     }
-    @media (min-width: $maxWidth) {
-      padding: 200px 0px;
-    }*/
   }
 }
 
