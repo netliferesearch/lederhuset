@@ -8,3 +8,9 @@ h1, h2, h3 {
     color: inherit;
   }
 }
+
+.paragraph a:not([class]) {
+  @extend .border--bottom-thin;
+  @extend .hover;
+  @extend .hover--green;
+}
