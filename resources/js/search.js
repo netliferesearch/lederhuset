@@ -16,7 +16,9 @@ export default function init() {
     url: "/api.json",
   });
 
-  var resourcesData = $.ajax({
+  var resourcesData = typeof tempDocGlobalVar !== 'undefined'
+  ? tempDocGlobalVar
+  : $.ajax({
     url: "/resourcesApi.json",
   });
 
