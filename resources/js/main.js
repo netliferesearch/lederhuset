@@ -231,12 +231,12 @@ $window.resize(resizeCheck);
 
 /*** video ***/
 document.getElementById('play').onclick = function (){
-  TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
+  TweenLite.to('.video__play', .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
 
   function playVideo(){
     alert('play vid')
     document.getElementById('video').play();
-    videoOverlay.css('display', 'none');
+    $('.video__play').css('display', 'none');
   }
 }
 
