@@ -243,7 +243,8 @@ $('.video').each(function(){
   var videoContainer = $(this).find('.video__container');
 
   function playVideo(){
-    video.play();
+    alert('test');
+    document.getElementById('video').play();
     videoOverlay.css('display', 'none');
   }
 
