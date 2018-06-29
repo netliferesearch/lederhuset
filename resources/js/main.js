@@ -232,10 +232,9 @@ $window.resize(resizeCheck);
 /*** video ***/
 document.getElementById('play').onclick = function (){
   TweenLite.to('.video__play', .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
+  document.getElementById('video').play();
 
   function playVideo(){
-    alert('play vid')
-    document.getElementById('video').play();
     $('.video__play').css('display', 'none');
   }
 }
