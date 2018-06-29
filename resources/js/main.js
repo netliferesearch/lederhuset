@@ -228,11 +228,10 @@ function resizeCheck(){
 resizeCheck();
 $window.resize(resizeCheck);
 
-
-
-document.getElementById('playVid').onclick = function (){
-    document.getElementById('video3').play();
-};
+document.getElementById('play').onclick = function (){
+  alert('test 2');
+  document.getElementById('video').play();
+}
 
 
 /*** video ***/
@@ -243,14 +242,12 @@ $('.video').each(function(){
   var videoContainer = $(this).find('.video__container');
 
   function playVideo(){
-    alert('test');
     videoOverlay.css('display', 'none');
   }
 
-  document.getElementById('play').onclick = function (){
+  /*document.getElementById('play').onclick = function (){
     TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
-    document.getElementById('video').play();
-  });
+  }*/
 
   videoContainer.on('click', function(){
     if (video.paused == false) {
