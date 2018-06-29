@@ -244,9 +244,13 @@ $('.video').each(function(){
 
   function playVideo(){
     alert('test');
-    document.getElementById('video').play();
     videoOverlay.css('display', 'none');
   }
+
+  document.getElementById('play').onclick = function (){
+    TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
+    document.getElementById('video').play();
+  });
 
   videoContainer.on('click', function(){
     if (video.paused == false) {
@@ -257,10 +261,6 @@ $('.video').each(function(){
       video.play();
       TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
     }
-  });
-
-  play.on('click', function(){
-    TweenLite.to(videoOverlay, .4, {opacity:0, ease:Circ.easeInOut, onComplete:playVideo});
   });
 });
 
