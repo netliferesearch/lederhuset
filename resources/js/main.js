@@ -230,6 +230,10 @@ $window.resize(resizeCheck);
 
 
 
+document.getElementById('playVid').onclick = function (){
+    document.getElementById('video3').play();
+};
+
 
 /*** video ***/
 $('.video').each(function(){
