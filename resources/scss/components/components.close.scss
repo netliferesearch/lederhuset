@@ -9,12 +9,22 @@
     padding-right: 3px;
   }
   &__icon-wrapper {
-    width: 29px;
-    height: 29px;
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    margin-top: -3px;
+    width: 20px;
+    height: 20px;
+    margin-top: -9px;
+    @media (min-width: $mobile) {
+      width: 29px;
+      height: 29px;
+      margin-top: -3px;
+    }
+    @media (min-width: $maxWidth) {
+      width: 29px;
+      height: 29px;
+      margin-top: -3px;
+    }
   }
   &__icon:after, &__icon:before {
     right: -34px;
