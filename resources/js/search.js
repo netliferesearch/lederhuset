@@ -41,6 +41,9 @@ export default function init() {
         name: 'url',
         weight: 0.7
       }, {
+        name: 'tags',
+        weight: 0.7
+      }, {
         name: 'blocks.title',
         weight: 0.3
       }]
@@ -60,6 +63,9 @@ export default function init() {
         weight: 0.7
       }, {
         name: 'url',
+        weight: 0.7
+      }, {
+        name: 'tags',
         weight: 0.7
       }, {
         name: 'blocks.title',

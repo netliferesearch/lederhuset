@@ -2,23 +2,12 @@ $paragraph--margin-t: 2.5vw;
 $h3--margin-t: 3.5vw;
 
 .article {
-  position: relative;
   h2 {
-    @media (min-width: $break-1366) and (max-width: $maxWidth) {
-      font-size: 3.5vw;
-      line-height: 4.5vw;
-      padding-top: 3.4vw;
-      margin-bottom: 3.05vw;
-    }
     @media (max-width: $mobile) {
       max-width: 500px;
-      margin: 40px auto 32px auto;
-      padding: 0;
     }
   }
-  h2 + .block.text > h2 {
-    margin-top: 0;
-  }
+  position: relative;
   &--single {
     .block:first-child {
       margin-top: -50px;
@@ -93,26 +82,6 @@ $h3--margin-t: 3.5vw;
       font-size: 1.3vw;
     }
   }
-  p {
-    @media (min-width: $mobile) {
-      margin-top: 1.2vw;
-    }
-    @media (min-width: $maxWidth) {
-      margin-top: 30px;
-    }
-  }
-  p, li, a {
-    @media (min-width: $break-1366) and (max-width: $maxWidth) {
-      font-size: 1.1vw;
-      line-height: 1.7vw;
-    }
-  }
-  h3 + p, h3 + ul, h3 + ol {
-    margin-top: 0;
-  }
-  h3 {
-    padding-bottom: 2px;
-  }
   a:not(.resources-list a) {
     color: $color-green;
     text-decoration: underline;
@@ -128,38 +97,19 @@ $h3--margin-t: 3.5vw;
     position: relative;
     overflow: hidden;
   }
-  &--resources {
-    h2 {
-      padding-top: 0;
-      margin-top: 0;
-      @media (max-width: $mobile) {
-        max-width: 100%;
-        margin: 0px auto 25px auto;
-      }
-    }
-    @media (max-width: $mobile) {
-      .resources-list__item:not(:last-child) {
-        margin-bottom: 10px;
-      }
-    }
-  }
   .text {
     h2 {
-      + p {
-        @media (max-width: $mobile) {
-          margin-top: 10px;
-        }
-      }
-      margin-top: 30px;
-      padding-top: 0;
-      margin-bottom: 0;
+      margin-top: 20px;
       @media (min-width: $mobile) {
-        margin-top: 3.1vw;
+        margin-top: 5.5vw;
       }
       @media (min-width: $maxWidth) {
         margin-top: 100px;
       }
       font-family: $font-larish;
+    }
+    h3 + p, h3 + ul, h3 + ol {
+      margin-top: 0;
     }
   }
   .accordion {
@@ -402,11 +352,5 @@ $h3--margin-t: 3.5vw;
     @media (max-width: $mobile) {
       transform: translateY(13px) translateX(20px) rotate(180deg);
     }
-  }
-}
-@media (max-width: $mobile) {
-  .article-wrap .related-items .image__container {
-    margin-bottom: 18px;
-    margin-top: 15px;
   }
 }
