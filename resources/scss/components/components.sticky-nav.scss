@@ -6,6 +6,8 @@
   width: 100%;
   backface-visibility: hidden;
   background: #c3eee8;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
   &__container {
     position: relative;
     padding-top: 10px;
@@ -48,6 +50,13 @@
   }
 }
 
+.toc.headroom--top {
+  opacity: 0;
+}
+
+.toc.headroom--not-top {
+  opacity: 1;
+}
 
 /*
 .headroom {

@@ -88,7 +88,7 @@ var initToc = function(){
   }
 
   var headroom  = new Headroom($toc, {
-    "offset": 50,
+    "offset": 500,
     onPin : function() {
       TweenMax.to($toc, .4, {y:"0%", ease:Expo.easeOut});
     },
@@ -114,7 +114,9 @@ var initToc = function(){
 
 }
 
-initToc();
+if ($('#toc').length){
+  initToc();
+}
 
 
 
