@@ -23,12 +23,27 @@
 
   <!-- article sticky nav -->
   {% if blocks | length %}
-  <div id="toTop" class="sticky">
-    <p class="paragraph">Til toppen</p>
-    <svg class="arrow-top" width="20" height="30" viewBox="0 0 171 254">
-      <path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/>
-    </svg>
-  </div>
+  <header class="toc sticky" id="toc">
+    <div class="grid-wrap toc__container">
+      <button type="button" id="toc-button" class="toc__button">
+        <span class="paragraph toc__title">Innholdsfortegnelse</span>
+        <svg class="toc__arrow a-toggle__arrow" width="17" height="10" viewBox="0 0 82 48">
+          <path class="accordion__arrow-path" d="M81.3,6.9L40.8,47.5L0.7,7.2l7-7l33.2,33.2L74.3-0.1L81.3,6.9z"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="toc__menu" id="toc-menu">
+      <ul class="list list--no-style pb pt block center-block">
+        {% if blocks | length %}
+          {% for block in blocks %}
+            <li class="list__item list__item--hover font-neutral {% if loop.last %}mb--small{% endif %}">
+              <a class="article-anchor paragraph pb--xsmall pt--xsmall-optical" href="#{{ block.id }}">{{ block.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
   {% endif %}
 
   <!-- article blocks/main content -->

@@ -68,6 +68,56 @@ $('.edit-form').each(function(){
 });
 
 
+
+//toc -article menu
+var initToc = function(){
+  var $toc = document.getElementById("toc");
+  var $tocMenu = $('#toc-menu');
+
+  function showToc() {
+    $('#toc').addClass('open');
+    $('#toc .a-toggle__arrow').addClass('clicked');
+    TweenMax.set($tocMenu, {height:"auto"});
+    TweenMax.from($tocMenu, .6, {height:0, ease:Expo.easeOut});
+  }
+
+  function hideToc() {
+    $('#toc').removeClass('open');
+    $('#toc .a-toggle__arrow').removeClass('clicked');
+    TweenMax.to($tocMenu, .6, {height:0, ease: Expo.easeOut});
+  }
+
+  var headroom  = new Headroom($toc, {
+    "offset": 50,
+    onPin : function() {
+      TweenMax.to($toc, .4, {y:"0%", ease:Expo.easeOut});
+    },
+    onUnpin : function() {
+      TweenMax.to($toc, .4, {y:"-100%", ease:Expo.easeOut});
+      hideToc();
+    }
+  });
+
+  headroom.init();
+
+  $('#toc-button').on('click', function(){
+    if ($('#toc').hasClass('open')) {
+      hideToc();
+    } else {
+      showToc();
+    }
+  });
+
+  $('#toc-menu').on('click', function(){
+    hideToc();
+  });
+
+}
+
+initToc();
+
+
+
 /***** login form submit and validation *****/
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

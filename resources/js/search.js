@@ -172,6 +172,8 @@ export default function init() {
   }
 
   function populateResults() {
+    var output = "";
+
     if (searchfield.val() == '') {
       tl.reverse();
     } else {
@@ -186,11 +188,23 @@ export default function init() {
 
       $.each(result, function(index, value) {
         if ( $(searchfield).is('#resourcesSearch') ) {
-          $("#resourcesSearchResults ul").append("<li class=\"list__item list__item--resources\"><a class='font-neutral paragraph pb--xsmall pt--xsmall-optical' href='"+ value.file +"' class='font-neutral'>" + "<span class='list__title'>" + value.title + "<span class='list__description'>" + value.description + "</span></span><svg class='list__arrow-download search__arrow-download arrow-download' width='20' height='30' viewBox='0 0 171 254'><path d='M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z'/></svg>" + "</a></li>");
+          output += '<li class="list__item list__item--resources">' +
+                    '<a class="font-neutral paragraph pb--xsmall pt--xsmall-optical" href="'+ value.file +'" class="font-neutral">' +
+                    '<span class="list__title">'+value.title+'<span class="list__description">'+value.description+'</span></span>' +
+                    '<svg class="list__arrow-download search__arrow-download arrow-download" width="20" height="30" viewBox="0 0 171 254">' +
+                    '<path d="M102.6,168.6h67.6l-84.4,84.8L0.6,168.6H69V0.2h33.6V168.6z"/></svg></a></li>';
         } else {
-          $("#searchResults ul").append("<a class='list__item pb--xsmall pt--xsmall-optical paragraph list__link--hover' href='"+ value.url +"' class='font-neutral'>" + value.title + "</a>");
+          output += '<a href="'+value.url+'">'+value.title+'</a>';
         }
         return index<7;
+        console.log('helles test');
+      });
+
+      $('#searchResults ul, #resourcesSearchResults ul').html(output);
+
+      $('#searchResults').on('click',function(e){
+        e.preventDefault();
+        alert('it works!');
       });
       listItemHoverEffect();
     }

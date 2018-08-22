@@ -6,6 +6,9 @@
     border-bottom: 2px solid transparent;
   }
   &__results {
+    .list__item {
+      display: block;
+    }
     .list__item:first-child {
       border-top: 0;
     }
