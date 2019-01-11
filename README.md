@@ -1,3 +1,9 @@
+# About
+Prototype made in Craft CMS. Implemented in Episerver by Epinova / Novacare.
+
+See 1password for login to Craft admin.
+
+
 # Netlife Research: Craft Starter
 
 _Read through the readme_, and if you are stuck, don't hesitate to ask in either #frontend or #craft in Slack. If you have made some smart improvement to the tooling or setup of in your Craft project, _please contribute to this starter by making a pull request_.
