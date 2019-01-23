@@ -1,3 +1,14 @@
+{# Check if we should show campaign #}
+{% set showCampaign = craft.request.getParam('kampanje') %}
+
+{% if showCampaign == "signup" %}
+  {% include 'shared/campaign-signup' %}
+{% elseif showCampaign == "login" %}
+  {% include 'shared/campaign-login' %}
+{% else %}
+  {# business as usual - old front page #}
+{% endif %}
+
 <div class="grid-wrap">
   <div class="mt--large mb--large">
     <!-- first block -->
